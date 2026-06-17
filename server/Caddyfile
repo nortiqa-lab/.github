@@ -1,0 +1,54 @@
+{
+	email ops@nortiqalab.com
+	admin off
+}
+
+# API principal
+api.nortiqalab.com {
+	reverse_proxy nortiqa-api:8000
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		-Server
+	}
+
+	log {
+		output file /var/log/caddy/api.log {
+			roll_size 10mb
+			roll_keep 5
+		}
+	}
+}
+
+# n8n automatizaciones
+n8n.nortiqalab.com {
+	reverse_proxy n8n:5678
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options nosniff
+		-Server
+	}
+
+	log {
+		output file /var/log/caddy/n8n.log {
+			roll_size 10mb
+			roll_keep 5
+		}
+	}
+}
+
+# Ollama (solo acceso interno via API key)
+ollama.nortiqalab.com {
+	@authorized {
+		header X-Api-Key {env.OLLAMA_API_KEY}
+	}
+
+	handle @authorized {
+		reverse_proxy ollama:11434
+	}
+
+	respond 401
+}

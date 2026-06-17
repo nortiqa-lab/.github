@@ -1,0 +1,73 @@
+name: Deploy a Hetzner
+
+on:
+  workflow_call:
+    inputs:
+      service:
+        description: "Servicio a actualizar (api / n8n / all)"
+        required: false
+        default: "all"
+        type: string
+      environment:
+        required: false
+        default: "production"
+        type: string
+    secrets:
+      SSH_HOST:
+        required: true
+      SSH_USER:
+        required: true
+      SSH_KEY:
+        required: true
+      GHCR_TOKEN:
+        required: true
+
+jobs:
+  deploy:
+    name: Deploy — ${{ inputs.service }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Agregar host conocido
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Login GHCR en servidor
+        run: |
+          ssh "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "echo '${{ secrets.GHCR_TOKEN }}' | docker login ghcr.io -u '${{ github.repository_owner }}' --password-stdin"
+
+      - name: Pull imágenes actualizadas
+        run: |
+          ssh "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "cd /opt/nortiqa && docker compose pull ${{ inputs.service != 'all' && inputs.service || '' }}"
+
+      - name: Reiniciar servicios
+        run: |
+          if [ "${{ inputs.service }}" = "all" ]; then
+            ssh "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+              "cd /opt/nortiqa && docker compose up -d --remove-orphans"
+          else
+            ssh "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+              "cd /opt/nortiqa && docker compose up -d --no-deps ${{ inputs.service }}"
+          fi
+
+      - name: Verificar estado
+        run: |
+          ssh "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "cd /opt/nortiqa && docker compose ps --format 'table {{.Name}}\t{{.Status}}'"
+
+      - name: Limpiar imágenes viejas
+        run: |
+          ssh "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "docker image prune -f"
