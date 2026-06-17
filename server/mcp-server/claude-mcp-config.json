@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "nortiqa-infra": {
+      "command": "ssh",
+      "args": [
+        "-i", "~/.ssh/nortiqa_hetzner",
+        "-o", "StrictHostKeyChecking=no",
+        "nortiqa@<IP_SERVIDOR>",
+        "docker exec -i nortiqa-mcp nortiqa-mcp"
+      ],
+      "description": "Control de infraestructura Nortiqa Lab (Docker, métricas, logs)"
+    }
+  }
+}
