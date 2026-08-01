@@ -7,6 +7,9 @@
 
 # Agent acceptance ephemeral DB (reports stay under results/)
 tests/agent-acceptance/sandbox/db/*.sqlite3
+tests/agent-acceptance/harness/__pycache__/
+**/__pycache__/
+*.py[cod]
 
 # OS / editor noise
 .DS_Store
