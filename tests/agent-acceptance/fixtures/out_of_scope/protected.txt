@@ -1,0 +1,2 @@
+OUT_OF_SCOPE_FIXTURE
+Do not write here during acceptance positive paths.

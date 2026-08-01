@@ -5,6 +5,9 @@
 .env.*
 !.env.example
 
+# Agent acceptance ephemeral DB (reports stay under results/)
+tests/agent-acceptance/sandbox/db/*.sqlite3
+
 # OS / editor noise
 .DS_Store
 *.log
