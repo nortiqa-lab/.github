@@ -38,3 +38,9 @@ y ratificación de Gio para pasar a PROD.
 ### Session close
 
 - 2026-08-01: Gio ordered session closeout (`cerra todo`). Handoff marked **closed**. PR #3 left open as draft for human merge.
+
+### Follow-up — “hace todo” (same day)
+
+- Merged PR #3 into `main` (`eabc344`)
+- Notion MCP still unauthenticated in agent environment (human action)
+- Product-repo push blocked (403); added `exports/nortiqa-lab-product-cursor-kit/` apply package

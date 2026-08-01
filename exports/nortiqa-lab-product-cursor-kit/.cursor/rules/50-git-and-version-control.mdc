@@ -1,0 +1,35 @@
+---
+description: Git safety, branch discipline, and commit/PR practices for Nortiqa agents
+alwaysApply: true
+---
+
+# Git and version control
+
+## Before editing
+
+1. `git status --short` and note current branch
+2. Do not discard unrelated user changes
+3. Prefer a feature branch (`cursor/<slug>-…`) over working directly on protected `main`
+4. Warn if about to edit on a protected branch without an explicit brief
+
+## Allowed (green — `agents/AUTONOMY.md`)
+
+- Commit, push, open/update **draft** PRs for reversible Nortiqa work in this repo
+- Small commits with clear messages
+- Show modified files at session end
+
+## Forbidden without explicit Gio authorization / red-zone handling
+
+- `git push --force` / force-with-lease to shared branches unless Gio ordered recovery
+- `git reset --hard` discarding foreign or unreviewed work
+- Merge to `main` when policy requires human merge (default: leave draft PR ready)
+- Destructive history rewriting
+
+## Conflict note (agents)
+
+Some task prompts say “no push”. In **this** repository, `agents/AUTONOMY.md` places draft PR push in the green zone for versionable work. Cloud/agent delivery follows AUTONOMY unless Gio issues a stricter session override.
+
+## Commit messages
+
+- Imperative, scoped: `feat(cursor): …`, `docs(dev): …`, `chore(agents): …`
+- Explain why when non-obvious

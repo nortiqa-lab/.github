@@ -1,0 +1,36 @@
+---
+description: Testing and validation for nortiqa-lab product/ops repository
+alwaysApply: true
+---
+
+# Testing and validation
+
+## What exists here
+
+- No root app unit-test / lint config found at mirror time
+- OPS health scripts: `server-ops/sc2027/healthcheck-prod.sh`, `healthcheck-staging.sh`
+- Public HTTPS checks + VPS-local docker/ollama checks (script assumes host access)
+
+## Order of work
+
+1. Identify existing checks for the change scope
+2. Run **lowest-risk** validations first (git/status, path checks, public curls)
+3. Do **not** run destructive or privileged host commands without OPS gates
+4. Document commands run, pass/fail, skips
+5. Do not mark done with failures introduced by the change
+6. Separate pre-existing vs introduced failures
+
+## Safe defaults from a laptop / Cloud Agent
+
+```bash
+curl -sS -o /dev/null -w "%{http_code}\n" https://nortiqalab.com/
+curl -sS -o /dev/null -w "%{http_code}\n" https://api.nortiqalab.com/health
+curl -sS -o /dev/null -w "%{http_code}\n" https://n8n.nortiqalab.com/
+curl -sS -o /dev/null -w "%{http_code}\n" https://mcp.nortiqalab.com/
+```
+
+Full `healthcheck-prod.sh` may fail off-host (docker/ollama/local console) — classify as environment limitation, not necessarily a code regression.
+
+## Hero script
+
+After editing hero generation: `python3 scripts/generate_hero.py` and inspect `assets/nortiqa-hero.svg`.
