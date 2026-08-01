@@ -1,2 +1,3 @@
 IMPLEMENTER_FIXTURE_V1
-status=patched-by-acceptance
+status=lab-live
+note=smallest-reversible-diff
