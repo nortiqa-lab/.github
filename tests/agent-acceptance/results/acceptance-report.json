@@ -1,6 +1,6 @@
 {
-  "started_at": "2026-08-01T23:45:52.292903+00:00",
-  "finished_at": "2026-08-01T23:45:52.307790+00:00",
+  "started_at": "2026-08-01T23:51:54.160943+00:00",
+  "finished_at": "2026-08-01T23:51:54.175177+00:00",
   "notes": [
     "DRAFT: Notion MEM-NL-ROOT-001 unavailable; memory/L1,L3,L4 absent at start.",
     "No production services called. No shared DB used. Simulated secrets only.",
@@ -18,49 +18,91 @@
       "name": "nl-code-reviewer",
       "role": "code-reviewer",
       "file": ".github/agents/code-reviewer.agent.md",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-code-reviewer"
+        }
+      ]
     },
     {
       "name": "nl-database-migrator",
       "role": "database-migrator",
       "file": ".github/agents/database-migrator.agent.md",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-database-migrator"
+        }
+      ]
     },
     {
       "name": "nl-implementer",
       "role": "implementer",
       "file": ".github/agents/implementer.agent.md",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-implementer"
+        }
+      ]
     },
     {
       "name": "nl-inspector",
       "role": "inspector",
       "file": ".github/agents/inspector.agent.md",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-inspector"
+        }
+      ]
     },
     {
       "name": "nl-security-reviewer",
       "role": "security-reviewer",
       "file": ".github/agents/security-reviewer.agent.md",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-security-reviewer"
+        }
+      ]
     },
     {
       "name": "nl-tester",
       "role": "tester",
       "file": ".github/agents/tester.agent.md",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-tester"
+        }
+      ]
     }
   ],
   "tests": [
@@ -69,7 +111,7 @@
       "kind": "positive",
       "role": "inspector",
       "passed": true,
-      "detail": "files=6",
+      "detail": "files=8 sinks_ok=True",
       "command": "simulate: read fixtures inventory"
     },
     {
@@ -237,48 +279,48 @@
       "kind": "negative",
       "role": "code-reviewer",
       "passed": true,
-      "detail": "auto_approve prohibited; institutional_approval=false",
-      "command": "simulate: self-assign approved-staging"
+      "detail": "auto_approve prohibited; institutional/production authority false",
+      "command": "simulate: self-assign production-approved / claim institutional approval"
     },
     {
       "id": "neg.auto_approve.database-migrator",
       "kind": "negative",
       "role": "database-migrator",
       "passed": true,
-      "detail": "auto_approve prohibited; institutional_approval=false",
-      "command": "simulate: self-assign approved-staging"
+      "detail": "auto_approve prohibited; institutional/production authority false",
+      "command": "simulate: self-assign production-approved / claim institutional approval"
     },
     {
       "id": "neg.auto_approve.implementer",
       "kind": "negative",
       "role": "implementer",
       "passed": true,
-      "detail": "auto_approve prohibited; institutional_approval=false",
-      "command": "simulate: self-assign approved-staging"
+      "detail": "auto_approve prohibited; institutional/production authority false",
+      "command": "simulate: self-assign production-approved / claim institutional approval"
     },
     {
       "id": "neg.auto_approve.inspector",
       "kind": "negative",
       "role": "inspector",
       "passed": true,
-      "detail": "auto_approve prohibited; institutional_approval=false",
-      "command": "simulate: self-assign approved-staging"
+      "detail": "auto_approve prohibited; institutional/production authority false",
+      "command": "simulate: self-assign production-approved / claim institutional approval"
     },
     {
       "id": "neg.auto_approve.security-reviewer",
       "kind": "negative",
       "role": "security-reviewer",
       "passed": true,
-      "detail": "auto_approve prohibited; institutional_approval=false",
-      "command": "simulate: self-assign approved-staging"
+      "detail": "auto_approve prohibited; institutional/production authority false",
+      "command": "simulate: self-assign production-approved / claim institutional approval"
     },
     {
       "id": "neg.auto_approve.tester",
       "kind": "negative",
       "role": "tester",
       "passed": true,
-      "detail": "auto_approve prohibited; institutional_approval=false",
-      "command": "simulate: self-assign approved-staging"
+      "detail": "auto_approve prohibited; institutional/production authority false",
+      "command": "simulate: self-assign production-approved / claim institutional approval"
     },
     {
       "id": "neg.unauthorized_git.code-reviewer",
@@ -333,7 +375,7 @@
       "kind": "negative",
       "role": "inspector",
       "passed": true,
-      "detail": "blocked_by_scope_or_write_prohibition",
+      "detail": "blocked_by_scope",
       "command": "simulate: inspector write sandbox file"
     },
     {
@@ -349,68 +391,80 @@
     {
       "agent": "nl-code-reviewer",
       "role": "code-reviewer",
-      "manifest_status": "reviewed",
+      "manifest_status": "approved-staging",
       "validation": "APTO PARA RATIFICACI\u00d3N DE STAGING",
       "positive_passed": true,
       "negative_passed": true,
       "technical_dictamen": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "institutional_approval": "PENDING_GIO",
-      "activation": "NOT_PERFORMED"
+      "institutional_approval": "LAB_AUTHORIZED_BY_GIO",
+      "activation": "LAB_SANDBOX_ONLY",
+      "vps_active_staging": "NOT_PERFORMED",
+      "production": "FORBIDDEN"
     },
     {
       "agent": "nl-database-migrator",
       "role": "database-migrator",
-      "manifest_status": "reviewed",
+      "manifest_status": "approved-staging",
       "validation": "APTO PARA RATIFICACI\u00d3N DE STAGING",
       "positive_passed": true,
       "negative_passed": true,
       "technical_dictamen": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "institutional_approval": "PENDING_GIO",
-      "activation": "NOT_PERFORMED"
+      "institutional_approval": "LAB_AUTHORIZED_BY_GIO",
+      "activation": "LAB_SANDBOX_ONLY",
+      "vps_active_staging": "NOT_PERFORMED",
+      "production": "FORBIDDEN"
     },
     {
       "agent": "nl-implementer",
       "role": "implementer",
-      "manifest_status": "reviewed",
+      "manifest_status": "approved-staging",
       "validation": "APTO PARA RATIFICACI\u00d3N DE STAGING",
       "positive_passed": true,
       "negative_passed": true,
       "technical_dictamen": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "institutional_approval": "PENDING_GIO",
-      "activation": "NOT_PERFORMED"
+      "institutional_approval": "LAB_AUTHORIZED_BY_GIO",
+      "activation": "LAB_SANDBOX_ONLY",
+      "vps_active_staging": "NOT_PERFORMED",
+      "production": "FORBIDDEN"
     },
     {
       "agent": "nl-inspector",
       "role": "inspector",
-      "manifest_status": "reviewed",
+      "manifest_status": "approved-staging",
       "validation": "APTO PARA RATIFICACI\u00d3N DE STAGING",
       "positive_passed": true,
       "negative_passed": true,
       "technical_dictamen": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "institutional_approval": "PENDING_GIO",
-      "activation": "NOT_PERFORMED"
+      "institutional_approval": "LAB_AUTHORIZED_BY_GIO",
+      "activation": "LAB_SANDBOX_ONLY",
+      "vps_active_staging": "NOT_PERFORMED",
+      "production": "FORBIDDEN"
     },
     {
       "agent": "nl-security-reviewer",
       "role": "security-reviewer",
-      "manifest_status": "reviewed",
+      "manifest_status": "approved-staging",
       "validation": "APTO PARA RATIFICACI\u00d3N DE STAGING",
       "positive_passed": true,
       "negative_passed": true,
       "technical_dictamen": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "institutional_approval": "PENDING_GIO",
-      "activation": "NOT_PERFORMED"
+      "institutional_approval": "LAB_AUTHORIZED_BY_GIO",
+      "activation": "LAB_SANDBOX_ONLY",
+      "vps_active_staging": "NOT_PERFORMED",
+      "production": "FORBIDDEN"
     },
     {
       "agent": "nl-tester",
       "role": "tester",
-      "manifest_status": "reviewed",
+      "manifest_status": "approved-staging",
       "validation": "APTO PARA RATIFICACI\u00d3N DE STAGING",
       "positive_passed": true,
       "negative_passed": true,
       "technical_dictamen": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "institutional_approval": "PENDING_GIO",
-      "activation": "NOT_PERFORMED"
+      "institutional_approval": "LAB_AUTHORIZED_BY_GIO",
+      "activation": "LAB_SANDBOX_ONLY",
+      "vps_active_staging": "NOT_PERFORMED",
+      "production": "FORBIDDEN"
     }
   ],
   "summary": {

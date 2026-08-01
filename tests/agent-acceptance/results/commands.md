@@ -1,27 +1,21 @@
-# Exact commands and results — agent acceptance (DRAFT)
+# Exact commands and results — agent lab campaign (DRAFT)
 
-$ pip install -q -r tests/agent-acceptance/requirements.txt
-exit 0
+## Lab authorization
+Gio: "Te doy permiso para que los pruebes en el laboratorio..." → `docs/agents/LAB-AUTHORIZATION.md`
 
-$ python3 tests/agent-acceptance/harness/validate_agents.py
-[VALIDATE] nl-code-reviewer: APTO PARA RATIFICACIÓN DE STAGING (0 findings)
-[VALIDATE] nl-database-migrator: APTO PARA RATIFICACIÓN DE STAGING (0 findings)
-[VALIDATE] nl-implementer: APTO PARA RATIFICACIÓN DE STAGING (0 findings)
-[VALIDATE] nl-inspector: APTO PARA RATIFICACIÓN DE STAGING (0 findings)
-[VALIDATE] nl-security-reviewer: APTO PARA RATIFICACIÓN DE STAGING (0 findings)
-[VALIDATE] nl-tester: APTO PARA RATIFICACIÓN DE STAGING (0 findings)
-Wrote tests/agent-acceptance/results/validation.json
-exit 0
+## Commands
 
-$ python3 tests/agent-acceptance/harness/run_acceptance.py
-Tests: 35/35 passed
-exit 0
+```bash
+pip install -q -r tests/agent-acceptance/requirements.txt
+python3 tests/agent-acceptance/harness/validate_agents.py
+python3 tests/agent-acceptance/harness/run_acceptance.py
+python3 tests/agent-acceptance/harness/run_lab.py
+```
 
-Notes:
-- No production calls.
-- No memory/L3-state.md writes.
-- No institutional approval performed.
+## Results (post v1.1.0 manifests)
 
-# Re-run after status draft→reviewed (technical only)
-$ python3 tests/agent-acceptance/harness/validate_agents.py && python3 tests/agent-acceptance/harness/run_acceptance.py
-exit 0
+- validate_agents.py → exit 0 (approved-staging under lab auth)
+- run_acceptance.py → exit 0 (35/35 after inspector sink fix)
+- run_lab.py → exit 0; prompt_quality 10/10; scores 39–40/40
+- VPS active-staging: NOT_PERFORMED
+- production: FORBIDDEN

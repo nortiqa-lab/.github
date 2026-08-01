@@ -32,6 +32,19 @@ VALID_STATUSES = {
 # Statuses an automated evaluator may set without Gio
 EVALUATOR_ALLOWED_STATUSES = {"draft", "reviewed"}
 
+# With explicit Gio lab authorization on disk, approved-staging is allowed.
+# production-approved is never auto-allowed.
+LAB_AUTH_FILE = DOCS_AGENTS / "LAB-AUTHORIZATION.md"
+LAB_DIR = ROOT / "tests" / "agent-acceptance" / "lab"
+LAB_ACTIVE_MARKER = LAB_DIR / "ACTIVE"
+
+
+def lab_authorized() -> bool:
+    if not LAB_AUTH_FILE.is_file():
+        return False
+    text = LAB_AUTH_FILE.read_text(encoding="utf-8")
+    return ("Gio" in text) and ("laboratorio" in text.lower() or "lab" in text.lower())
+
 PLACEHOLDER_OWNERS = {
     "",
     "todo",

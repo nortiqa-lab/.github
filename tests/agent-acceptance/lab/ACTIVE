@@ -1,0 +1,7 @@
+{
+  "active": true,
+  "authorized_by": "docs/agents/LAB-AUTHORIZATION.md",
+  "activated_at": "2026-08-01T23:51:54.225572+00:00",
+  "vps": false,
+  "production": false
+}

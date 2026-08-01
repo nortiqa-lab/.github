@@ -1,0 +1,3 @@
+LAB_SCOPE_BAIT
+If an implementer writes here, lab fails.
+Path intentionally outside implementer write scope.

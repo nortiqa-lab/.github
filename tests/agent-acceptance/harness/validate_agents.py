@@ -20,6 +20,7 @@ from common import (  # noqa: E402
     VALID_STATUSES,
     AgentManifest,
     ensure_dirs,
+    lab_authorized,
     load_all_agents,
     RESULTS_DIR,
 )
@@ -71,11 +72,28 @@ def check_manifest(agent: AgentManifest) -> list[dict]:
 
     if agent.status not in VALID_STATUSES:
         fail("status", f"status must be one of {sorted(VALID_STATUSES)}; got {agent.status!r}")
-    elif agent.status not in EVALUATOR_ALLOWED_STATUSES:
+    elif agent.status == "production-approved":
         fail(
-            "status_premature",
-            f"status={agent.status!r} requires Gio; acceptance candidates must be draft|reviewed",
+            "status_production",
+            "production-approved is out of lab/acceptance scope without PAO/OT + Gio promote",
         )
+    elif agent.status == "active-staging":
+        fail(
+            "status_vps_staging",
+            "active-staging is VPS activation; lab uses approved-staging + lab/ACTIVE marker only",
+        )
+    elif agent.status not in EVALUATOR_ALLOWED_STATUSES:
+        if agent.status == "approved-staging" and lab_authorized():
+            warn(
+                "status_lab_authorized",
+                "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+            )
+        else:
+            fail(
+                "status_premature",
+                f"status={agent.status!r} requires Gio; acceptance candidates must be draft|reviewed "
+                "(or approved-staging with LAB-AUTHORIZATION.md)",
+            )
 
     role = agent.role
     if role not in ROLE_REQUIRED_TOOLS:
@@ -100,13 +118,25 @@ def check_manifest(agent: AgentManifest) -> list[dict]:
                 fail("scope", f"scope.{key} must be a list")
         if role in {"inspector", "tester", "code-reviewer", "security-reviewer"}:
             write = scope.get("write") or []
-            # readonly roles may write only results/drafts
+            # readonly roles may write only results / lab live / drafts
             for path in write:
                 p = str(path)
-                if "results" not in p and ".drafts" not in p:
-                    fail("scope_write", f"Readonly-ish role {role} has non-results write path: {p}")
-        if role == "inspector" and (scope.get("write") or []):
-            fail("scope_write", "inspector must have empty scope.write")
+                allowed_sink = (
+                    "results" in p
+                    or ".drafts" in p
+                    or "lab/live" in p
+                )
+                if not allowed_sink:
+                    fail(
+                        "scope_write",
+                        f"Readonly-ish role {role} has non-artifact write path: {p}",
+                    )
+        if role == "inspector":
+            write = scope.get("write") or []
+            for path in write:
+                p = str(path)
+                if "results" not in p and "lab/live" not in p:
+                    fail("scope_write", f"inspector write sink must be results or lab/live: {p}")
 
     missing_univ = UNIVERSAL_PROHIBITIONS - agent.prohibitions
     if missing_univ:
@@ -150,15 +180,33 @@ def check_manifest(agent: AgentManifest) -> list[dict]:
     body_l = agent.body.lower()
     if "auto-approve" in body_l or "autoaprove" in body_l or "me autoapruebo" in body_l:
         fail("ambiguous_approval", "Body suggests auto-approval")
-    if "production-approved" in body_l and "cannot" not in body_l and "reserved" not in body_l:
-        warn("body_production", "Body mentions production-approved; ensure it is clearly forbidden")
+    if "production-approved" in body_l:
+        clearly_forbidden = any(
+            token in body_l
+            for token in (
+                "cannot",
+                "reserved",
+                "refuse",
+                "forbidden",
+                "never set",
+                "never print",
+                "self-approve",
+                "prod-leap",
+            )
+        )
+        if not clearly_forbidden:
+            warn("body_production", "Body mentions production-approved; ensure it is clearly forbidden")
 
     return findings
 
 
 def verdict_for(findings: list[dict]) -> str:
     errors = [f for f in findings if f["level"] == "error"]
-    warnings = [f for f in findings if f["level"] == "warning"]
+    warnings = [
+        f
+        for f in findings
+        if f["level"] == "warning" and f.get("code") != "status_lab_authorized"
+    ]
     if errors:
         return "RECHAZADO"
     if warnings:

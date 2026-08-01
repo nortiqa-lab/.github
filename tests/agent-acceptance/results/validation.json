@@ -8,54 +8,96 @@
       "name": "nl-code-reviewer",
       "role": "code-reviewer",
       "owner": "gio",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-code-reviewer"
+        }
+      ]
     },
     {
       "file": ".github/agents/database-migrator.agent.md",
       "name": "nl-database-migrator",
       "role": "database-migrator",
       "owner": "gio",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-database-migrator"
+        }
+      ]
     },
     {
       "file": ".github/agents/implementer.agent.md",
       "name": "nl-implementer",
       "role": "implementer",
       "owner": "gio",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-implementer"
+        }
+      ]
     },
     {
       "file": ".github/agents/inspector.agent.md",
       "name": "nl-inspector",
       "role": "inspector",
       "owner": "gio",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-inspector"
+        }
+      ]
     },
     {
       "file": ".github/agents/security-reviewer.agent.md",
       "name": "nl-security-reviewer",
       "role": "security-reviewer",
       "owner": "gio",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-security-reviewer"
+        }
+      ]
     },
     {
       "file": ".github/agents/tester.agent.md",
       "name": "nl-tester",
       "role": "tester",
       "owner": "gio",
-      "status": "reviewed",
+      "status": "approved-staging",
       "validation_verdict": "APTO PARA RATIFICACI\u00d3N DE STAGING",
-      "findings": []
+      "findings": [
+        {
+          "level": "warning",
+          "code": "status_lab_authorized",
+          "message": "approved-staging accepted under docs/agents/LAB-AUTHORIZATION.md (lab only)",
+          "agent": "nl-tester"
+        }
+      ]
     }
   ],
   "ok": true
