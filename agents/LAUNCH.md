@@ -35,3 +35,16 @@ If you do not pick a role, paste `prompts/NL-ORCH.md` — it self-dispatches.
 - Verification recorded.
 - Handoff written under `docs/shared-ai-memory/handoffs/`.
 - If blocked, the handoff contains the **exact** Gio/root action needed — not a vague “needs access”.
+
+## Telegram channel (staging bot)
+
+Bot: [@NortiqaServidorOpsBot](https://t.me/NortiqaServidorOpsBot)
+
+Telegram is ingress/notify only. Design + proposed VPS diff (not applied):
+
+- `agents/channels/TELEGRAM.md`
+- `agents/channels/telegram-bridge.manifest.proposed.yaml`
+- `agents/channels/telegram-bridge.proposed-diff.md`
+- `agents/runbooks/telegram-dispatch.md`
+
+Do not paste tokens into Cursor or git. Production bot promote still needs separate PAO.

@@ -1,0 +1,102 @@
+# PROPOSED overlay for:
+#   /home/deploy/sc2027-staging/docs/bots/telegram-bridge.yaml
+# DO NOT treat this file as live VPS config.
+# Merge keys into the existing manifest during a staging change window.
+# Secrets stay in systemd/env — never inline tokens here.
+
+apiVersion: nortiqa.lab/v1alpha1
+kind: TelegramBridge
+metadata:
+  name: nortiqa-servidor-ops-bot
+  env: staging
+  bot_username: NortiqaServidorOpsBot
+  unit: sc2027-telegram-agent.service
+  code_path: /home/deploy/sc2027-staging/telegram-bridge/
+
+spec:
+  channel:
+    mode: ingress_notify   # not a second canon
+    default_role: NL-ORCH
+    entity_scope: nortiqa_lab_only
+
+  auth:
+    allowlist_only: true
+    # Populate on VPS from secret/env, not from git:
+    # allowed_user_ids_env: TELEGRAM_ALLOWED_USER_IDS
+    # allowed_chat_ids_env: TELEGRAM_ALLOWED_CHAT_IDS
+    reject_message: "No autorizado."
+
+  nl_kit:
+    mirror_path: /home/deploy/sc2027-staging/telegram-bridge/nl-kit
+    source_repo: https://github.com/nortiqa-lab/.github
+    source_ref: main
+    required_files:
+      - AGENTS.md
+      - agents/SHARED_RULES.md
+      - agents/AUTONOMY.md
+      - agents/DISPATCH.md
+      - agents/BOOTSTRAP.md
+      - agents/prompts/NL-ORCH.md
+      - agents/prompts/NL-AUDITOR.md
+      - agents/prompts/NL-BUILDER.md
+      - agents/prompts/NL-OPS.md
+      - agents/prompts/NL-PRODUCT.md
+      - agents/prompts/NL-MEMORY.md
+
+  routing:
+    commands:
+      /help: bridge.help
+      /status: bridge.status
+      /orch: NL-ORCH
+      /ops: NL-OPS
+      /build: NL-BUILDER
+      /product: NL-PRODUCT
+      /audit: NL-AUDITOR
+      /memory: NL-MEMORY
+    free_text: NL-ORCH
+    ops_keywords:
+      - health
+      - healthcheck
+      - backup
+      - cert
+      - login
+      - staging
+      - promote
+    # promote keyword must still hit RED gate unless explicitly allowlisted action
+
+  autonomy:
+    policy_file: agents/AUTONOMY.md
+    red_actions:
+      - promote_to_prod
+      - nginx_reload
+      - docker_socket
+      - print_secrets
+      - cross_entity
+    green_ops_allowlist:
+      - public_health_curls
+      - staging_healthcheck_script
+      - staging_backup_config_script
+      - status_unit
+
+  runtime:
+    reply_contract: nl_output_v1
+    max_reply_chars: 3500
+    rate_limit_seconds: 30
+    handoff:
+      enabled: true
+      dir: /home/deploy/sc2027-staging/docs/shared-ai-memory/handoffs
+      template_ref: docs/shared-ai-memory/handoff-template.md
+
+  integrations:
+    cursor_cloud:
+      enabled: false   # optional later
+    ollama:
+      enabled: optional
+      host: http://127.0.0.1:11434
+      # use only for draft NL replies when local tools cannot answer
+      public_expose: false
+
+  safety:
+    never_log_token: true
+    never_echo_env: true
+    require_separate_pao_for_prod: true

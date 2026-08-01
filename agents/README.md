@@ -34,6 +34,7 @@ Guía: [`LAUNCH.md`](./LAUNCH.md) · Cold start: [`runbooks/cold-start.md`](./ru
 - Despacho: [`DISPATCH.md`](./DISPATCH.md)
 - Roles: [`roles/`](./roles/)
 - Runbooks: [`runbooks/`](./runbooks/)
+- Canal Telegram (diseño): [`channels/TELEGRAM.md`](./channels/TELEGRAM.md)
 
 ## Hard rules (resumen)
 
