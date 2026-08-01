@@ -34,8 +34,13 @@
 
 ## Verification
 
-- Commands run: file tree review; kit completeness checklist in `agents/TEAM.md`
-- Result: solo-ready checklist marked complete in TEAM.md
+- Commands run: file tree review; kit completeness checklist in `agents/TEAM.md`; public health curls
+- Result: solo-ready checklist complete; health:
+  - `nortiqalab.com/` → 200
+  - `api.nortiqalab.com/health` → 200
+  - `n8n.nortiqalab.com/` → 200
+  - `mcp.nortiqalab.com/` → 401
+  - `nortiqalab.com/login` → 302 (changed vs older handoff that saw landing HTML)
 - Limitations: Notion not live-validated; working repo not writable from this identity; VPS privileged items still human-gated
 
 ## Blockers
