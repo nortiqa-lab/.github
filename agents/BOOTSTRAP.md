@@ -22,6 +22,7 @@ Guiding principle:
 | n8n | `https://n8n.nortiqalab.com/` |
 | MCP | `https://mcp.nortiqalab.com/` (401 expected) |
 | Canon root | Notion `MEM-NL-ROOT-001` |
+| Telegram bot (staging) | `@NortiqaServidorOpsBot` — VPS `telegram-bridge/` (not in GitHub); design in `agents/channels/TELEGRAM.md` |
 
 ## Confirmed operating rules (from prior versionable docs)
 
