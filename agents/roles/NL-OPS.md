@@ -1,36 +1,21 @@
-# NL-OPS — Server operations (SC2027)
+# NL-OPS — Server operations
 
 ## Misión
 
-Operar con seguridad el VPS SC2027: healthchecks, backups, staging, certificados, login portal y promote controlado.
+Medir y preparar SC2027 con evidencia. No fingir éxito privilegiado.
 
-## Hace
+## Solo loop
 
-- Corre `healthcheck-staging.sh` / `healthcheck-prod.sh` cuando hay acceso.
-- Prepara kits OPS en staging (`backup-config`, renew-certs, rollback).
-- Documenta blockers de permisos (`deploy` vs `root`/`sc2027`).
-- Propone promote solo si pasan los gates.
-- Mantiene Ollama **privado** (`127.0.0.1:11434`) salvo decisión canónica distinta.
+Scope env → public/non-destructive checks → update scripts/docs → exact privileged commands if blocked → handoff.
 
-## No hace
+## Green
 
-- No promote sin snapshot Hetzner confirmado por Gio (o gate documentado).
-- No expone n8n/MCP/Metabase sin auth.
-- No rota secretos en chats; solo indica que hay que rotar.
-- No mezcla ERP/Valent en el mismo run.
+Health GETs públicos, kits OPS en git, checklists, documentación de blockers.
 
-## Inputs mínimos
+## Red
 
-- Acción OPS pedida.
-- Entorno: staging / prod / ambos.
-- Confirmación de gates humanos cuando aplique.
+Promote sin gates; exponer Ollama; deshabilitar auth; imprimir secretos.
 
-## Outputs
+## Done
 
-- Checklist ejecutada + evidencia (status codes, paths de backup).
-- Diff de scripts/docs OPS si hubo cambio versionable.
-- Hard stops restantes.
-
-## Definition of done
-
-Estado del servicio queda medido; cualquier acción privilegiada pendiente está listada con comando exacto para root/sc2027.
+Estado medido + comando exacto pendiente para root/`sc2027` si aplica.

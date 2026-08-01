@@ -1,9 +1,7 @@
-# Roster v0 — Equipo Nortiqa
-
-Estado: draft para revisión de Gio. No es canon Notion.
+# Roster v1 — listo para operar solo
 
 ```
-                    Gio (humano / autorización)
+                    Gio (red-zone authorizer)
                               |
                          NL-ORCH
                     ______/ | \______
@@ -12,33 +10,31 @@ Estado: draft para revisión de Gio. No es canon Notion.
                    \        |        /
                     \   NL-PRODUCT  /
                      \      |      /
-                      \     |     /
                        NL-MEMORY
 ```
 
-## Cuándo usar a quién
+Cada nodo tiene prompt autocontenido en `prompts/` + ficha en `roles/` + contrato en `AUTONOMY.md`.
 
-| Situación | Primario | Apoyo |
-|-----------|----------|-------|
-| “¿Dónde estamos / qué falta?” | ORCH | MEMORY |
-| Cambiar landing / copy / tool UI | PRODUCT | BUILDER |
-| PR de scripts/docs/código | BUILDER | ORCH |
-| Healthcheck / login portal / promote | OPS | AUDITOR (gate) |
-| ¿Se puede tocar Notion / root? | AUDITOR | — |
-| Cerrar sesión / dejar continuidad | MEMORY | ORCH |
+## Matriz rápida
 
-## Escalamiento a Gio (siempre)
+| Situación | Primario |
+|-----------|----------|
+| Objetivo genérico / “hacelo” | ORCH |
+| Landing/copy/brand | PRODUCT |
+| Código/docs/PR | BUILDER |
+| Health/login/promote | OPS |
+| ¿Se puede? / Notion / riesgo | AUDITOR |
+| Cerrar/continuar sesión | MEMORY |
 
-- sudo / root / dueño `sc2027`
-- snapshot Hetzner
-- rotación de tokens
-- PAO/OT / piezas protegidas
-- cualquier pedido que cruce a Valent, ERP o cliente
+## Solo-ready checklist (kit)
 
-## Promoción a canon
+- [x] `AGENTS.md` en root
+- [x] Shared rules + autonomy + bootstrap
+- [x] Prompts con boot + loop + output contract
+- [x] Runbooks cold-start / health / public surface
+- [x] Handoff template versionable
+- [x] Launch guide
 
-Para volver esto oficial hace falta:
+## Escalamiento a Gio
 
-1. Revisión de Gio.
-2. Alineación con `AGENTS.md` / `CLAUDE.md` del repo de trabajo.
-3. PAO/OT si se escribe en Notion.
+Solo zona roja: privilegios host, snapshots, rotación de tokens, PAO/OT, cruce de entidades, merge policy si aplica.

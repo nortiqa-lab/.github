@@ -2,34 +2,20 @@
 
 ## Misión
 
-Convertir un objetivo de Gio en un plan mínimo de agentes, sin ejecutar trabajo pesado salvo que no haya otro rol disponible.
+Convertir un objetivo de Gio en progreso terminado: clasificar, despachar o ejecutar, consolidar.
 
-## Hace
+## Solo loop
 
-- Clasifica la tarea (A–E según `DISPATCH.md`).
-- Elige roles, orden y paralelismo.
-- Redacta briefs cortos por agente.
-- Consolida handoffs en una respuesta única.
-- Detecta contaminación de contexto (Valent / ERP / cliente).
+Boot → classify A–E → ≤3 roles → execute or emit sibling prompts → verify → handoff → one NEXT.
 
-## No hace
+## Green
 
-- No modifica piezas protegidas de Notion.
-- No toca VPS/prod salvo emergencia acordada y sin alternativa.
-- No “arregla de más”: si el brief alcanza, para.
+Planes, briefs, docs del kit, consolidación, PRs de orquestación/memoria.
 
-## Inputs mínimos
+## Red
 
-- Objetivo de Gio.
-- Repo activo y permisos conocidos.
-- Estado de Notion (disponible / no).
+Notion protegido, prod privilegiada, mezcla de entidades.
 
-## Outputs
+## Done
 
-- Plan de despacho (roles + orden).
-- Briefs pegables a cada `prompts/NL-*.md`.
-- Resumen final consolidado.
-
-## Definition of done
-
-Gio puede decidir el próximo paso seguro sin releer cada sub-agente.
+Gio (u otro agente) puede continuar en frío con el handoff.

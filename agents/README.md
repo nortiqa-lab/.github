@@ -1,51 +1,51 @@
-# Nortiqa Lab — Equipo de Agentes
+# Nortiqa Lab — Equipo de Agentes (autónomo)
 
-Status: **draft local / versionable**  
-Scope: Nortiqa Lab only  
-Canon: Notion `MEM-NL-ROOT-001` (esta carpeta no reemplaza el canon)
+Status: **operational kit v1** (versionable; Notion canon still separate)  
+Scope: Nortiqa Lab only
 
 ## Qué es esto
 
-Paquete operativo para despachar un equipo de IAs con roles claros, límites duros y handoffs obligatorios.
+Kit para que agentes Cursor/Cloud **arrancen en frío y operen solos**: reglas, autonomía, prompts autocontenidos, runbooks y handoffs.
 
-Usar cuando Gio pide trabajo multi-agente, o cuando un orquestador necesita repartir tareas sin mezclar contextos.
+Gio da un objetivo en una línea. El agente no pide permiso para lo verde.
 
-## Roster (v0)
+## Arranque rápido
 
-| Código | Rol | Job principal | Puede escribir |
-|--------|-----|---------------|----------------|
-| `NL-ORCH` | Orquestador | Partir trabajo, asignar roles, cerrar handoff | Planes locales, handoffs |
-| `NL-AUDITOR` | Gobernanza | Dictámenes, gates PAO/OT, piezas protegidas | Solo con autorización explícita de Gio |
-| `NL-BUILDER` | Implementación | Código, sites, scripts, PRs reversibles | Repo / drafts locales |
-| `NL-OPS` | Server ops | VPS SC2027, healthchecks, staging→prod | Scripts OPS; prod solo con gate |
-| `NL-PRODUCT` | Producto público | Landing, herramientas, UX, copy | Surfaces públicas / drafts |
-| `NL-MEMORY` | Memoria compartida | Bootstrap, handoffs, continuidad entre sesiones | Docs de memoria versionables |
+1. Pegá un prompt de [`prompts/`](./prompts/) **o** dejá que el repo use [`/AGENTS.md`](../AGENTS.md) y asuma `NL-ORCH`.
+2. Objetivo en una frase.
+3. El agente sigue el solo loop → verifica → deja handoff.
 
-Detalle de cada rol: [`roles/`](./roles/).  
-Prompts listos para pegar en Cursor Cloud / IDE: [`prompts/`](./prompts/).  
-Protocolo de despacho: [`DISPATCH.md`](./DISPATCH.md).
+Guía: [`LAUNCH.md`](./LAUNCH.md) · Cold start: [`runbooks/cold-start.md`](./runbooks/cold-start.md)
 
-## Reglas del equipo (hard)
+## Roster
 
-1. **Canon first.** Leer `MEM-NL-ROOT-001` si Notion está disponible; si no, bootstrap local y marcar draft.
-2. **Aislamiento.** Nortiqa ≠ Valent ≠ ERP Gio+Edson ≠ Surlancer ≠ clientes.
-3. **Sin secretos** en chat, Notion ni repo.
-4. **Piezas protegidas** solo con autorización de Gio + PAO/OT.
-5. **Un rol por sesión** salvo que `NL-ORCH` documente una excepción temporal.
-6. **Handoff al cerrar** toda sesión sustancial.
+| Código | Rol | Job |
+|--------|-----|-----|
+| `NL-ORCH` | Orquestador | Clasifica, despacha, consolida |
+| `NL-AUDITOR` | Gobernanza | Gates PAO/OT |
+| `NL-BUILDER` | Implementación | PRs reversibles |
+| `NL-OPS` | Server ops | Health, staging, prepare prod |
+| `NL-PRODUCT` | Producto | Superficies públicas |
+| `NL-MEMORY` | Memoria | Continuidad |
 
-## Cómo despachar (mínimo)
+- Reglas: [`SHARED_RULES.md`](./SHARED_RULES.md)
+- Autonomía: [`AUTONOMY.md`](./AUTONOMY.md)
+- Bootstrap sin Notion: [`BOOTSTRAP.md`](./BOOTSTRAP.md)
+- Despacho: [`DISPATCH.md`](./DISPATCH.md)
+- Roles: [`roles/`](./roles/)
+- Runbooks: [`runbooks/`](./runbooks/)
 
-1. Gio da el objetivo.
-2. `NL-ORCH` clasifica: lectura / draft local / cambio versionable / cambio protegido / VPS.
-3. Se lanza 1 agente por rol necesario con su prompt de `prompts/`.
-4. Cada agente deja handoff con la plantilla de memoria compartida.
-5. `NL-ORCH` consolida: qué cambió, qué se verificó, qué queda bloqueado, próximo paso seguro.
+## Hard rules (resumen)
+
+1. Canon Notion primero; si no, bootstrap + draft.
+2. Aislamiento de entidades.
+3. Sin secretos.
+4. Piezas protegidas solo con autorización Gio + PAO/OT.
+5. Handoff obligatorio al cerrar sesiones sustanciales.
+6. No stall: si es verde, ejecutar.
 
 ## Relación con otros repos
 
-- Este repo (`.github`): perfil org + este paquete de equipo.
-- Repo de trabajo: `giovanyalbea-dotcom/nortiqa-lab` (`AGENTS.md`, server-ops, site).
-- Producción: VPS SC2027 (`nortiqalab.com`).
-
-Este draft debe revisarse contra `AGENTS.md` / `CLAUDE.md` del repo de trabajo antes de promoverse a canon.
+- Este repo: perfil org + kit autónomo.
+- Trabajo/product/ops scripts: `giovanyalbea-dotcom/nortiqa-lab`.
+- Prod: VPS SC2027 / `nortiqalab.com`.

@@ -2,35 +2,20 @@
 
 ## Misión
 
-Entregar cambios versionables, reversibles y verificados en repos Nortiqa (código, scripts, docs técnicas).
+Cambios versionables, reversibles, verificados: branch → commit → push → PR.
 
-## Hace
+## Solo loop
 
-- Implementa en branch `cursor/<desc>-****`.
-- Mantiene diffs acotados al pedido.
-- Corre checks locales posibles (lint/test/build/curl estático).
-- Abre/actualiza PR con handoff.
-- Deja drafts en `.drafts/` cuando no deba versionarse aún.
+Acceptance line → minimal diff → verify → PR → handoff.
 
-## No hace
+## Green
 
-- No escribe al canon Notion.
-- No promote a prod.
-- No inventa producto fuera de alcance.
-- No toca secretos / `.env` reales.
+Código/docs/scripts in-scope; arreglos causados por el propio cambio.
 
-## Inputs mínimos
+## Red
 
-- Brief de `NL-ORCH` o pedido directo de Gio.
-- Repo y paths objetivo.
-- Criterio de aceptación verificable.
+Promote, Notion protegido, secretos, otras entidades.
 
-## Outputs
+## Done
 
-- Branch + commits + PR.
-- Comandos de verificación y resultado.
-- Handoff con blockers.
-
-## Definition of done
-
-PR revisable, cambio acotado, verificación explícita, sin tocar piezas protegidas.
+PR revisable + verificación explícita.
