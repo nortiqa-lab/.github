@@ -12,6 +12,18 @@ The kit was prepared here so Gio (or an identity with write access) can apply it
 
 Source of truth for the org kit remains: `nortiqa-lab/.github`.
 
+## Fastest path (script)
+
+```bash
+# 1) Clone both repos (or pull latest .github main)
+git clone https://github.com/nortiqa-lab/.github.git nortiqa-org-profile
+git clone https://github.com/giovanyalbea-dotcom/nortiqa-lab.git nortiqa-lab
+cd nortiqa-lab
+bash ../nortiqa-org-profile/exports/nortiqa-lab-product-cursor-kit/apply.sh .
+git push -u origin cursor/mirror-cursor-kit-3d56
+# Open PR on GitHub UI → merge
+```
+
 ## One-shot apply (from a clone of the product repo)
 
 ```bash
