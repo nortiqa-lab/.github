@@ -1,0 +1,10 @@
+# Internal drafts and secrets (never commit)
+.drafts/
+.secrets/
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+*.log
