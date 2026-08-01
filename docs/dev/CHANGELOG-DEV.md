@@ -34,3 +34,7 @@ y ratificación de Gio para pasar a PROD.
 - Production systems, secrets, VPS, DNS, Docker (none present), product application code
 - Notion canon (unavailable / not written)
 - Role kit filenames under `agents/` (mapped, not renamed)
+
+### Session close
+
+- 2026-08-01: Gio ordered session closeout (`cerra todo`). Handoff marked **closed**. PR #3 left open as draft for human merge.
