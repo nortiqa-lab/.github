@@ -34,6 +34,7 @@ Guía: [`LAUNCH.md`](./LAUNCH.md) · Cold start: [`runbooks/cold-start.md`](./ru
 - Despacho: [`DISPATCH.md`](./DISPATCH.md)
 - Roles: [`roles/`](./roles/)
 - Runbooks: [`runbooks/`](./runbooks/)
+- Cursor (DEV): [`.cursor/README.md`](../.cursor/README.md) · [`docs/dev/`](../docs/dev/)
 
 ## Hard rules (resumen)
 
