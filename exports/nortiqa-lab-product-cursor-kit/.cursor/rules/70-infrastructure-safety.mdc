@@ -1,0 +1,49 @@
+---
+description: Infrastructure safety for local, staging, production, Docker, and n8n/webhooks
+alwaysApply: true
+---
+
+# Infrastructure safety
+
+## Environment distinction
+
+| Env | Agent posture |
+|-----|----------------|
+| Local / this git repo | Safe for versionable kit/docs changes |
+| Staging | Measure first; no invent of host layout |
+| Production (`nortiqalab.com` / VPS SC2027) | Read-only public checks unless Gio + gates |
+
+Never assume a path, container name, or Compose project belongs to Nortiqa without evidence.
+
+## Forbidden by default
+
+- Delete images, networks, volumes, or containers
+- `docker system prune` or mass cleanup
+- Remote host edits, Nginx reload, DNS changes
+- Real migrations, data writes, secret changes
+- Activating production n8n workflows automatically
+
+## Docker / Compose (when present in a Nortiqa repo)
+
+- Review Compose before `up`
+- Avoid port conflicts; prefer documented ports
+- Preserve backups; do not wipe volumes
+- This org-profile repo currently has **no** Docker/Compose files
+
+## External dependencies (known public map)
+
+- Site / API / n8n / MCP hostnames in `agents/BOOTSTRAP.md`
+- Prefer staging checks before any prod change proposal
+- Ollama remains private on loopback
+
+## n8n / webhooks (product work guidance)
+
+When implementing webhooks elsewhere in Nortiqa:
+
+- Separate Test URL vs Production URL
+- Prefer versioned routes when fitting (`POST /api/v1/<service>` as a pattern, not a mandate)
+- Validate payloads; authenticate; consider idempotency
+- Explicit HTTP responses; distinguish Webhook vs Respond to Webhook nodes
+- No secrets in URLs; log errors without leaking credentials
+- Document request/response contracts
+- Do not auto-activate production workflows from agent sessions

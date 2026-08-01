@@ -57,4 +57,4 @@ alwaysApply: true
 
 - Notion connector may be unavailable → bootstrap + draft.
 - Privileged VPS work is human-gated (`agents/roles/NL-OPS.md`).
-- Kit may need mirroring into the working product repo for coding agents there.
+- Mirror package for the working product repo: `exports/nortiqa-lab-product-cursor-kit/` (apply via `APPLY.md` if bot lacks write access there).

@@ -1,0 +1,65 @@
+---
+description: Verified repository context for giovanyalbea-dotcom/nortiqa-lab product/ops repo
+alwaysApply: true
+---
+
+# Project context (evidence-only)
+
+## Identity
+
+- **GitHub remote:** `giovanyalbea-dotcom/nortiqa-lab`
+- **Entity:** Nortiqa Lab only
+- **Purpose:** Working/versionable product surfaces: public site assets, VPS ops scripts/docs, shared AI memory drafts
+- **Motto:** Primero funcional. Después excelente. Siempre: lo mejor o nada.
+
+## Confirmed layout (inspected)
+
+| Path | Role |
+|------|------|
+| `site/site/index.html` | Public landing HTML |
+| `assets/` | Brand SVG / wordmark |
+| `scripts/generate_hero.py` | Hero SVG generator (Python 3) |
+| `server-ops/sc2027/` | Ops scripts + login-portal package + promote/rollback docs |
+| `docs/server-ops/` | OPS decisions / handoffs |
+| `docs/shared-ai-memory/` | Bootstrap + handoff template |
+| `AGENTS.md` / `CLAUDE.md` | Agent entrypoints |
+| `agents/` | Mirrored autonomous team kit (from org profile) |
+| `.cursor/rules/` | Cursor persistent rules |
+| `.vscode/tasks.json` | Windows rclone mount task for SC2027 VPS |
+
+## Stack detected
+
+- Static HTML site assets
+- Bash ops scripts under `server-ops/sc2027/`
+- Python 3 script (`scripts/generate_hero.py`)
+- Docker referenced in host healthchecks (runs on VPS, not defined as Compose in this tree)
+- **No** root `package.json` / app test suite found at mirror time
+
+## Environments (documented map)
+
+| Surface | Evidence |
+|---------|----------|
+| Public site | `https://nortiqalab.com/` (`healthcheck-prod.sh`) |
+| API | `https://api.nortiqalab.com/health` |
+| n8n | `https://n8n.nortiqalab.com/` |
+| MCP | `https://mcp.nortiqalab.com/` (expect 401) |
+| Local console (VPS) | `http://127.0.0.1:8000/api/health` |
+| Ollama (VPS private) | `http://127.0.0.1:11434` |
+| Host label | SC2027 (paths/scripts); brand is Nortiqa Lab — do not auto-rename |
+
+## Commands evidenced in-repo
+
+```bash
+# Hero asset
+python3 scripts/generate_hero.py
+
+# Host health (intended on VPS; needs docker/local services)
+bash server-ops/sc2027/healthcheck-prod.sh
+bash server-ops/sc2027/healthcheck-staging.sh
+```
+
+App install / unit-test / lint: `PENDIENTE DE VALIDACIÓN` (no toolchain manifests at root).
+
+## Related repo
+
+Org profile + canonical agent kit home: `https://github.com/nortiqa-lab/.github`
