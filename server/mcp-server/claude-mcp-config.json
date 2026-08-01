@@ -5,7 +5,7 @@
       "args": [
         "-i", "~/.ssh/nortiqa_hetzner",
         "-o", "StrictHostKeyChecking=no",
-        "nortiqa@<IP_SERVIDOR>",
+        "nortiqa@5.161.81.43",
         "docker exec -i nortiqa-mcp nortiqa-mcp"
       ],
       "description": "Control de infraestructura Nortiqa Lab (Docker, métricas, logs)"

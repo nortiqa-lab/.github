@@ -1,0 +1,9 @@
+services:
+  mcp-server:
+    build: .
+    container_name: nortiqa-mcp
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    stdin_open: true
+    tty: true
