@@ -34,6 +34,7 @@ Cada nodo tiene prompt autocontenido en `prompts/` + ficha en `roles/` + contrat
 - [x] Runbooks cold-start / health / public surface
 - [x] Handoff template versionable
 - [x] Launch guide
+- [x] Cursor `.cursor/rules/` + `docs/dev/` (DEV/borrador; pendiente auditoría)
 
 ## Escalamiento a Gio
 

@@ -1,0 +1,37 @@
+---
+description: Development standards for docs, prompts, and reversible kit changes
+alwaysApply: true
+---
+
+# Development standards
+
+This repository is primarily documentation and agent-kit Markdown. When editing here or related Nortiqa code elsewhere, apply:
+
+## Clarity
+
+- Prefer readable, explicit structure over cleverness.
+- Use clear names for files, roles (`NL-*`), and sections.
+- Keep functions/sections small and single-purpose when writing scripts or code.
+- Comments only when they add non-obvious context (why, not what).
+
+## Architecture fit
+
+- Inspect before modifying. Prefer compatibility with the existing kit (`agents/`, handoffs, autonomy zones).
+- Do not invent parallel canons, second memory roots, or duplicate role systems.
+- Map external labels (e.g. NQ-DEV-IMPLEMENTER) onto existing `NL-*` roles instead of renaming the kit.
+- Prefer dependencies and patterns already used in the target repo; do not add new stacks to this org-profile repo without Gio/audit intent.
+
+## Quality bar
+
+- Primero funcional. Después excelente.
+- Small, reversible, verifiable diffs.
+- Explicit error handling in any scripts; fail loudly with actionable messages.
+- Minimize duplication: link to `AGENTS.md`, `SHARED_RULES.md`, `AUTONOMY.md` rather than copying long policy blocks.
+- Typing: when working in typed languages in other Nortiqa repos, follow that repo’s existing type/lint config (not invented here).
+
+## Anti-patterns
+
+- Designing “humo” without verifiable utility
+- Overwriting existing configs without analysis
+- Broad refactors during configuration or unrelated tasks
+- Mixing entity branding, domains, or credentials
