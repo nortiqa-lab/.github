@@ -5,7 +5,7 @@ Estado: DEV / Borrador (seed)
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
-Repositorio **privado** destinado a documentación **PROD (ratificada)** del ecosistema multi-entidad, según la matriz de almacenamiento autorizada por Gio.
+Repositorio **privado** destinado a documentación **PROD (ratificada)** del ecosistema multi-entidad.
 
 Prompt KNOW-001 (ajustado):  
 https://app.notion.com/p/3b0e4fe3bfea81c6acc2e485bdcf6558
@@ -18,6 +18,8 @@ https://app.notion.com/p/3b0e4fe3bfea81c6acc2e485bdcf6558
 | DEV — tarea/seguimiento con estados | AppFlowy / Notion (base de datos) |
 | DEV — página de trabajo | AppFlowy / Notion (página) |
 | Entregables externos + financieros/legales | Google Drive `90_COMPARTIR/POR_ENTIDAD/` |
+| Inventario operativo / tareas runtime | PostgreSQL (ver `exports/sql/` en `.github`) |
+| Prompts de agentes | Git product / `.github/agents` |
 
 ## Diagrama de decisión
 
@@ -36,10 +38,10 @@ https://app.notion.com/p/3b0e4fe3bfea81c6acc2e485bdcf6558
 | Carpeta | Alcance |
 |---|---|
 | `docs/nortiqa-lab/` | Nortiqa Lab |
-| `docs/valent-capital/` | Valent Capital Group S.A. |
-| `docs/lla-santa-cruz/` | LLA Santa Cruz |
-| `docs/sc2027/` | Operativa de plataforma/host SC2027 (no implica persona jurídica) |
-| `docs/transversal/` | Docs que aplican por igual a todas las entidades |
+| `docs/valent-capital/` | Valent — vacío hasta inventario Gio |
+| `docs/lla-santa-cruz/` | LLA — vacío hasta inventario Gio |
+| `docs/sc2027/` | SC2027 — en LOG-NL-SESION-20260709 figura como entidad separada; kit Cursor aún lo trata como host VPS (discrepancia documentada) |
+| `docs/transversal/` | Solo docs verdaderamente cross-entity |
 
 **Regla dura:** nunca mezclar documentos de una entidad en la carpeta de otra.  
 Si el prefijo de entidad no es claro → preguntar a Gio antes de ubicar.
@@ -47,21 +49,18 @@ Si el prefijo de entidad no es claro → preguntar a Gio antes de ubicar.
 ### Tipos de carpeta (por entidad)
 
 `dictamenes/` · `auditorias/` · `governance/` · `specs/` · `sops/` · `logs/` · `planes/`  
-(`adr/` solo en Nortiqa Lab por ahora)
+(`adr/` en Nortiqa Lab)
 
 ## Naming
-
-Convención existente:
 
 - `DICT-[ENTIDAD]-xxx-001.md`
 - `REGLA-[ENTIDAD]-xxx-001.md`
 - `GOV-[ENTIDAD]-xxx-001.md`
 - `PLAN-[ENTIDAD]-xxx-001.md`
-- `AUD-` / `LOG-` / equivalentes según prefijo vigente
 
 ## Supersesión vs PLAN-NL-GITHUB-001
 
-`PLAN-NL-GITHUB-001` (canónico vía `DICT-NL-GITHUB-001`) separa entidades por **repositorio** para código, datos y secretos.
+`PLAN-NL-GITHUB-001` (vía `DICT-NL-GITHUB-001`) separa entidades por **repositorio** para código, datos y secretos.
 
 **Este modelo supersede esa regla solo para documentación PROD:** un único repo privado con carpetas por entidad + Teams/CODEOWNERS.
 
@@ -70,27 +69,30 @@ Código, datos y secretos **siguen** en repos separados por entidad.
 ## Control de acceso
 
 - Repo: **private**
-- `CODEOWNERS` por carpeta de entidad (ver `.github/CODEOWNERS`)
-- Teams de GitHub: Gio completa membresías (`core-founders`, teams por entidad)
-- Branch protection en `main`: require PR + review (Gio / admin org)
-- Git flow: PRs por lote de migración; no commits directos a `main`
+- `CODEOWNERS` / `.github/CODEOWNERS` (Gio completa Teams)
+- Branch protection en `main`: PR + review
+- Git flow: PRs por lote; no commits directos a `main`
 
-## Criterio de migración
+## Contenido actual del seed (Nortiqa)
 
-Solo documentos **ratificados/PROD** o referenciados activamente.  
-No migración masiva sin aprobación de Gio.
+**Dictámenes (mirrors resumidos):** NORMA-AGENTES, GITHUB, EXEC-GATE, DOC-CENT, KNOW-001, AGENTES-OPCIONES, SERVIDOROPS, MEDICION-TOKENS (+ stub/DRAFT almacenamiento).  
+**Reglas:** VERACIDAD-TOTAL, ESCALADA-TEMATICA.  
+**Inventarios:** Lot A/B/C bajo `docs/nortiqa-lab/logs/`.  
+**Specs:** `NOTION-REDIRECT-TEMPLATE.md` (+ `templates/notion-redirect.md`).  
+**Pack:** `scripts/pack-for-remote.sh` · `apply.sh`.
 
-Inventario inicial: [`MIGRATION-INVENTORY.md`](MIGRATION-INVENTORY.md)  
-Plantilla redirect Notion: [`templates/notion-redirect.md`](templates/notion-redirect.md)
+Inventario consolidado: [`MIGRATION-INVENTORY.md`](MIGRATION-INVENTORY.md)
 
-## Cómo aplicar este seed
+## Cómo aplicar
 
-Ver [`APPLY.md`](APPLY.md). Este paquete vive en `nortiqa-lab/.github` porque el bot Cloud Agent **no pudo** crear `nortiqa-lab/governance` (403 `createRepository`).
+Ver [`APPLY.md`](APPLY.md). El bot no pudo crear el repo remoto (`403 createRepository`).
 
 ## Gobernanza
 
 - Autoridad final: Gio
 - Auditoría: Claude / ARCHITECT-001
-- Preparación documental: KNOW-001
-- Implementación técnica: NL-BUILDER / Cursor
-- Escrituras en Centro Doc Madre (Notion): solo con autorización Gio + PAO/OT
+- Preparación: KNOW-001
+- Implementación: NL-BUILDER / Cursor
+- Redirects Notion Centro Doc Madre: solo con autorización Gio + PAO/OT
+
+No Notion deletes. No cuerpos Valent/LLA en este seed.

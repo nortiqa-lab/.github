@@ -72,3 +72,11 @@ Submit to Claude / ARCHITECT-001 posture (`NL-AUDITOR` gates). Output remains **
 | Copilot / others | Assist within same rules; no second canon |
 
 Handoffs: `docs/shared-ai-memory/handoffs/`.
+
+## Visión de plataforma (DEV)
+
+Arquitectura objetivo a largo plazo (no implementación): [`NORTIQA-VANGUARD.md`](./NORTIQA-VANGUARD.md) — contratos de misión, células, simulación, evidencia, Gen5→Gen10.
+
+Gen5 Mission Control (schema + estados + cierre): [`GEN5-MISSION-CONTROL.md`](./GEN5-MISSION-CONTROL.md) · [`schemas/mission-contract.v0.json`](./schemas/mission-contract.v0.json).
+
+Dry-run compiler: [`GEN5-MISSION-COMPILER-DRY-RUN.md`](./GEN5-MISSION-COMPILER-DRY-RUN.md) · `python3 tools/mission-compiler/compile.py --self-test`.

@@ -1,0 +1,409 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nortiqalab.com/schemas/mission-contract.v0.json",
+  "title": "NORTIQA Mission Contract v0",
+  "description": "DEV draft schema for Gen5 Mission Control. Not official. Not for privileged execution by itself.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mission_id",
+    "created_at",
+    "entity",
+    "source",
+    "objective",
+    "success_criteria",
+    "scope",
+    "risk",
+    "autonomy_level",
+    "permissions",
+    "plan",
+    "rollback",
+    "budget",
+    "evidence_required",
+    "human_gates",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "mission-contract.v0"
+    },
+    "mission_id": {
+      "type": "string",
+      "pattern": "^MIS-NL-[0-9]{8}-[a-z0-9-]{2,48}$",
+      "description": "Example: MIS-NL-20260802-readme-improve"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "entity": {
+      "type": "string",
+      "const": "nortiqa-lab"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "raw_request", "requester"],
+      "properties": {
+        "channel": {
+          "type": "string",
+          "enum": ["chat", "telegram", "cursor", "api", "handoff", "other"]
+        },
+        "raw_request": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requester": {
+          "type": "string",
+          "description": "Human or system that originated the request"
+        },
+        "parent_mission_id": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "success_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "description", "observable"],
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "observable": {
+            "type": "string",
+            "description": "How a third party can observe success without trusting the executor"
+          }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repos", "paths_allowed", "services_allowed", "data_classes", "out_of_scope"],
+      "properties": {
+        "repos": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "paths_allowed": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "paths_denied": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        },
+        "services_allowed": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "data_classes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["public", "internal", "secret", "personal", "client"]
+          }
+        },
+        "out_of_scope": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "rationale", "blast_radius"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "rationale": { "type": "string" },
+        "blast_radius": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["files_estimate", "services_estimate", "reversible"],
+          "properties": {
+            "files_estimate": { "type": "integer", "minimum": 0 },
+            "services_estimate": { "type": "integer", "minimum": 0 },
+            "reversible": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "autonomy_level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5,
+      "description": "0 analyze … 5 production governed. See GEN5-MISSION-CONTROL.md"
+    },
+    "autonomy_zone_kit": {
+      "type": "string",
+      "enum": ["green", "yellow", "red"],
+      "description": "Map to agents/AUTONOMY.md"
+    },
+    "dispatch_class": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D", "E"],
+      "description": "Map to agents/DISPATCH.md"
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["read", "write", "exec", "network", "secrets"],
+      "properties": {
+        "read": { "type": "boolean" },
+        "write": { "type": "boolean" },
+        "exec": { "type": "boolean" },
+        "network": {
+          "type": "string",
+          "enum": ["none", "public_readonly", "staging", "prod_readonly", "prod_write"]
+        },
+        "secrets": {
+          "type": "string",
+          "enum": ["none", "reference_only", "use_existing", "rotate_forbidden"]
+        }
+      }
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "planner": { "type": "string", "default": "NL-ORCH" },
+        "executor": { "type": "string" },
+        "tester": { "type": "string" },
+        "security_reviewer": { "type": "string", "default": "NL-AUDITOR" },
+        "arbiter": { "type": "string", "default": "NL-AUDITOR" },
+        "human_approver": { "type": "string", "default": "Gio" }
+      }
+    },
+    "plan": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "action", "owner_role", "produces"],
+        "properties": {
+          "step": { "type": "integer", "minimum": 1 },
+          "action": { "type": "string" },
+          "owner_role": { "type": "string" },
+          "produces": { "type": "string" },
+          "requires_human": { "type": "boolean", "default": false }
+        }
+      }
+    },
+    "rollback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "steps", "restore_point_required"],
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "enum": ["git_revert", "file_restore", "service_restart", "backup_restore", "none_readonly", "manual"]
+        },
+        "steps": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "restore_point_required": { "type": "boolean" }
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "command_or_check", "expected"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["positive", "negative", "structure", "health", "human"]
+          },
+          "command_or_check": { "type": "string" },
+          "expected": { "type": "string" }
+        }
+      },
+      "default": []
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["time_minutes_max", "tokens_max", "money_usd_max"],
+      "properties": {
+        "time_minutes_max": { "type": "integer", "minimum": 1 },
+        "tokens_max": { "type": "integer", "minimum": 0 },
+        "money_usd_max": { "type": "number", "minimum": 0 },
+        "model_preference": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        }
+      }
+    },
+    "evidence_required": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "description"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "diff",
+              "test_result",
+              "before_after",
+              "pid_restart",
+              "http",
+              "functional",
+              "screenshot_or_human_accept",
+              "no_contamination",
+              "handoff",
+              "other"
+            ]
+          },
+          "description": { "type": "string" },
+          "required_for_close": { "type": "boolean", "default": true }
+        }
+      }
+    },
+    "human_gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "when", "question", "required"],
+        "properties": {
+          "id": { "type": "string" },
+          "when": {
+            "type": "string",
+            "enum": ["before_plan", "before_execute", "before_prod", "on_uncertainty", "before_close"]
+          },
+          "question": { "type": "string" },
+          "required": { "type": "boolean" },
+          "status": {
+            "type": "string",
+            "enum": ["pending", "approved", "rejected", "skipped_not_required"],
+            "default": "pending"
+          },
+          "decided_by": { "type": ["string", "null"] },
+          "decided_at": { "type": ["string", "null"], "format": "date-time" }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "awaiting_human",
+        "planned",
+        "simulating",
+        "authorized",
+        "executing",
+        "verifying",
+        "blocked",
+        "failed",
+        "rolled_back",
+        "closed_verified",
+        "cancelled"
+      ]
+    },
+    "status_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["at", "from", "to", "by", "reason"],
+        "properties": {
+          "at": { "type": "string", "format": "date-time" },
+          "from": { "type": "string" },
+          "to": { "type": "string" },
+          "by": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      },
+      "default": []
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "signals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ambiguous_intent",
+              "contradictory_signals",
+              "missing_evidence",
+              "drift_detected",
+              "provider_degraded",
+              "scope_unclear",
+              "entity_risk"
+            ]
+          }
+        },
+        "autonomy_floor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Max autonomy allowed while uncertainty persists"
+        }
+      }
+    },
+    "closeout": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "closed_at": { "type": "string", "format": "date-time" },
+        "closed_by": { "type": "string" },
+        "result": {
+          "type": "string",
+          "enum": ["success", "partial", "failed", "cancelled"]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "arbiter_verdict": {
+          "type": "string",
+          "enum": ["approve", "conditional", "block"]
+        },
+        "learning_candidates": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Procedural memory candidates only; promotion requires separate review"
+        }
+      }
+    },
+    "black_box_ref": {
+      "type": ["string", "null"],
+      "description": "Pointer to mission black-box log path or id (Gen5 stores ref; full replay is later gen)"
+    }
+  }
+}

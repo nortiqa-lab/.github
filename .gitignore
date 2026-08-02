@@ -8,3 +8,9 @@
 # OS / editor noise
 .DS_Store
 *.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+exports/sql/seed/local-validate.sqlite3
