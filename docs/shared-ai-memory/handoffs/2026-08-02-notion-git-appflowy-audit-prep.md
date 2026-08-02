@@ -64,4 +64,4 @@
 
 ## Next Safe Step
 
-Gio confirma exclusiones de entidad + responde checklist AppFlowy §2; autoriza Fase A (export Notion + completar CSV inventario) y pide a Claude los dictámenes de alcance.
+Claude emite DICT usando `BRIEF-DICT-NOTION-GIT-APPFLOWY-001.md` + CSV; Gio confirma exclusiones Sur Lancer/SC2027 y crea `nortiqa-lab/governance` tras dictamen.
