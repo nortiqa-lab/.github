@@ -28,7 +28,7 @@ Bridge must fail closed with a clear Telegram reply if mirror missing.
 
 ## 3) Code additions under `telegram-bridge/`
 
-Proposed new modules (names illustrative):
+**Implemented in-repo** at `server-ops/sc2027/telegram-bridge/` (copy with `apply-staging.sh`).
 
 | Path | Responsibility |
 |------|----------------|
@@ -36,16 +36,19 @@ Proposed new modules (names illustrative):
 | `nl/autonomy.py` | Green/yellow/red using allowlists |
 | `nl/contracts.py` | Format ROLE/DONE/VERIFY/BLOCKED/NEXT |
 | `nl/kit.py` | Load mirrored prompt files |
-| `nl/handlers/ops.py` | Enumerated staging-safe actions only |
+| `nl/auth.py` | Allowlist fail-closed |
+| `nl/adapter.py` | `handle_telegram_text` for existing bot app |
+| `nl/handlers/ops.py` | Enumerated public health |
+| `nl/handlers/bridge.py` | `/help` `/status` |
 
 Minimal behavior change for existing message handler:
 
-1. Auth allowlist (unchanged/enforced).
-2. `role = route(message)`.
-3. If red → reply blocked + exact next human step.
-4. If green OPS allowlisted → run tool → reply contract.
-5. Else → build response from role system prompt + user goal (Ollama optional) **or** return a Cursor-ready brief without executing.
-6. Persist handoff stub.
+1. Auth allowlist (enforced fail-closed when env empty).
+2. `reply = handle_telegram_text(text, user_id=..., chat_id=...)`.
+3. Red → blocked + exact next human step.
+4. Green OPS health → live curls + contract.
+5. Else → Cursor-ready brief from mirrored prompts (no host mutate).
+6. Optional handoff stub via `NL_HANDOFF_DIR`.
 
 ## 4) Systemd unit
 

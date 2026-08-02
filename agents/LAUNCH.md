@@ -40,11 +40,21 @@ If you do not pick a role, paste `prompts/NL-ORCH.md` — it self-dispatches.
 
 Bot: [@NortiqaServidorOpsBot](https://t.me/NortiqaServidorOpsBot)
 
-Telegram is ingress/notify only. Design + proposed VPS diff (not applied):
+Telegram is ingress/notify only.
 
-- `agents/channels/TELEGRAM.md`
-- `agents/channels/telegram-bridge.manifest.proposed.yaml`
-- `agents/channels/telegram-bridge.proposed-diff.md`
-- `agents/runbooks/telegram-dispatch.md`
+- Design: `agents/channels/TELEGRAM.md`
+- Manifest overlay: `agents/channels/telegram-bridge.manifest.proposed.yaml`
+- **Staging kit (code):** `server-ops/sc2027/telegram-bridge/`
+- Apply guide: `server-ops/sc2027/telegram-bridge/APPLY.md`
+- Runbook: `agents/runbooks/telegram-dispatch.md`
+
+Local verify:
+
+```bash
+cd server-ops/sc2027/telegram-bridge
+PYTHONPATH=. python3 -m unittest discover -s tests -v
+./sync-nl-kit.sh
+PYTHONPATH=. python3 -m nl.service --self-test
+```
 
 Do not paste tokens into Cursor or git. Production bot promote still needs separate PAO.

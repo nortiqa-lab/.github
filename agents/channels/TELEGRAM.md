@@ -1,10 +1,11 @@
 # Canal Telegram → equipo NL-*
 
-Status: **proposed design / draft**  
+Status: **design + versionable staging kit ready** (VPS apply still human)  
 Bot: [@NortiqaServidorOpsBot](https://t.me/NortiqaServidorOpsBot) (`ServidorOpsNortiqaBot`)  
 Runtime (VPS, out of git): `/home/deploy/sc2027-staging/telegram-bridge/`  
 Unit: `sc2027-telegram-agent.service`  
 Manifest: `/home/deploy/sc2027-staging/docs/bots/telegram-bridge.yaml`  
+Versionable kit: `server-ops/sc2027/telegram-bridge/`  
 
 This document does **not** assume VPS access and must not be treated as a deploy.  
 Token stays only on the VPS (env/secret). Never commit it.
@@ -118,19 +119,31 @@ Proposed sync (staging):
 
 Until sync exists, bridge may embed a thin stub that says: “load kit from mirror; if missing, reply that kit sync is required”.
 
-## Suggested split of responsibilities inside `telegram-bridge/`
+## Versionable kit (in this repo)
+
+Implemented under `server-ops/sc2027/telegram-bridge/`:
 
 ```
 telegram-bridge/
-  app/                  # existing bot runtime
   nl/
-    router.py           # NEW: command/free-text → NL role
-    contracts.py        # NEW: output contract formatter
-    autonomy.py         # NEW: green/yellow/red gates
-  nl-kit/               # NEW: mirrored prompts (not secrets)
-  README.md             # mention NL integration
+    router.py
+    autonomy.py
+    contracts.py
+    kit.py
+    auth.py
+    adapter.py          # handle_telegram_text(...)
+    service.py          # CLI + process_message
+    handlers/
+      bridge.py
+      ops.py            # public health allowlist
+  sync-nl-kit.sh
+  apply-staging.sh      # dry-run default; APPLY=1 on staging host
+  env.example
+  tests/
+  APPLY.md
 ```
 
+Existing VPS `app/` runtime stays host-owned; wire via `nl.adapter.handle_telegram_text`.  
 No token in git. Token only in unit env / existing secret location.
 
 ## Security requirements (non-negotiable)

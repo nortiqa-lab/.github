@@ -5,6 +5,31 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Telegram NL bridge staging kit
+
+### Added
+
+- `server-ops/sc2027/telegram-bridge/` — versionable NL layer for `@NortiqaServidorOpsBot`
+  - router / autonomy / contracts / auth / adapter / ops public-health handler
+  - `sync-nl-kit.sh`, `apply-staging.sh` (dry-run default), `APPLY.md`, unit tests
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-telegram-bridge-kit.md`
+
+### Changed
+
+- `agents/channels/TELEGRAM.md` + proposed-diff → point to implemented kit
+- `AGENTS.md` / `agents/LAUNCH.md` / `agents/README.md` testing & launch pointers
+
+### Verified locally
+
+- `PYTHONPATH=. python3 -m unittest discover -s tests -v` → 21 passed
+- `python3 -m nl.service --self-test` → ok
+- Live `/ops health` curls: site/api/n8n/flow 200, mcp 401
+
+### Not changed
+
+- VPS host files / systemd unit / bot token (no access; apply remains human staging window)
+- Production promote of Telegram bot (separate PAO)
+
 ## 2026-08-02 — Merge stack + exports refresh
 
 ### Merged to main
