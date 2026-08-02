@@ -1,0 +1,13 @@
+# CODEOWNERS — plantilla DEV
+# Gio debe mapear estos paths a Teams reales de la org nortiqa-lab.
+# Hasta entonces, ownership default: @core-founders (ajustar handles).
+
+# Default
+* @giovanyalbea-dotcom
+
+# Por entidad (completar teams cuando existan)
+/docs/nortiqa-lab/ @giovanyalbea-dotcom
+/docs/valent-capital/ @giovanyalbea-dotcom
+/docs/lla-santa-cruz/ @giovanyalbea-dotcom
+/docs/sc2027/ @giovanyalbea-dotcom
+/docs/transversal/ @giovanyalbea-dotcom
