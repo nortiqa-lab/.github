@@ -40,9 +40,11 @@
 
 ## Verification
 
-- Commands run: (see session — JSON load + path checks)
-- Result: recorded in PR / agent validation
-- Limitations: schema not enforced by any runtime yet; Gen4 close still PENDIENTE in product repo
+- Commands run:
+  - `python3` load `mission-contract.v0.json` + required-field check on example → `JSON_SCHEMA_LOAD_OK` (17 required, 12 statuses)
+  - path existence checks → `PATHS_OK`
+- Result: pass for docs/schema structural validation
+- Limitations: no `jsonschema` draft2020-12 full validator installed; schema not enforced by runtime; Gen4 close still PENDIENTE in product repo
 
 ## Blockers
 
