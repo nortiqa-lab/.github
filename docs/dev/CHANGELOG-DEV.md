@@ -5,6 +5,29 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Gen5 mission compiler dry-run
+
+### Added
+
+- `tools/mission-compiler/` — CLI Python stdlib: pedido → envelope JSON + validación estructural v0 (`--self-test` 5/5)
+- `docs/dev/GEN5-MISSION-COMPILER-DRY-RUN.md`
+- Fixtures bajo `tools/mission-compiler/fixtures/`
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-gen5-mission-compiler-dry-run.md`
+
+### Changed
+
+- `docs/dev/GEN5-MISSION-CONTROL.md` — próximo paso apunta al compiler
+- Punteros en `agents/README.md`, `DEVELOPMENT-WORKFLOW.md`, `AGENTS.md` (comando evidencia)
+
+### Not changed
+
+- Product repo (sin push 403) — mirror pendiente vía exports / write grant
+- Ejecución privilegiada / Telegram wiring runtime
+
+### Governance
+
+- **DEV / Borrador** — dry-run ≠ autorización
+
 ## 2026-08-02 — Gen5 Mission Control (schema DEV)
 
 ### Added

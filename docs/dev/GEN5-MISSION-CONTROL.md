@@ -328,4 +328,4 @@ Pedido: “Reiniciá nginx en producción.”
 
 ## 14. Próximo paso recomendado (uno)
 
-Implementar en el repo de producto un compilador **dry-run** (pedido → JSON contrato + validación schema, sin side effects) y usarlo en Gen4 acceptance flows.
+Dry-run local: [`GEN5-MISSION-COMPILER-DRY-RUN.md`](./GEN5-MISSION-COMPILER-DRY-RUN.md) · `python3 tools/mission-compiler/compile.py --self-test`. Siguiente: cerrar Gen4 en product y enganchar el canal (Telegram/Cursor) solo en modo dry-run.

@@ -98,6 +98,10 @@ No application dependency manifest exists in this repo. For the product repo, di
 ```text
 # Inspect kit / edit Markdown locally — no app dev server in this repo
 git status --short
+
+# Gen5 Mission Control dry-run (no side effects)
+python3 tools/mission-compiler/compile.py "Actualizá el README"
+python3 tools/mission-compiler/compile.py --self-test
 ```
 
 Product/runtime development commands: `PENDIENTE DE VALIDACIÓN` in `giovanyalbea-dotcom/nortiqa-lab`.
@@ -106,7 +110,10 @@ Product/runtime development commands: `PENDIENTE DE VALIDACIÓN` in `giovanyalbe
 
 ```text
 # Structure: confirm referenced paths exist
-find .cursor agents docs profile -type f | sort
+find .cursor agents docs profile tools -type f | sort
+
+# Gen5 compiler fixtures
+python3 tools/mission-compiler/compile.py --self-test
 
 # Optional read-only public health (see agents/runbooks/ops-public-health.md)
 curl -sS -o /dev/null -w "%{http_code} %{url_effective}\n" https://nortiqalab.com/
