@@ -282,18 +282,20 @@ Nortiqa agentes: **solo DEV docs/código en repos autorizados**; sin acceso a le
 |------|------------|--------|
 | F0 | Este ARCH + gates G1–G8 checklist | No |
 | F1 | UI mock + CampaignRules — **HECHO** en `exports/lla-sc-aportes-f1/` (2026-08-02) | Simulado |
-| F2 | API + DB staging + MP sandbox | Plata de prueba |
+| F2 | API + SQLite local + MP stub — **HECHO en DEV** (2026-08-02); sandbox MP real pendiente G1+G7 | Simulado (stub) |
 | F3 | Conciliación + comprobantes + export tesorería | Sandbox |
 | F4 | Dictámenes cerrados + go-live limitado | Sí, post G8 |
 | F5 | Recurrente + campañas periódicas prod | Sí |
 
-### Estado F1 (2026-08-02)
+### Estado F1 + F2 DEV (2026-08-02)
 
 - Paquete: `exports/lla-sc-aportes-f1/`
-- `payments_enabled=false` enforced
+- `payments_enabled=false` enforced (API no arranca si true)
 - Motor: `tools/campaign_rules.py` (+ espejo JS)
-- G1 checklist: `exports/lla-sc-aportes-f1/G1-CHECKLIST.md`
-- Próximo: cerrar G1 con asesores; F2 solo después
+- API: `api/server.py` — intents/mandates/receipts/checkout/webhook
+- MP adapter: stub bloqueante hasta gates
+- G1: checklist + `legal/DRAFT-*.md`
+- Pendiente humano: dictamen G1; luego G7 sandbox MP real (credenciales fuera de git)
 
 ---
 

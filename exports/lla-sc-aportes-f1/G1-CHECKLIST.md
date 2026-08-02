@@ -16,7 +16,9 @@ Uso: completar con asesores; **no** es dictamen.
 | Investigación previa | Notion — Investigación financiamiento partidario LLA SC |
 | Producto funcional | Notion — PROD-NQ-COMUNIDAD-POLITICA-001 |
 | Mock F1 (sin cobros) | este paquete `web/` |
+| API F2 simulación | este paquete `api/` |
 | CampaignRules | `data/campaigns.json` + motor |
+| Borradores textos | `legal/DRAFT-*.md` (**no aprobados**) |
 
 ## Checklist de respuestas requeridas
 

@@ -13,3 +13,7 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
+
+# LLA aportes F2 local DB
+exports/lla-sc-aportes-f1/var/
+*.sqlite3

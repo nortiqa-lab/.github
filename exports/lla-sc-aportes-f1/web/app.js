@@ -139,7 +139,17 @@
     render(evaluation());
   });
 
-  $("submitBtn").addEventListener("click", () => {
+  async function postJSON(url, data) {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const payload = await res.json().catch(() => ({}));
+    return { ok: res.ok, status: res.status, payload };
+  }
+
+  $("submitBtn").addEventListener("click", async () => {
     $("errorBox").hidden = true;
     $("receiptBox").hidden = true;
     const ev = evaluation();
@@ -167,11 +177,21 @@
 
     if (validation.checkout_allowed) {
       $("errorBox").hidden = false;
-      $("errorBox").textContent = "Cobro live no implementado en F1.";
+      $("errorBox").textContent = "Cobro live no implementado en F1/F2 DEV.";
       return;
     }
 
-    const intent = {
+    const apiBase = (config.api_base_url || "").replace(/\/$/, "");
+    const body = {
+      name,
+      email,
+      consent: true,
+      amount_cents: amountCents,
+      destination_id: $("destination").value,
+      mode,
+    };
+
+    let intent = {
       id: "sim_" + Date.now(),
       mode,
       amount_cents: amountCents,
@@ -182,13 +202,46 @@
       status: "simulated_authorized",
       payments_enabled: false,
       created_at: new Date().toISOString(),
+      source: "localStorage",
     };
+
+    if (apiBase) {
+      try {
+        const endpoint = mode === "recurring" ? "/v1/mandates" : "/v1/intents";
+        const { ok, payload } = await postJSON(apiBase + endpoint, body);
+        if (!ok) {
+          $("errorBox").hidden = false;
+          $("errorBox").textContent =
+            "API: " + (payload.error || "error") + " " + JSON.stringify(payload.errors || []);
+          return;
+        }
+        intent = {
+          ...intent,
+          id: payload.intent_id || payload.mandate_id || intent.id,
+          status: payload.status || intent.status,
+          receipt_number: payload.receipt_number,
+          source: "api-f2",
+          created_at: payload.created_at || intent.created_at,
+        };
+        // Prove checkout stays blocked
+        await postJSON(apiBase + "/v1/checkout", {
+          intent_id: payload.intent_id,
+          amount_cents: amountCents,
+        });
+      } catch (err) {
+        // Fallback local if API down
+        intent.source = "localStorage-fallback";
+        intent.api_error = String(err.message || err);
+      }
+    }
+
     saveIntent(intent);
     $("receiptBox").hidden = false;
     $("receiptBox").innerHTML =
       `<strong>Comprobante simulado</strong><br>` +
-      `${intent.id}<br>${money(amountCents)} · ${mode}<br>` +
+      `${intent.receipt_number || intent.id}<br>${money(amountCents)} · ${mode}<br>` +
       `Destino: ${intent.destination_id}<br>` +
+      `Fuente: ${intent.source}<br>` +
       `No se debitó dinero.`;
     render(evaluation());
   });

@@ -17,14 +17,16 @@ Publicar el mock en un entorno **staging LLA** (o revisión local) con `payments
 
 1. Copiar `exports/lla-sc-aportes-f1/` al host/staging LLA autorizado.
 2. Verificar `config/app.json` → `"payments_enabled": false`.
-3. Servir el directorio del paquete (no solo `web/`) para que existan `../config` y `../data`.
-4. Abrir `/web/` y probar:
+3. Arrancar API: `python3 api/server.py --host 127.0.0.1 --port 8787` (o proxy interno).
+4. Ajustar `api_base_url` si el host/puerto difiere.
+5. Servir el directorio del paquete (no solo `web/`) para que existan `../config` y `../data`.
+6. Abrir `/web/` y probar:
    - montos con campaña agosto (−20% + floor);
    - destino Río Turbio destacado;
-   - aporte único y mensual simulado;
-   - consentimiento obligatorio;
-   - historial local (localStorage).
-5. Entregar `G1-CHECKLIST.md` a asesores.
+   - aporte único/mensual vía API (`source: api-f2`);
+   - `POST /v1/checkout` sigue bloqueado;
+   - consentimiento obligatorio.
+7. Entregar `G1-CHECKLIST.md` + `legal/DRAFT-*.md` a asesores.
 
 ## Prohibido en este apply
 

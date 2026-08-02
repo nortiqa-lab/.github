@@ -20,6 +20,14 @@ REQUIRED = [
     "web/campaign-engine.js",
     "web/styles.css",
     "tools/campaign_rules.py",
+    "api/server.py",
+    "api/db.py",
+    "api/mp_adapter.py",
+    "api/schema.sql",
+    "tools/test_api_f2.py",
+    "legal/DRAFT-terminos-aportes.md",
+    "legal/DRAFT-privacidad.md",
+    "legal/DRAFT-consentimiento.md",
 ]
 
 

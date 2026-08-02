@@ -5,6 +5,30 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — LLA aportes F2 DEV API (simulación)
+
+### Added
+
+- `exports/lla-sc-aportes-f1/api/` — server stdlib, SQLite, MP stub, schema
+- `exports/lla-sc-aportes-f1/tools/test_api_f2.py`
+- `exports/lla-sc-aportes-f1/legal/DRAFT-*.md` — textos G1 no aprobados
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-lla-aportes-f2-api.md`
+
+### Changed
+
+- Web UI usa `api_base_url` con fallback localStorage
+- `config/app.json` → `0.2.0-f2-dev`
+- ARCH F2 marcado HECHO en DEV (sandbox MP real pendiente)
+
+### Verified
+
+- `test_api_f2.py` OK (checkout/webhook bloqueados)
+- `campaign_rules` + `check_package` OK
+
+### Not changed
+
+- Cobros reales / tokens MP / DNS prod / `payments_enabled=true`
+
 ## 2026-08-02 — LLA aportes F1 end-to-end (simulación)
 
 ### Added
