@@ -252,4 +252,4 @@ Una generación solo avanza si mejora **las tres** dimensiones:
 
 ## 8. Próximo paso recomendado (uno)
 
-Cerrar **Gen4** en el repo de producto/ops con criterio explícito de “lenguaje natural operativo + aceptación humana”, y abrir el primer contrato de misión Gen5 (schema + parser) en draft, sin ejecución privilegiada.
+Cerrar **Gen4** en el repo de producto/ops; el schema Gen5 draft vive en [`GEN5-MISSION-CONTROL.md`](./GEN5-MISSION-CONTROL.md) + [`schemas/mission-contract.v0.json`](./schemas/mission-contract.v0.json). Siguiente implementación: compilador dry-run (pedido → JSON validado) sin side effects.

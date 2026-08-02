@@ -76,3 +76,5 @@ Handoffs: `docs/shared-ai-memory/handoffs/`.
 ## Visión de plataforma (DEV)
 
 Arquitectura objetivo a largo plazo (no implementación): [`NORTIQA-VANGUARD.md`](./NORTIQA-VANGUARD.md) — contratos de misión, células, simulación, evidencia, Gen5→Gen10.
+
+Gen5 Mission Control (schema + estados + cierre): [`GEN5-MISSION-CONTROL.md`](./GEN5-MISSION-CONTROL.md) · [`schemas/mission-contract.v0.json`](./schemas/mission-contract.v0.json).
