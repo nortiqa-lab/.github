@@ -1,45 +1,33 @@
-# AI Session Handoff - 2026-08-02 - Storage migration Fase 0 → 0.2
+# AI Session Handoff - 2026-08-02 - Storage migration Fase 0.3
 
 ## Metadata
 
 - Date: 2026-08-02
 - Project: Nortiqa Lab — hybrid storage migration
 - AI actor: NL-ORCH / NL-BUILDER
-- Responsible user: Gio
-- State: Fase 0 seed ampliado (Lot A mirrors + Lot B inv + SQL validate); Notion sin deletes
-
-## Canon Read
-
-- MEM-NL-ROOT-001
-- TAREA-NL-GOBERNANZA-ALMACENAMIENTO-001
-- REG-NL-SESSION-20260619-001
-- DICT-NL-NORMA-AGENTES-001 (+ mirrors Lot A)
+- State: Seed consolidado (#15+#16); rebase main OK; repo `governance` aún inexistente
 
 ## Work Completed
 
-- Ampliación mirrors: KNOW-001, AGENTES-OPCIONES, SERVIDOROPS, MEDICION-TOKENS (+ previos EXEC-GATE, DOC-CENT, GITHUB, ESCALADA)
-- Inventario Lot B
-- `exports/sql/validate_local.py` (Docker PG o structural; **no sqlite**)
-- `scripts/pack-for-remote.sh` para import cuando exista repo
-- Plan actualizado a Fase 0.2
+- Merge `main` (conflicto `exports/README.md` resuelto)
+- Absorbió de PR #15: `apply.sh`, gitkeeps, stub DICT almacenamiento canónico, APPLY ampliado
+- Mirrors nuevos: KNOW-002, IDENTITY-RATIF
+- Stubs: GOV-NL-ORG-001, DICT-NL-VISION-FUSION-001 (sin URL Notion)
+- Pack: 23 markdown; SQL validate structural OK
+- Preferir PR #16 como canónico; #15 duplicado/conflictivo
 
 ## Verification
 
-- Pack script + validate_local ejecutados en sesión
-- SQL **no** aplicado a VPS
-- Notion **no** borrado; redirects no aplicados
-
-## Could not verify
-
-- Página canónica GOV-NL-ORG-001 / DICT-NL-VISION-FUSION-001 / DICT almacenamiento (URLs no encontradas)
-- Creación repo `nortiqa-lab/governance` (permiso bot)
+- `nortiqa-lab/governance` → still 404
+- `apply.sh` no ejecutado (bot 403 createRepository)
+- Notion: sin deletes
 
 ## Blocked
 
-1. Gio crea `nortiqa-lab/governance`
-2. Gio pasa URLs faltantes
-3. Gio/OPS autoriza SQL staging
+1. Gio crea repo Private (opción 1) o corre `apply.sh` con su gh
+2. Cerrar PR #15 tras merge #16
+3. URLs canónicas opcionales si aparecen
 
 ## Next Safe Step
 
-- Gio crea repo governance + pega URLs faltantes; agente corre pack+PR import y sigue Lot B mirrors sin tocar Notion deletes.
+- Gio: crear `nortiqa-lab/governance` → `repo listo` → agente importa seed.

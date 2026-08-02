@@ -28,9 +28,13 @@ Fuentes: `TAREA-NL-GOBERNANZA-ALMACENAMIENTO-001`, `REG-NL-SESSION-20260619-001`
 6. Pack script listo para import ✅
 7. **No** crear repo remoto si falta permiso; **no** borrar Notion; **no** migrar Valent content
 
-### Fase 0.2 — en curso / siguiente
-- Completar URLs faltantes (GOV-NL-ORG, VISION-FUSION DICT, DICT almacenamiento)
-- Cuando Gio cree `nortiqa-lab/governance`: correr `scripts/pack-for-remote.sh` + APPLY
+### Fase 0.2 — hecha
+- URLs faltantes → stubs locales (GOV-NL-ORG, VISION-FUSION, DICT almacenamiento)
+- Consolida seed PR #15 + #16 (`apply.sh`, gitkeeps, mirrors)
+
+### Fase 0.3 — siguiente
+- Gio crea `nortiqa-lab/governance` (UI) **o** corre `exports/nortiqa-lab-governance/apply.sh`
+- Import seed / merge PR #16; cerrar #15
 - SQL apply staging solo con autorización Gio/OPS
 
 ### Fase 1 — Gio crea `nortiqa-lab/governance` + branch protection
