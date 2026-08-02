@@ -43,8 +43,9 @@ class HomeContentTests(unittest.TestCase):
     def test_06_public_internal_layer_separation(self) -> None:
         self.assertIn('data-layer="public"', self.html)
         self.assertIn('data-layer="internal"', self.html)
-        self.assertIn("Capa interna", self.html)
-        self.assertIn("Capa pública", self.html)
+        lowered = self.html.lower()
+        self.assertIn("capa interna", lowered)
+        self.assertIn("capa pública", lowered)
 
     def test_07_required_sections(self) -> None:
         for section_id in (

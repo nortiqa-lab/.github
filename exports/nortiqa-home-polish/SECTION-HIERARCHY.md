@@ -20,11 +20,11 @@ Baseline: home vivo WP tema `nortiqa-lab` (CSS ver ~0.5.4 / header 0.5.1)
 
 ## Orden de secciones
 
-1. **Hero** — Una composición: firma NORTIQA (header), un headline, un lead, un CTA primario + enlace secundario quieto, plano visual emergente. Eyebrow: `Capa pública · En preparación`.
+1. **Hero** — Una composición: firma NORTIQA (header), un headline, un lead, un CTA primario + enlace secundario quieto, plano visual emergente. Eyebrow: `En preparación` (sin jerga de capas).
 2. **01 Enfoque** — Una tesis. Principios. Strip de líneas de trabajo (post-hero).
-3. **02 Capacidades** — Contenido demostrativo público; estados calmados (PILOTO / EN PREPARACIÓN / MODULAR).
+3. **02 Capacidades** — H2 `Sistemas en construcción.`; contenido demostrativo; estados calmados (PILOTO / EN PREPARACIÓN / MODULAR).
 4. **03 Método** — Proceso antes que IA; paso 03 renombrado a “Primera versión usable”.
-5. **04 Arquitectura** — Capa interna; NQ CORE como firma técnica.
+5. **04 Arquitectura** — Firma técnica NORTIQA; capa interna solo en copy de soporte, no como metadata visible.
 6. **05 Aplicaciones** — Cinco verticales, una frase cada una.
 7. **06 Hoja de ruta** — “De la preparación al despliegue”; etapa actual sin MVP/prototipo.
 8. **07 Conversemos** — CTA único claro + mail.
