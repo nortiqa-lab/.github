@@ -1,0 +1,108 @@
+{
+  "generated_at": "2026-08-02",
+  "entity_id": "nortiqa-lab",
+  "lab_agents": [
+    {
+      "agent_id": "nl-code-reviewer",
+      "name": "nl-code-reviewer",
+      "role": "code-reviewer",
+      "status": "approved-staging",
+      "owner": "gio",
+      "version": "1.1.0",
+      "path": ".github/agents/code-reviewer.agent.md",
+      "maturity_q": "Q2"
+    },
+    {
+      "agent_id": "nl-database-migrator",
+      "name": "nl-database-migrator",
+      "role": "database-migrator",
+      "status": "approved-staging",
+      "owner": "gio",
+      "version": "1.1.0",
+      "path": ".github/agents/database-migrator.agent.md",
+      "maturity_q": "Q2"
+    },
+    {
+      "agent_id": "nl-implementer",
+      "name": "nl-implementer",
+      "role": "implementer",
+      "status": "approved-staging",
+      "owner": "gio",
+      "version": "1.1.0",
+      "path": ".github/agents/implementer.agent.md",
+      "maturity_q": "Q2"
+    },
+    {
+      "agent_id": "nl-inspector",
+      "name": "nl-inspector",
+      "role": "inspector",
+      "status": "approved-staging",
+      "owner": "gio",
+      "version": "1.1.0",
+      "path": ".github/agents/inspector.agent.md",
+      "maturity_q": "Q2"
+    },
+    {
+      "agent_id": "nl-security-reviewer",
+      "name": "nl-security-reviewer",
+      "role": "security-reviewer",
+      "status": "approved-staging",
+      "owner": "gio",
+      "version": "1.1.0",
+      "path": ".github/agents/security-reviewer.agent.md",
+      "maturity_q": "Q2"
+    },
+    {
+      "agent_id": "nl-tester",
+      "name": "nl-tester",
+      "role": "tester",
+      "status": "approved-staging",
+      "owner": "gio",
+      "version": "1.1.0",
+      "path": ".github/agents/tester.agent.md",
+      "maturity_q": "Q2"
+    }
+  ],
+  "indice_snapshot": [
+    {
+      "agent_id": "AGENTE-GASTRO-001",
+      "name": "Agente de Pedidos Rotiser\u00eda",
+      "status": "dise\u00f1o",
+      "owner": "Gio + Claude",
+      "maturity_q": "Q1",
+      "notion_url": "https://app.notion.com/p/393e4fe3bfea8113aa15ec1356427e3e"
+    },
+    {
+      "agent_id": "NL-ID-AG-001",
+      "name": "Agente Director I+D",
+      "status": "activo",
+      "owner": "Gio",
+      "maturity_q": "Q3",
+      "notion_url": "https://app.notion.com/p/350e4fe3bfea81c3ac80d13c9248655a"
+    },
+    {
+      "agent_id": "ANL-EST-001",
+      "name": "Agente Management Econ\u00f3mico-Financiero",
+      "status": "borrador",
+      "owner": "Gio",
+      "maturity_q": "Q0",
+      "notion_url": "https://app.notion.com/p/34ee4fe3bfea81c1b0f6dc0d733b2e8e"
+    },
+    {
+      "agent_id": "PRM-NL-AUT-001",
+      "name": "Nortiqa Desktop Operator",
+      "status": "activo",
+      "owner": "Codex",
+      "maturity_q": "Q3",
+      "notion_url": "https://app.notion.com/p/37ee4fe3bfea8135aed8f3614db1c54c"
+    },
+    {
+      "agent_id": "BOT-012",
+      "name": "Bot Nocturno de Avance Conceptual",
+      "status": "aprobado-condicional",
+      "owner": "Gio",
+      "maturity_q": "Q2",
+      "notion_url": "https://app.notion.com/p/34ee4fe3bfea81f7b604eb8d09c4fcb8"
+    }
+  ]
+}

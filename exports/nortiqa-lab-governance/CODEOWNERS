@@ -1,0 +1,9 @@
+# Gio completes GitHub Teams. Until then, path owners are documentary only.
+# Example (enable after teams exist):
+# /docs/nortiqa-lab/ @nortiqa-lab/nortiqa-owners
+# /docs/valent-capital/ @nortiqa-lab/valent-owners
+# /docs/lla-santa-cruz/ @nortiqa-lab/lla-owners
+# /docs/sc2027/ @nortiqa-lab/nortiqa-owners
+# /docs/transversal/ @nortiqa-lab/nortiqa-owners
+
+* @giovanyalbea-dotcom
