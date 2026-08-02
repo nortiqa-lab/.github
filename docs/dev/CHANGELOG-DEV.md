@@ -109,3 +109,24 @@ y ratificación de Gio para pasar a PROD.
 - Merged PR #3 into `main` (`eabc344`)
 - Notion MCP still unauthenticated in agent environment (human action)
 - Product-repo push blocked (403); added `exports/nortiqa-lab-product-cursor-kit/` apply package
+
+## 2026-08-02 — Generación 4 wrapper root closeout (draft continuity)
+
+### Added
+
+- `docs/dev/GEN4-WRAPPER-ROOT-CLOSEOUT.md` — privileged install command, post-install healthcheck, restore-point gate, loopback preview policy
+- `docs/shared-ai-memory/handoffs/2026-08-02-gen4-wrapper-root-closeout.md`
+
+### Changed
+
+- `agents/BOOTSTRAP.md` — open OPS blocker for Gen 4 root wrapper install
+
+### Not changed
+
+- VPS files / systemd / `/usr/local/sbin/sc2027-botctl` (no SSH in this cloud agent)
+- Product repo Gen 4 artifacts (not present on GitHub; live on staging host per Codex)
+- Notion canon, secrets, DNS, ports (previews remain loopback by design)
+
+### Session state
+
+- **Ready for review (DEV):** Gio installed wrapper (`root:root` 755, sha256 match); restore point `backups/gen4-closeout-20260802T001611Z`; pilot/oauth active `NRestarts=0`. Residual opcional: restart pilot for latest `intent_router.py`.
