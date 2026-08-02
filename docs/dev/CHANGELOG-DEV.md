@@ -5,6 +5,28 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Benchmark orquestación + matriz de necesidad
+
+### Added
+
+- `docs/dev/BENCH-NQ-ORCH-001.md` — benchmark ponderado A–E (kit, n8n, Router/Factory, Gen5, marketplace) vs tareas T1–T6
+- `docs/dev/MATRIX-NQ-ORCH-NEED-001.md` — extracto operativo Usar / Endurecer / No usar
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-orch-benchmark-matrix.md`
+- Notion DEV: [BENCH-NQ-ORCH-001](https://app.notion.com/p/3b0e4fe3bfea81b2898be9f367398c54)
+
+### Dictamen DEV (no oficial)
+
+- Adoptar/mantener: `NL-ORCH` + kit + n8n
+- Endurecer: Gen5 + Agent Factory DEV
+- Descartar por ahora: Cursor marketplace Agent Orchestration
+- Payments plugins: no usar hasta dictamen legal LLA
+
+### Not changed
+
+- Producción / VPS / n8n workflows activos
+- Instalación de plugins marketplace
+- Canon PROD Notion
+
 ## 2026-08-02 — Merge stack + exports refresh
 
 ### Merged to main
