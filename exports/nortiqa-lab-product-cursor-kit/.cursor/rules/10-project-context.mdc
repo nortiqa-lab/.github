@@ -1,5 +1,5 @@
 ---
-description: Verified repository context for giovanyalbea-dotcom/nortiqa-lab product/ops repo
+description: Verified repository context for nortiqa-lab/.github org profile and agent kit
 alwaysApply: true
 ---
 
@@ -7,59 +7,59 @@ alwaysApply: true
 
 ## Identity
 
-- **GitHub remote:** `giovanyalbea-dotcom/nortiqa-lab`
+- **GitHub remote:** `nortiqa-lab/.github` (org profile repository)
 - **Entity:** Nortiqa Lab only
-- **Purpose:** Working/versionable product surfaces: public site assets, VPS ops scripts/docs, shared AI memory drafts
+- **Purpose:** Host the autonomous agent team kit (`agents/`) and public org profile (`profile/README.md`)
+- **Maturity:** Operational kit v1 (versionable). Notion canon remains separate.
 - **Motto:** Primero funcional. Después excelente. Siempre: lo mejor o nada.
 
-## Confirmed layout (inspected)
+## What this repo is NOT
+
+- Not the primary product/ops application codebase.
+- Working product/ops code: `https://github.com/giovanyalbea-dotcom/nortiqa-lab`
+- Production services: VPS referenced as SC2027 / `nortiqalab.com` (see bootstrap; do not assume host paths from this repo alone)
+
+## Confirmed layout
 
 | Path | Role |
 |------|------|
-| `site/site/index.html` | Public landing HTML |
-| `assets/` | Brand SVG / wordmark |
-| `scripts/generate_hero.py` | Hero SVG generator (Python 3) |
-| `server-ops/sc2027/` | Ops scripts + login-portal package + promote/rollback docs |
-| `docs/server-ops/` | OPS decisions / handoffs |
-| `docs/shared-ai-memory/` | Bootstrap + handoff template |
-| `AGENTS.md` / `CLAUDE.md` | Agent entrypoints |
-| `agents/` | Mirrored autonomous team kit (from org profile) |
+| `AGENTS.md` | Root shared AI context |
+| `CLAUDE.md` | Claude-shaped agent pointer |
+| `agents/` | Team kit: rules, autonomy, roles, prompts, runbooks |
+| `docs/shared-ai-memory/` | Handoff template + session logs |
+| `docs/dev/` | DEV Cursor/dev workflow docs (draft) |
+| `profile/README.md` | Public org profile content |
 | `.cursor/rules/` | Cursor persistent rules |
-| `.vscode/tasks.json` | Windows rclone mount task for SC2027 VPS |
 
-## Stack detected
+## Stack detected in this repository
 
-- Static HTML site assets
-- Bash ops scripts under `server-ops/sc2027/`
-- Python 3 script (`scripts/generate_hero.py`)
-- Docker referenced in host healthchecks (runs on VPS, not defined as Compose in this tree)
-- **No** root `package.json` / app test suite found at mirror time
+- Markdown documentation and agent prompts only.
+- **No** `package.json`, Dockerfiles, Compose files, GitHub Actions workflows, language lockfiles, or app test runners found in-repo (as of audit commit baseline).
 
-## Environments (documented map)
+## Environments (from local kit / bootstrap — treat as map, not invent)
 
-| Surface | Evidence |
-|---------|----------|
-| Public site | `https://nortiqalab.com/` (`healthcheck-prod.sh`) |
-| API | `https://api.nortiqalab.com/health` |
-| n8n | `https://n8n.nortiqalab.com/` |
-| MCP | `https://mcp.nortiqalab.com/` (expect 401) |
-| Local console (VPS) | `http://127.0.0.1:8000/api/health` |
-| Ollama (VPS private) | `http://127.0.0.1:11434` |
-| Host label | SC2027 (paths/scripts); brand is Nortiqa Lab — do not auto-rename |
+| Surface | Note |
+|---------|------|
+| Local / this git repo | Versionable kit + profile |
+| Public site (SC2027) | `https://nortiqalab.com` |
+| API health (SC2027) | `https://api.nortiqalab.com/health` |
+| n8n (SC2027) | `https://n8n.nortiqalab.com/` |
+| MCP (SC2027) | `https://mcp.nortiqalab.com/` (401 expected) |
+| ERP Odoo/Nerva (`ERP-Nortiqa-Lab`) | `https://erp.nortiqalab.com/` |
+| Metabase (`ERP-Nortiqa-Lab`) | `https://bi.nortiqalab.com/` |
+| n8n on ERP host | `https://flow.nortiqalab.com/` |
+| Canon | Notion `MEM-NL-ROOT-001` |
 
-## Commands evidenced in-repo
+Nortiqa-owned ERP stack ≠ entity “ERP Gio+Edson”. Use ERP runbooks under `agents/runbooks/erp-nortiqa-lab-*.md`.
 
-```bash
-# Hero asset
-python3 scripts/generate_hero.py
+## Commands confirmed for this repo
 
-# Host health (intended on VPS; needs docker/local services)
-bash server-ops/sc2027/healthcheck-prod.sh
-bash server-ops/sc2027/healthcheck-staging.sh
-```
+- Git inspection: `git status`, `git log`, feature-branch PR flow per `agents/AUTONOMY.md`
+- Public health GETs: `agents/runbooks/ops-public-health.md`
+- App install / build / unit-test commands: **not present here** — belong to the working product repo (`PENDIENTE DE VALIDACIÓN` in that repo)
 
-App install / unit-test / lint: `PENDIENTE DE VALIDACIÓN` (no toolchain manifests at root).
+## Known limitations
 
-## Related repo
-
-Org profile + canonical agent kit home: `https://github.com/nortiqa-lab/.github`
+- Notion connector may be unavailable → bootstrap + draft.
+- Privileged VPS work is human-gated (`agents/roles/NL-OPS.md`).
+- Mirror package for the working product repo: `exports/nortiqa-lab-product-cursor-kit/` (apply via `APPLY.md` if bot lacks write access there).

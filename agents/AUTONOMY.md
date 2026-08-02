@@ -33,7 +33,7 @@ Role-specific green:
 
 ## Red zone — STOP and escalate to Gio
 
-- Any Valent / ERP / client context.
+- Any Valent / **ERP Gio+Edson** / client context (Nortiqa-owned `ERP-Nortiqa-Lab` / `erp.nortiqalab.com` is Nortiqa infra — still no client data cross).
 - Notion protected writes without explicit authorization text from Gio.
 - Production promote / Nginx reload / secret chmod when lacking privileged access.
 - Destructive data ops, DB drops, mass user changes.

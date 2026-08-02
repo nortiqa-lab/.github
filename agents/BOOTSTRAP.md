@@ -17,11 +17,21 @@ Guiding principle:
 | Org profile / this kit | `nortiqa-lab/.github` |
 | Working repo | `giovanyalbea-dotcom/nortiqa-lab` |
 | Public pages | `nortiqa-lab/nortiqa-lab.github.io` |
-| Production | `https://nortiqalab.com` |
-| API health | `https://api.nortiqalab.com/health` |
-| n8n | `https://n8n.nortiqalab.com/` |
-| MCP | `https://mcp.nortiqalab.com/` (401 expected) |
+| Production site (SC2027 VPS) | `https://nortiqalab.com` |
+| API health (SC2027) | `https://api.nortiqalab.com/health` |
+| n8n (SC2027) | `https://n8n.nortiqalab.com/` |
+| MCP (SC2027) | `https://mcp.nortiqalab.com/` (401 expected) |
+| ERP Odoo / Nerva (`ERP-Nortiqa-Lab` VPS) | `https://erp.nortiqalab.com/` |
+| Metabase BI (ERP VPS) | `https://bi.nortiqalab.com/` |
+| n8n on ERP VPS | `https://flow.nortiqalab.com/` |
 | Canon root | Notion `MEM-NL-ROOT-001` |
+
+Two Nortiqa VPS labels coexist:
+
+- **SC2027** → `5.161.81.43` (site / api / n8n / mcp; also hosts LLA portal at `sc2027.nortiqalab.com` — keep isolated)
+- **ERP-Nortiqa-Lab** → `157.90.163.94` (Odoo + Metabase + `flow` n8n)
+
+ERP ops runbooks: `agents/runbooks/erp-nortiqa-lab-health.md`, `agents/runbooks/erp-nortiqa-lab-readiness.md`.
 
 ## Confirmed operating rules (from prior versionable docs)
 

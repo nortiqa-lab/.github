@@ -21,8 +21,9 @@ Stop immediately and escalate to Gio if the task requires mixing or copying acro
 
 - Nortiqa Lab
 - Valent Capital Group
-- ERP Gio+Edson
+- ERP Gio+Edson (≠ Nortiqa-owned stack `ERP-Nortiqa-Lab` / `erp.nortiqalab.com`)
 - Surlancer / client contexts
+- LLA Santa Cruz / other non-Nortiqa entities without explicit authorization
 
 ## Secrets
 
