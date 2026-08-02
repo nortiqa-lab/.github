@@ -52,3 +52,14 @@
 | Redirects / deletes Notion | **No** — sin autorización |
 
 **Repo remoto:** creación bloqueada para `cursor[bot]` (Resource not accessible). Gio debe crearlo.
+
+
+## Avance 2026-08-02 (Fase 0.3)
+
+| Hito | Estado |
+|------|--------|
+| Consolida PR #15 (apply.sh, gitkeeps, stub DICT almacenamiento) | Hecho en este branch |
+| Stubs GOV-NL-ORG / VISION-FUSION | Hecho (sin URL canónica) |
+| Mirrors KNOW-002 + IDENTITY-RATIF | Hecho |
+| Repo remoto governance | **Aún no existe** |
+| PR #15 | Preferir cerrar tras merge #16 (duplicado/conflicto) |
