@@ -66,6 +66,9 @@ No root application dependency manifest found.
 ```bash
 python3 scripts/generate_hero.py
 # Edit site/site/index.html for landing changes
+
+# Gen5 Mission Control dry-run (no side effects; after kit apply)
+python3 tools/mission-compiler/compile.py --self-test
 ```
 
 ### Testing / validation
@@ -76,6 +79,8 @@ bash server-ops/sc2027/healthcheck-staging.sh # intended on VPS
 # Off-host safe subset:
 curl -sS -o /dev/null -w "%{http_code}\n" https://nortiqalab.com/
 curl -sS -o /dev/null -w "%{http_code}\n" https://api.nortiqalab.com/health
+# Gen5 dry-run fixtures (if tools/mission-compiler present)
+python3 tools/mission-compiler/compile.py --self-test
 ```
 
 ### Lint and format
