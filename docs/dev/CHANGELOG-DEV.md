@@ -5,6 +5,31 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Ratificación Gio + Factory T-005 + ARCH pagos LLA SC
+
+### Ratificación operativa (Gio)
+
+- `BENCH-NQ-ORCH-001` / `MATRIX-NQ-ORCH-NEED-001`: Adoptar A+B; endurecer D+C; descartar marketplace E — criterio de trabajo kit (≠ PROD Madre)
+- Notion bench actualizado
+
+### Added
+
+- `tools/agent-factory/` — inventario, `anti_dupe.py`, paquete T-005 `DOC-AGENT-A1`
+- `docs/dev/SYS-NL-AGENT-FACTORY-001.md`
+- `agents/factory/README.md`
+- `docs/dev/lla-sc/ARCH-LLA-SC-PAYMENTS-001.md` — aportes, recurrentes, CampaignRules (descuentos periódicos), gates legales
+- Notion: Factory endurecido; ARCH-LLA-SC-PAYMENTS-001
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-ratify-factory-lla-payments.md`
+
+### Authorized entity cross
+
+- Gio autorizó diseño de arquitectura de pagos para web LLA Santa Cruz (documentado; sin cobros reales)
+
+### Not changed
+
+- Cobros reales / PSP prod / DNS LLA / secretos
+- Instalación marketplace Payments u Agent Orchestration
+
 ## 2026-08-02 — Benchmark orquestación + matriz de necesidad
 
 ### Added

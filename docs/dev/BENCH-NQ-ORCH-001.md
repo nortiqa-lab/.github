@@ -1,21 +1,23 @@
 # BENCH-NQ-ORCH-001 — Benchmark de orquestación por tarea
 
-Estado: DEV / Borrador
+Estado: DEV / Ratificado operativamente por Gio (2026-08-02)
 
-No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
-y ratificación de Gio para pasar a PROD.
+No es documentación del Centro Doc Madre / PROD. La ratificación de Gio
+adopta el dictamen como **criterio de trabajo del kit**. Auditoría Claude /
+ARCHITECT-001 sigue recomendada antes de promoción a canon PROD.
 
 | Campo | Valor |
 |-------|--------|
 | ID | `BENCH-NQ-ORCH-001` |
 | Categoría | Orquestación / agentes / automatización |
 | Fecha evaluación | 2026-08-02 |
+| Ratificación operativa Gio | 2026-08-02 — Adoptar A+B; endurecer D+C; descartar E por ahora |
 | Próxima revisión | 2026-10-01 o ante piloto con >50 corridas/semana |
 | Actor | Cursor / `NL-BUILDER` (+ postura `NL-ORCH`) |
 | Plantilla | Notion `PLT-NQ-BENCH-TOOLS-001` |
 | Canon Notion | leído vía MCP (`MEM-NL-ROOT-001`, `CAT-NQ-TOOLS-001`, `PLAN-NL-SKILLS-IA-001`, Agent Router / n8n) |
-| Estado propuesto (capa runtime marketplace) | **Descartar por ahora** |
-| Estado propuesto (stack propio) | **Adoptar / seguir endureciendo** |
+| Estado propuesto (capa runtime marketplace) | **Descartar por ahora** (ratificado) |
+| Estado propuesto (stack propio) | **Adoptar / seguir endureciendo** (ratificado) |
 
 ## 0. Distinción evidencia
 
@@ -226,10 +228,10 @@ Estas reglas quedan como **criterio operativo DEV** (no PROD) para sesiones Curs
 | Rol | Estado |
 |-----|--------|
 | Generador | Cursor / `NL-BUILDER` |
-| Auditor | Pendiente `NL-AUDITOR` / ARCHITECT-001 |
-| Ratificación | Pendiente Gio |
-| Estado final | **DEV / Borrador** |
+| Auditor | Pendiente `NL-AUDITOR` / ARCHITECT-001 (recomendado para canon PROD) |
+| Ratificación operativa | **Gio 2026-08-02** — criterio de trabajo kit |
+| Estado final | **DEV / Ratificado operativamente** (≠ PROD Madre) |
 
 ### Próximo paso recomendado (uno)
 
-Endurecer T4 con Gen5: al recibir un pedido con side effects, emitir envelope `mission-compiler` antes de editar — sin instalar marketplace E.
+Ejecutar endurecimiento Agent Factory (anti-dupe + T-005 en este repo) y arquitectura pagos LLA SC en DEV — sin cobros reales ni marketplace E.

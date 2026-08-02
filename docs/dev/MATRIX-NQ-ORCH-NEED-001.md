@@ -1,9 +1,9 @@
 # MATRIX-NQ-ORCH-NEED-001 — Necesidad de orquestación por tarea
 
-Estado: DEV / Borrador
+Estado: DEV / Ratificado operativamente por Gio (2026-08-02)
 
-No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
-y ratificación de Gio para pasar a PROD.
+No es documentación del Centro Doc Madre / PROD. Criterio de trabajo del kit.
+Auditoría Claude recomendada antes de promoción a canon PROD.
 
 **Fuente:** [`BENCH-NQ-ORCH-001.md`](./BENCH-NQ-ORCH-001.md) §8 (benchmark primero; esta matriz es el extracto operativo).
 
