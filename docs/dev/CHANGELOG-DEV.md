@@ -5,6 +5,26 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Home institutional polish (pasada fina)
+
+### Added
+
+- `exports/nortiqa-home-polish/` — static home polish package based on live WP theme
+  - `index.html`, `style.base.css`, `polish.css`, `nav.js`
+  - `tests/test_home_content.py` (9 content-contract tests)
+  - `SECTION-HIERARCHY.md`, `APPLY.md`, `README.md`
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-home-institutional-polish.md`
+
+### Changed
+
+- `exports/README.md` — registered home polish package
+
+### Not changed
+
+- Production WordPress theme / VPS (no write from this agent)
+- Notion canon (unavailable / `needsAuth`)
+- No PROD promotion claimed
+
 ## 2026-08-01 — Cursor local kit + docs/dev
 
 ### Added
