@@ -44,3 +44,31 @@ y ratificación de Gio para pasar a PROD.
 - Merged PR #3 into `main` (`eabc344`)
 - Notion MCP still unauthenticated in agent environment (human action)
 - Product-repo push blocked (403); added `exports/nortiqa-lab-product-cursor-kit/` apply package
+
+## 2026-08-02 — Governance storage seed + KNOW-001 prompt
+
+### Added
+
+- Notion DEV page: `TAREA-NL-GOBERNANZA-ALMACENAMIENTO-001` (prompt KNOW-001 ajustado)
+  - https://app.notion.com/p/3b0e4fe3bfea81c6acc2e485bdcf6558
+- `exports/nortiqa-lab-governance/` — seed para repo privado `nortiqa-lab/governance`
+  - estructura multi-entidad + `.gitkeep`
+  - `README.md` (matriz, naming, diagrama, supersesión vs PLAN-NL-GITHUB-001)
+  - `APPLY.md` + `apply.sh`
+  - `MIGRATION-INVENTORY.md`
+  - `templates/notion-redirect.md`
+  - `.github/CODEOWNERS`
+  - stub `DICT-NL-GOBERNANZA-ALMACENAMIENTO-001.md`
+- Handoff: `docs/shared-ai-memory/handoffs/2026-08-02-governance-storage-seed.md`
+
+### Blocked
+
+- `gh repo create nortiqa-lab/governance --private` → 403 `createRepository`
+- Página Notion del dictamen de almacenamiento no encontrada
+- Redirects Centro Doc Madre no escritos (requieren Gio + PAO/OT)
+- Cuerpos Valent/LLA no migrados a este org-profile (evitar contaminación hasta repo privado)
+
+### Not changed
+
+- Production systems, secrets, VPS, DNS, n8n
+- `main` (trabajo en feature branch + draft PR)
