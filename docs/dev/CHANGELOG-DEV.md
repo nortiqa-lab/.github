@@ -128,6 +128,18 @@ y ratificación de Gio para pasar a PROD.
 - Notion MCP still unauthenticated in agent environment (human action)
 - Product-repo push blocked (403); added `exports/nortiqa-lab-product-cursor-kit/` apply package
 
+## 2026-08-02 — RACI modelos y roles (DEV)
+
+### Added
+
+- `docs/dev/RACI-MODELS-AND-ROLES.md` — RACI de roles `NL-*`, motores (Grok/Claude/Chrome/GPT/Codex/…), workflow DEV→PROD y flujo DNS LLA
+- RACI embebido en DEC/RUNBOOK LLA SC DNS
+- Punteros desde `agents/README.md`, `agents/TEAM.md`, `docs/dev/DEVELOPMENT-WORKFLOW.md`
+
+### Rule recorded (draft)
+
+- Todo brief/misión/PR sustancial declara RACI (un A por fila; zona roja A=Gio)
+
 ## 2026-08-02 — DEC-LLA-SC-DNS-001 (Cloudflare Free)
 
 ### Added

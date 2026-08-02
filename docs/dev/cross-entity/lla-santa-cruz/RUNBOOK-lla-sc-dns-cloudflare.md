@@ -10,6 +10,19 @@ Relacionado: [`DEC-LLA-SC-DNS-001-cloudflare.md`](./DEC-LLA-SC-DNS-001-cloudflar
 Operador: humano con acceso a Cloudflare + NIC Argentina (Gio).  
 Agentes: solo lectura / documentación; **no** ejecutar cambios de DNS.
 
+## RACI (este flujo)
+
+| Actividad | A | R | C | I |
+|-----------|---|---|---|---|
+| Decisión Cloudflare Free (no Hostinger NS) | Gio | Cursor/docs (`NL-BUILDER`) | `NL-AUDITOR` | `NL-MEMORY` |
+| Add domain Free + obtener NS | Gio | Claude Chrome o Gio en dashboard | Cursor (brief) | Auditor |
+| Delegar NS en NIC | Gio | Claude Chrome o Gio en nic.ar | Cursor (texto exacto) | Auditor |
+| Registro `A portal` | Gio | Claude Chrome / Gio | Cursor, OPS | Memory |
+| Nginx + TLS | Gio | OPS / humano en servidor | Auditor | Memory |
+| Verify `dig` | Gio | Cursor (check público) | Claude Chrome | Memory |
+
+RACI global de modelos/roles: [`../../RACI-MODELS-AND-ROLES.md`](../../RACI-MODELS-AND-ROLES.md).
+
 ## Precondiciones
 
 - [ ] Dominio `llasantacruz.com.ar` visible y administrable en NIC Argentina.

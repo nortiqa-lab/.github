@@ -14,6 +14,16 @@ https://app.notion.com/p/3b0e4fe3bfea81d1b55ac3a7043ec6a1
 
 Padre: `DOM-LLA-SC-001` — https://app.notion.com/p/3afe4fe3bfea81f49a3be9a6012108df
 
+## RACI
+
+| Actividad | A | R | C | I |
+|-----------|---|---|---|---|
+| Decisión de arquitectura DNS | Gio | Cursor (doc) | Auditor | Memory |
+| Ejecución Cloudflare / NIC | Gio | Claude Chrome o Gio | Cursor | Auditor |
+| Hosting + Nginx/TLS | Gio | OPS / humano servidor | Auditor | Memory |
+
+Detalle: [`../../RACI-MODELS-AND-ROLES.md`](../../RACI-MODELS-AND-ROLES.md) §4 · Runbook: [`RUNBOOK-lla-sc-dns-cloudflare.md`](./RUNBOOK-lla-sc-dns-cloudflare.md).
+
 ## Decisión
 
 | Componente | Proveedor |

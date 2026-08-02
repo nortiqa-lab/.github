@@ -15,3 +15,5 @@ Carpeta local versionable para la decisión DNS de `llasantacruz.com.ar`.
 | --- | --- |
 | `DEC-LLA-SC-DNS-001-cloudflare.md` | Decisión: Cloudflare Free + NIC + servidor propio |
 | `RUNBOOK-lla-sc-dns-cloudflare.md` | Pasos humanos Cloudflare → NIC → registro `A portal` |
+
+RACI global: [`../../RACI-MODELS-AND-ROLES.md`](../../RACI-MODELS-AND-ROLES.md).
