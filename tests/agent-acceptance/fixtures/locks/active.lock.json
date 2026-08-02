@@ -1,0 +1,8 @@
+{
+  "lock_id": "acc-lock-fixture-001",
+  "holder": "other-agent-simulated",
+  "resource": "tests/agent-acceptance/fixtures/implementer/target.txt",
+  "acquired_at": "2026-08-01T00:00:00Z",
+  "expires_at": "2099-01-01T00:00:00Z",
+  "note": "Synthetic active lock for negative tests. Not memory/L3-state.md."
+}

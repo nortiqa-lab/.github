@@ -1,0 +1,2 @@
+refused_dsn_fingerprint=[REDACTED sha256=87ad6dbbae56 tail=tiqa]
+policy_ok=True

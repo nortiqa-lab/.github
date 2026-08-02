@@ -1,0 +1,3 @@
+IMPLEMENTER_FIXTURE_V1
+status=lab-hardened
+note=smallest-diff

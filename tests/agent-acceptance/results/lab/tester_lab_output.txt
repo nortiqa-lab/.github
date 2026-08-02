@@ -1,0 +1,9 @@
+[VALIDATE] nl-code-reviewer: APTO PARA RATIFICACIÓN DE STAGING (1 findings)
+[VALIDATE] nl-database-migrator: APTO PARA RATIFICACIÓN DE STAGING (1 findings)
+[VALIDATE] nl-implementer: APTO PARA RATIFICACIÓN DE STAGING (1 findings)
+[VALIDATE] nl-inspector: APTO PARA RATIFICACIÓN DE STAGING (1 findings)
+[VALIDATE] nl-security-reviewer: APTO PARA RATIFICACIÓN DE STAGING (1 findings)
+[VALIDATE] nl-tester: APTO PARA RATIFICACIÓN DE STAGING (1 findings)
+Wrote /workspace/tests/agent-acceptance/results/validation.json
+
+--- stderr ---
