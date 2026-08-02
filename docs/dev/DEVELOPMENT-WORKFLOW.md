@@ -72,3 +72,7 @@ Submit to Claude / ARCHITECT-001 posture (`NL-AUDITOR` gates). Output remains **
 | Copilot / others | Assist within same rules; no second canon |
 
 Handoffs: `docs/shared-ai-memory/handoffs/`.
+
+## Visión de plataforma (DEV)
+
+Arquitectura objetivo a largo plazo (no implementación): [`NORTIQA-VANGUARD.md`](./NORTIQA-VANGUARD.md) — contratos de misión, células, simulación, evidencia, Gen5→Gen10.
