@@ -77,7 +77,8 @@ Cursor operating guide: `docs/dev/CURSOR-OPERATING-GUIDE.md`.
 AGENTS.md                 # this file
 CLAUDE.md                 # Claude-shaped pointer
 .cursor/rules/            # Cursor persistent rules
-agents/                   # autonomous team kit
+agents/                   # autonomous team kit (+ channels/TELEGRAM)
+server-ops/sc2027/        # staging OPS kits (telegram-bridge NL layer)
 docs/shared-ai-memory/    # handoffs
 docs/dev/                 # DEV Cursor/dev docs (draft)
 profile/README.md         # public org profile
@@ -114,6 +115,9 @@ find .cursor agents docs profile tools -type f | sort
 
 # Gen5 compiler fixtures
 python3 tools/mission-compiler/compile.py --self-test
+
+# Telegram NL bridge kit (offline unit tests)
+cd server-ops/sc2027/telegram-bridge && PYTHONPATH=. python3 -m unittest discover -s tests -v
 
 # Optional read-only public health (see agents/runbooks/ops-public-health.md)
 curl -sS -o /dev/null -w "%{http_code} %{url_effective}\n" https://nortiqalab.com/
