@@ -49,7 +49,8 @@ Code, data, and secrets **remain** in separate entity repos (PLAN-NL-GITHUB-001 
 **Dictámenes (mirrors/stubs):** NORMA-AGENTES, GITHUB, EXEC-GATE, DOC-CENT, KNOW-001/002, AGENTES-OPCIONES, SERVIDOROPS, MEDICION-TOKENS, IDENTITY-RATIF, GOBERNANZA-ALMACENAMIENTO (stub), VISION-FUSION (stub).  
 **Reglas / gov:** VERACIDAD-TOTAL, ESCALADA-TEMATICA, GOV-NL-ORG (stub).  
 **Inventarios:** Lot A + Lot B.  
-**Apply:** `apply.sh` (Gio/admin) · `scripts/pack-for-remote.sh` (pack sin create).  
-**SQL inventario:** vive en `exports/sql/` del repo `.github`, no aquí.
+**Apply:** leer primero `GIO-NEXT.md` · `apply.sh` (Gio/admin) · `scripts/pack-for-remote.sh`.  
+**Inventario:** `MIGRATION-INVENTORY.md` + Lot A/B/C.  
+**SQL inventario:** `exports/sql/` en repo `.github`, no aquí.
 
 No Notion deletes. No Valent/LLA content copied. PR canónico: `.github` #16 (supersede #15).

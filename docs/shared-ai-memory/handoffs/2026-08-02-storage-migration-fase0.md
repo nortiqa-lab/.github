@@ -28,6 +28,12 @@
 2. Cerrar PR #15 tras merge #16
 3. URLs canónicas opcionales si aparecen
 
+## Fase 0.4 (esta sesión)
+
+- Importó Lot C + LOG + stubs canónicos desde PR #15
+- Mirrors QueryOS-001/002, AUD-UPDT-001, HOME-AUDIT
+- `GIO-NEXT.md` one-pager
+
 ## Next Safe Step
 
-- Gio: crear `nortiqa-lab/governance` → `repo listo` → agente importa seed.
+- Gio: seguir `exports/nortiqa-lab-governance/GIO-NEXT.md` → `repo listo`.
