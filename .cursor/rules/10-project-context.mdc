@@ -41,11 +41,16 @@ alwaysApply: true
 | Surface | Note |
 |---------|------|
 | Local / this git repo | Versionable kit + profile |
-| Public site | `https://nortiqalab.com` |
-| API health | `https://api.nortiqalab.com/health` |
-| n8n | `https://n8n.nortiqalab.com/` |
-| MCP | `https://mcp.nortiqalab.com/` (401 expected) |
+| Public site (SC2027) | `https://nortiqalab.com` |
+| API health (SC2027) | `https://api.nortiqalab.com/health` |
+| n8n (SC2027) | `https://n8n.nortiqalab.com/` |
+| MCP (SC2027) | `https://mcp.nortiqalab.com/` (401 expected) |
+| ERP Odoo/Nerva (`ERP-Nortiqa-Lab`) | `https://erp.nortiqalab.com/` |
+| Metabase (`ERP-Nortiqa-Lab`) | `https://bi.nortiqalab.com/` |
+| n8n on ERP host | `https://flow.nortiqalab.com/` |
 | Canon | Notion `MEM-NL-ROOT-001` |
+
+Nortiqa-owned ERP stack ≠ entity “ERP Gio+Edson”. Use ERP runbooks under `agents/runbooks/erp-nortiqa-lab-*.md`.
 
 ## Commands confirmed for this repo
 

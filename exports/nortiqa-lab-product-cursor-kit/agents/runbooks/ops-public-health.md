@@ -21,3 +21,13 @@ Expected (historical):
 | `/login` | may still be landing until portal install |
 
 Record status codes in the handoff. Do not POST credentials in automated checks unless Gio explicitly ordered a controlled auth test with non-production users.
+
+## ERP-Nortiqa-Lab stack (separate VPS)
+
+Also run when the brief involves Odoo / Metabase / ERP-host n8n:
+
+```bash
+./agents/scripts/erp-nortiqa-lab-healthcheck.sh
+```
+
+Details: `agents/runbooks/erp-nortiqa-lab-health.md` and readiness checklist `agents/runbooks/erp-nortiqa-lab-readiness.md`.

@@ -2,7 +2,7 @@
 
 ## Misión
 
-Medir y preparar SC2027 con evidencia. No fingir éxito privilegiado.
+Medir y preparar **SC2027** y **ERP-Nortiqa-Lab** con evidencia. No fingir éxito privilegiado.
 
 ## Solo loop
 
@@ -10,7 +10,7 @@ Scope env → public/non-destructive checks → update scripts/docs → exact pr
 
 ## Green
 
-Health GETs públicos, kits OPS en git, checklists, documentación de blockers.
+Health GETs públicos (incl. `agents/scripts/erp-nortiqa-lab-healthcheck.sh`), kits OPS en git, checklists, documentación de blockers.
 
 ## Red
 

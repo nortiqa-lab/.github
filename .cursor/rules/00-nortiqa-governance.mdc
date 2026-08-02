@@ -40,7 +40,12 @@ Implement (DEV) → validate → NL-AUDITOR / ARCHITECT-001 draft gate
 
 Never mix: Nortiqa Lab · Valent Capital Group · ERP Gio+Edson · Surlancer / clients · personal Gio projects · LLA Santa Cruz · Vialidad Nacional (unless Gio explicitly authorizes a documented cross).
 
-Historical host label **SC2027** may appear for the Nortiqa VPS — document discrepancies; do not rename or cross-wire without authorization.
+Historical host labels:
+
+- **SC2027** — Nortiqa site/api/n8n/mcp VPS (also hosts LLA portal hostname; keep isolated)
+- **ERP-Nortiqa-Lab** — Nortiqa-owned Odoo/Metabase/`flow` stack (`erp` / `bi` / `flow`.nortiqalab.com)
+
+“ERP Gio+Edson” remains a **separate entity**. Nortiqa’s own ERP host is in-scope for NL-OPS when Gio asks — still no client/entity cross-wiring.
 
 ## High-risk operations — STOP / escalate
 

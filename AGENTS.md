@@ -23,7 +23,12 @@ Native AI memory is not a source of truth.
 Working product/ops code primarily lives in:
 `https://github.com/giovanyalbea-dotcom/nortiqa-lab`
 
-Production services live on VPS SC2027 (`nortiqalab.com`).
+Production services:
+
+- VPS **SC2027** — `nortiqalab.com` / api / n8n / mcp
+- VPS **ERP-Nortiqa-Lab** — `erp.nortiqalab.com` (Odoo), `bi.nortiqalab.com` (Metabase), `flow.nortiqalab.com` (n8n)
+
+See `agents/BOOTSTRAP.md` and `agents/runbooks/erp-nortiqa-lab-*.md`.
 
 ## Motto
 
