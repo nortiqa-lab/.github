@@ -1,0 +1,89 @@
+{
+  "version": "0.1.0",
+  "entity": "nortiqa-lab",
+  "updated": "2026-08-02",
+  "components": [
+    {
+      "id": "NL-ORCH",
+      "name": "Orquestador de Nortiqa Lab",
+      "aliases": ["orchestrator", "NL-ORCH", "orquestador"],
+      "family": "control",
+      "role": "entry_classify",
+      "decision": "reuse",
+      "status": "operational_kit"
+    },
+    {
+      "id": "ARCHITECT-AGENTS",
+      "name": "Arquitecto de Agentes",
+      "aliases": ["arquitecto de agentes", "agent architect"],
+      "family": "design",
+      "role": "design_spec",
+      "decision": "reuse",
+      "status": "notion_dev"
+    },
+    {
+      "id": "SIM-TESTER",
+      "name": "Simulador / Tester de Agentes",
+      "aliases": ["agent tester", "tester de agentes", "simulador", "nuevo agent tester"],
+      "family": "qa",
+      "role": "primary_tester",
+      "decision": "reuse",
+      "status": "notion_dev"
+    },
+    {
+      "id": "QA-TESTER",
+      "name": "Agente QA / Tester",
+      "aliases": ["qa tester", "agente qa"],
+      "family": "qa",
+      "role": "qa_ops",
+      "decision": "evaluate_merge",
+      "status": "notion_dev",
+      "duplicate_of": "SIM-TESTER"
+    },
+    {
+      "id": "AUDITOR-AGENTS",
+      "name": "Auditor de Agentes",
+      "aliases": ["auditor de agentes", "NL-AUDITOR"],
+      "family": "governance",
+      "role": "pre_claude_audit",
+      "decision": "reuse",
+      "status": "operational_kit"
+    },
+    {
+      "id": "AGENT-ROUTER",
+      "name": "Agent Router System",
+      "aliases": ["router", "agent_registry", "agent_permissions", "agent_audit"],
+      "family": "routing",
+      "role": "route_permissions_log",
+      "decision": "reuse",
+      "status": "notion_dev"
+    },
+    {
+      "id": "NQA-PROY-AUT-001",
+      "name": "Nortiqa Desktop Operator",
+      "aliases": ["desktop operator", "windows docker servidores", "ejecutor escritorio"],
+      "family": "executor",
+      "role": "technical_executor",
+      "decision": "reuse",
+      "status": "notion_dev"
+    },
+    {
+      "id": "BOT-012",
+      "name": "BOT-012 modo nocturno",
+      "aliases": ["night shift", "bot-012"],
+      "family": "automation",
+      "role": "night_ops",
+      "decision": "integrate_later",
+      "status": "gated"
+    },
+    {
+      "id": "DOC-AGENT-A1",
+      "name": "Agente documental básico A1 (piloto T-005)",
+      "aliases": ["agente documental", "documental basico", "doc agent a1"],
+      "family": "documentation",
+      "role": "doc_packager",
+      "decision": "pilot",
+      "status": "t005_package"
+    }
+  ]
+}

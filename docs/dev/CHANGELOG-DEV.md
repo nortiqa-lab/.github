@@ -5,6 +5,123 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — G1 dossier aportes LLA SC (para asesores)
+
+### Added
+
+- `exports/lla-sc-aportes-f1/g1/` — DOSSIER, solicitud, preguntas, hallazgos, tracker G1–G8
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-lla-aportes-g1-dossier.md`
+- Notion hija G1 bajo ARCH-LLA-SC-PAYMENTS-001 (si publicada en sesión)
+
+### Changed
+
+- `G1-CHECKLIST.md` / `README.md` — apuntan al dossier
+- `check_package.py` — exige piezas `g1/`
+- ARCH §14 — próximo paso = entrega humana del dossier
+
+### Verified
+
+- `check_package.py` OK (incluye `g1/`)
+- Hallazgos alineados a investigación Notion 2026-07-30 (hechos; no dictamen)
+
+### Not changed
+
+- Cobros reales / MP sandbox / DNS / `payments_enabled=true` / textos legales aprobados
+
+## 2026-08-02 — LLA aportes F2 DEV API (simulación)
+
+### Added
+
+- `exports/lla-sc-aportes-f1/api/` — server stdlib, SQLite, MP stub, schema
+- `exports/lla-sc-aportes-f1/tools/test_api_f2.py`
+- `exports/lla-sc-aportes-f1/legal/DRAFT-*.md` — textos G1 no aprobados
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-lla-aportes-f2-api.md`
+
+### Changed
+
+- Web UI usa `api_base_url` con fallback localStorage
+- `config/app.json` → `0.2.0-f2-dev`
+- ARCH F2 marcado HECHO en DEV (sandbox MP real pendiente)
+
+### Verified
+
+- `test_api_f2.py` OK (checkout/webhook bloqueados)
+- `campaign_rules` + `check_package` OK
+
+### Not changed
+
+- Cobros reales / tokens MP / DNS prod / `payments_enabled=true`
+
+## 2026-08-02 — LLA aportes F1 end-to-end (simulación)
+
+### Added
+
+- `exports/lla-sc-aportes-f1/` — mock `/aportar`, CampaignRules, G1 checklist, APPLY
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-lla-aportes-f1-e2e.md`
+- Notion: F1 status bajo ARCH-LLA-SC-PAYMENTS-001
+
+### Changed
+
+- `docs/dev/lla-sc/ARCH-LLA-SC-PAYMENTS-001.md` — F1 marcado HECHO
+- `exports/README.md` — registra paquete LLA F1
+
+### Verified
+
+- `campaign_rules.py --self-test` 8/8
+- `check_package.py` OK
+- Browser QA simulación sin cobros
+
+### Not changed
+
+- Cobros reales / MP keys / DNS LLA prod / `payments_enabled`
+
+## 2026-08-02 — Ratificación Gio + Factory T-005 + ARCH pagos LLA SC
+
+### Ratificación operativa (Gio)
+
+- `BENCH-NQ-ORCH-001` / `MATRIX-NQ-ORCH-NEED-001`: Adoptar A+B; endurecer D+C; descartar marketplace E — criterio de trabajo kit (≠ PROD Madre)
+- Notion bench actualizado
+
+### Added
+
+- `tools/agent-factory/` — inventario, `anti_dupe.py`, paquete T-005 `DOC-AGENT-A1`
+- `docs/dev/SYS-NL-AGENT-FACTORY-001.md`
+- `agents/factory/README.md`
+- `docs/dev/lla-sc/ARCH-LLA-SC-PAYMENTS-001.md` — aportes, recurrentes, CampaignRules (descuentos periódicos), gates legales
+- Notion: Factory endurecido; ARCH-LLA-SC-PAYMENTS-001
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-ratify-factory-lla-payments.md`
+
+### Authorized entity cross
+
+- Gio autorizó diseño de arquitectura de pagos para web LLA Santa Cruz (documentado; sin cobros reales)
+
+### Not changed
+
+- Cobros reales / PSP prod / DNS LLA / secretos
+- Instalación marketplace Payments u Agent Orchestration
+
+## 2026-08-02 — Benchmark orquestación + matriz de necesidad
+
+### Added
+
+- `docs/dev/BENCH-NQ-ORCH-001.md` — benchmark ponderado A–E (kit, n8n, Router/Factory, Gen5, marketplace) vs tareas T1–T6
+- `docs/dev/MATRIX-NQ-ORCH-NEED-001.md` — extracto operativo Usar / Endurecer / No usar
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-orch-benchmark-matrix.md`
+- Notion DEV: [BENCH-NQ-ORCH-001](https://app.notion.com/p/3b0e4fe3bfea81b2898be9f367398c54)
+
+### Dictamen DEV (no oficial)
+
+- Adoptar/mantener: `NL-ORCH` + kit + n8n
+- Endurecer: Gen5 + Agent Factory DEV
+- Descartar por ahora: Cursor marketplace Agent Orchestration
+- Payments plugins: no usar hasta dictamen legal LLA
+
+### Not changed
+
+- Producción / VPS / n8n workflows activos
+- Instalación de plugins marketplace
+- Canon PROD Notion
+
 ## 2026-08-02 — Merge stack + exports refresh
 
 ### Merged to main

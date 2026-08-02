@@ -1,0 +1,18 @@
+{
+  "entity": "lla-santa-cruz",
+  "app_id": "lla-sc-aportes-f1",
+  "version": "0.2.0-f2-dev",
+  "payments_enabled": false,
+  "currency": "ARS",
+  "locale": "es-AR",
+  "domain_canonical": "llasantacruz.com.ar",
+  "portal_suggested": "portal.llasantacruz.com.ar",
+  "api_base_url": "http://127.0.0.1:8787",
+  "disclaimer": "Aporte voluntario. No implica membresía, cargo ni beneficio político. Modo simulación: no se realizan cobros reales.",
+  "psp": {
+    "primary": "mercadopago",
+    "mode": "disabled_until_gates",
+    "access_token_env": "LLA_MP_ACCESS_TOKEN",
+    "note": "Activar solo tras G1–G8 y payments_enabled=true. Nunca commitear tokens."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "DOC-AGENT-A1",
+  "name": "Agente documental básico A1 (piloto T-005)",
+  "aliases": ["agente documental", "documental basico", "doc agent a1"],
+  "family": "documentation",
+  "role": "doc_packager",
+  "decision": "pilot",
+  "status": "t005_package",
+  "package_path": "tools/agent-factory/packages/DOC-AGENT-A1/"
+}
