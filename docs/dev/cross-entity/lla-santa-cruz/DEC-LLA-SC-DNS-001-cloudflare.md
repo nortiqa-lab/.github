@@ -40,19 +40,30 @@ Separación explícita:
 | `llasantacruz.com.ar` | Cloudflare Free (camino definitivo) |
 | `nortiqalab.com` | Hostinger — **sin cambios** |
 
-## Hechos verificados (lectura pública, 2026-08-02)
+## Hechos verificados
+
+### Cloudflare (reporte humano / Claude Chrome, 2026-08-02)
+
+| Campo | Valor |
+| --- | --- |
+| Dominio | `llasantacruz.com.ar` |
+| Plan | Free |
+| NS1 | `bella.ns.cloudflare.com` |
+| NS2 | `rocco.ns.cloudflare.com` |
+| Estado CF | Pending (espera delegación en registrador) |
+
+### Lectura pública DNS (antes de Delegar en NIC)
 
 | Chequeo | Resultado |
 | --- | --- |
-| `dig @8.8.8.8 NS llasantacruz.com.ar` | `NXDOMAIN` (SOA `com.ar` / NIC.AR) |
-| `dig @1.1.1.1 NS llasantacruz.com.ar` | `NXDOMAIN` |
+| `dig @8.8.8.8 NS llasantacruz.com.ar` | `NXDOMAIN` hasta que NIC publique la delegación |
 | `dig @8.8.8.8 A portal.llasantacruz.com.ar` | `NXDOMAIN` |
-| `dig NS nortiqalab.com` | `horizon.dns-parking.com` / `orbit.dns-parking.com` |
+| `dig NS nortiqalab.com` | Hostinger parking — **sin cambios** |
 
 ### Inferencias (no hechos)
 
-- Notion `DOM-LLA-SC-001` indica el dominio como **registrado**; la ausencia de NS públicos sugiere falta de delegación efectiva en NIC, o delegación no publicada aún.
-- No se evidenció zona DNS Hostinger operativa para `llasantacruz.com.ar`.
+- Zona Cloudflare creada; falta **Delegar** en NIC Argentina con los NS de arriba.
+- No usar Hostinger / dns-parking.
 
 ### Recomendación
 
@@ -92,4 +103,4 @@ Ver runbook: [`RUNBOOK-lla-sc-dns-cloudflare.md`](./RUNBOOK-lla-sc-dns-cloudflar
 
 ## Próximo paso seguro (uno)
 
-Gio: en Cloudflare → **Add a domain** → `llasantacruz.com.ar` → plan **Free** → anotar los dos NS exactos → recién entonces **Delegar** en NIC Argentina.
+Gio / Claude Chrome: en NIC Argentina → `llasantacruz.com.ar` → **Delegar** → `bella.ns.cloudflare.com` + `rocco.ns.cloudflare.com` → Ejecutar cambios.

@@ -128,6 +128,14 @@ y ratificación de Gio para pasar a PROD.
 - Notion MCP still unauthenticated in agent environment (human action)
 - Product-repo push blocked (403); added `exports/nortiqa-lab-product-cursor-kit/` apply package
 
+## 2026-08-02 — Cloudflare NS asignados (LLA SC)
+
+### Updated
+
+- DEC/RUNBOOK LLA: zona Cloudflare Free creada; NS `bella.ns.cloudflare.com` / `rocco.ns.cloudflare.com` (Pending)
+- Notion DEC draft sincronizado
+- Pendiente humano: Delegar en NIC Argentina (aún NXDOMAIN público)
+
 ## 2026-08-02 — RACI modelos y roles (DEV)
 
 ### Added

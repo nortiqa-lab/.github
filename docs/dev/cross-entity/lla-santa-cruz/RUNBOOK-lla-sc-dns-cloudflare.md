@@ -42,6 +42,13 @@ RACI global de modelos/roles: [`../../RACI-MODELS-AND-ROLES.md`](../../RACI-MODE
 5. Continuar hasta que Cloudflare muestre **dos nameservers** propios (ej. `*.ns.cloudflare.com`).
 6. Copiar los **valores exactos** del dashboard (no inventar ni reutilizar NS de otro dominio).
 
+**NS asignados (2026-08-02, Pending):**
+
+```text
+bella.ns.cloudflare.com
+rocco.ns.cloudflare.com
+```
+
 ### 2. NIC Argentina — delegación
 
 1. Iniciar sesión en https://nic.ar/
