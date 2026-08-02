@@ -1,0 +1,11 @@
+# DEV stub — Gio must bind GitHub Teams before PROD use
+# Pattern: docs/<entity>/ → team for that entity
+
+* @giovanyalbea-dotcom
+
+/docs/nortiqa-lab/ @giovanyalbea-dotcom
+/docs/valent-capital/ @giovanyalbea-dotcom
+/docs/sc2027/ @giovanyalbea-dotcom
+/docs/lla-santa-cruz/ @giovanyalbea-dotcom
+/docs/surlancer/ @giovanyalbea-dotcom
+/docs/transversal/ @giovanyalbea-dotcom

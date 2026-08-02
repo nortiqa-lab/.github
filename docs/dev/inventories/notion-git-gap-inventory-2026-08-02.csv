@@ -66,9 +66,9 @@ notion_id,title,url,type,entity,status_notion,in_git,git_repo,git_path,priority,
 39be4fe3bfea81faa700df34e7e43269,BRIEF-NQ-VALENT-001,https://app.notion.com/p/39be4fe3bfea81faa700df34e7e43269,page,VALENT,mixed,no,,,EXCLUDE,gate_gio,blocked,entity_isolation,Branding for Valent
 391e4fe3bfea81d9bbdee17ee6be8b28,DICT-NL-ERP-ODOO-001,https://app.notion.com/p/391e4fe3bfea81d9bbdee17ee6be8b28,page,AMBIGUOUS,mixed,no,,,EXCLUDE,gate_gio,blocked,entity_isolation,Mentions LLA Santa Cruz
 3aee4fe3bfea8166aab1cfd608a5583d,PROMPT-ORG-LLA-SC-001,https://app.notion.com/p/3aee4fe3bfea8166aab1cfd608a5583d,page,LLA,mixed,no,,,EXCLUDE,EXCLUDE,blocked,entity_isolation,LLA organigrama
-39fe4fe3bfea810f8cd2c36bec704847,Convenio Nortiqa-Surlancer,https://app.notion.com/p/39fe4fe3bfea810f8cd2c36bec704847,page,SURLANCER,mixed,no,,,EXCLUDE,gate_gio,blocked,entity_isolation,DEV convenio
-398e4fe3bfea818d8a19f1c4c16bed92,LOG fusión Surlancer,https://app.notion.com/p/398e4fe3bfea818d8a19f1c4c16bed92,page,SURLANCER,mixed,no,,,EXCLUDE,gate_gio,blocked,entity_isolation,
-398e4fe3bfea81f8bd0af14914e99192,DEV-NL-COMPANY-DESIGN post-fusión,https://app.notion.com/p/398e4fe3bfea81f8bd0af14914e99192,page,SURLANCER,mixed,no,,,EXCLUDE,gate_gio,blocked,entity_isolation,
+39fe4fe3bfea810f8cd2c36bec704847,Convenio Nortiqa-Surlancer,https://app.notion.com/p/39fe4fe3bfea810f8cd2c36bec704847,page,SURLANCER,mixed,no,,,EXCLUDE,mirror_dev_isolated,F1,isolate_folder_surlancer,DEV convenio; Gio 2026-08-02 IN LOTE AF with docs/surlancer/
+398e4fe3bfea818d8a19f1c4c16bed92,LOG fusión Surlancer,https://app.notion.com/p/398e4fe3bfea818d8a19f1c4c16bed92,page,SURLANCER,mixed,no,,,EXCLUDE,mirror_dev_isolated,F1,isolate_folder_surlancer,; Gio 2026-08-02 IN LOTE AF with docs/surlancer/
+398e4fe3bfea81f8bd0af14914e99192,DEV-NL-COMPANY-DESIGN post-fusión,https://app.notion.com/p/398e4fe3bfea81f8bd0af14914e99192,page,SURLANCER,mixed,no,,,EXCLUDE,mirror_dev_isolated,F1,isolate_folder_surlancer,; Gio 2026-08-02 IN LOTE AF with docs/surlancer/
 3abe4fe3bfea81d4ac2bf5fb7bdfc0c1,PLAN-GIO-DRIVE-PC-001,https://app.notion.com/p/3abe4fe3bfea81d4ac2bf5fb7bdfc0c1,page,PERSONAL,mixed,no,,,EXCLUDE,EXCLUDE,blocked,entity_isolation,Personal Gio
 3abe4fe3bfea81c7b4eef67707e7d452,PLAN-PERSONAL-DRIVE-HP-001,https://app.notion.com/p/3abe4fe3bfea81c7b4eef67707e7d452,page,PERSONAL,mixed,no,,,EXCLUDE,EXCLUDE,blocked,entity_isolation,Personal
 3a2e4fe3bfea816e9a78c798f9aeab7b,PLAN-SC2027-JAIRO-MVP-001,https://app.notion.com/p/3a2e4fe3bfea816e9a78c798f9aeab7b,page,AMBIGUOUS,mixed,no,,,EXCLUDE,gate_gio,blocked,entity_isolation,Client/political vertical?
@@ -82,3 +82,4 @@ notion_id,title,url,type,entity,status_notion,in_git,git_repo,git_path,priority,
 ,REPO_MISSING — nortiqa-lab/n8n-workflows,,repo,NL,n/a,no,nortiqa-lab/n8n-workflows,,P0,create_repo,F0,gio_admin,DICT-NL-GITHUB-REPOS; NOT created
 ,REPO_MISSING — nortiqa-lab/queryos,,repo,NL,n/a,no,nortiqa-lab/queryos,,P0,create_repo,F0,gio_admin,DICT-NL-GITHUB-REPOS; NOT created
 ,REPO_MISSING — nortiqa-lab/sc2027-app,,repo,NL,n/a,no,nortiqa-lab/sc2027-app,,P0,create_repo,F0,gio_admin,DICT-NL-GITHUB-REPOS optional; NOT created
+,SEED exports/nortiqa-lab-governance,,export,NL,n/a,yes,nortiqa-lab/.github,exports/nortiqa-lab-governance/,P0,apply_via_APPLY_md,F0,gio_create_repo,Private governance repo not created yet

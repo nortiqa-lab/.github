@@ -61,9 +61,13 @@ Según `TAREA-NL-GOBERNANZA-ALMACENAMIENTO-001` (DEV; Gio ratificó matriz):
 |--------|----------|--------|
 | VALENT | LOG-NL-VALENT-EVO, PAO Valent, DOC-VAL-CV | EXCLUDE de Git NL |
 | LLA | PROMPT-ORG-LLA-SC | EXCLUDE |
-| SURLANCER | convenio / fusión / company design | gate Gio |
+| SURLANCER | convenio / fusión / company design | **IN** LOTE AppFlowy (Gio 2026-08-02) → carpeta `docs/surlancer/` / nodo AF propio; no mezclar en `nortiqa-lab/` |
 | PERSONAL | Drive PC/HP Gio | EXCLUDE |
 | AMBIGUOUS | ERP-ODOO+LLA, Jairo MVP | gate Gio |
+
+## Seed repo governance
+
+`exports/nortiqa-lab-governance/` — árbol + README + APPLY + stub DICT almacenamiento. **No** crea el repo en GitHub (Gio/admin).
 
 ## AppFlowy — mapeo de fase (seed)
 

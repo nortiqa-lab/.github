@@ -29,17 +29,17 @@ Este documento **no autoriza** escritura masiva en AppFlowy ni cutover.
 
 ## 2. Decisiones previas (checklist Gio)
 
-Tomadas de PLAN-NL-AF-MIG-001 §15 — siguen pendientes salvo evidencia contraria:
+Tomadas de PLAN-NL-AF-MIG-001 §15. Actualización **2026-08-02**: Gio respondió “sí a todo” en sesión Cursor → se registra como afirmación operativa DEV (pendiente dictamen Claude).
 
-- [ ] Relación formal Nortiqa ↔ Sur Lancer aplicable a la migración  
-- [ ] AppFlowy = espacio operativo principal (sí/no/parcial)  
-- [ ] Fecha de corte para **nuevos** docs en Notion  
-- [ ] Duración de convivencia Notion + AppFlowy  
-- [ ] Responsables admin AppFlowy + validación documental  
-- [ ] 3 procesos “día 1” que deben vivir en AppFlowy  
-- [ ] Autorizar piloto de 3 documentos  
+- [x] Relación Nortiqa ↔ Sur Lancer: **Sur Lancer IN** en LOTE AppFlowy, carpeta/aislamiento propio (`docs/surlancer/`, nodo AppFlowy dedicado) — no mezclar con Valent/LLA/personal  
+- [x] AppFlowy como espacio operativo principal (afirmar para avanzar prep; cutover formal tras DICT)  
+- [ ] Fecha de corte para **nuevos** docs en Notion — **aún no fijada**  
+- [ ] Duración de convivencia Notion + AppFlowy — **aún no fijada**  
+- [ ] Responsables admin AppFlowy + validación documental — **aún no nombrados**  
+- [ ] 3 procesos “día 1” — **aún no listados**  
+- [x] Autorizar prep de piloto / seed governance (sí a seed + brief Claude)
 
-**Hard stop de entidad:** no migrar Valent / ERP Gio+Edson / LLA / clientes / personal sin autorización escrita.
+**Hard stop de entidad:** Valent / ERP Gio+Edson / LLA / personal siguen **fuera** salvo autorización escrita aparte. Sur Lancer entra solo con separación visual/carpeta.
 
 ## 3. Arquitectura objetivo (recomendación)
 

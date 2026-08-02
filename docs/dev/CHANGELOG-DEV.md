@@ -78,9 +78,17 @@ y ratificación de Gio para pasar a PROD.
 - `docs/dev/BRIEF-DICT-NOTION-GIT-APPFLOWY-001.md` — brief para Claude (DICT-NL-NOTION-GIT + DICT-NL-AF-MIG)
 - `docs/shared-ai-memory/handoffs/2026-08-02-notion-git-appflowy-audit-prep.md`
 
+### Follow-up — “sí a todo” (misma sesión)
+
+- Seed `exports/nortiqa-lab-governance/` (árbol multi-entidad + README + APPLY + stub DICT almacenamiento)
+- Sur Lancer marcado IN (AppFlowy LOTE) con aislamiento de carpeta
+- Notion DEV pages creadas (brief Claude + stub DICT):  
+  https://app.notion.com/p/3b0e4fe3bfea81689ba3e0ab7fd71b50  
+  https://app.notion.com/p/3b0e4fe3bfea81458e89c0303b3ac5cb
+
 ### Not changed
 
-- Notion protegido (solo lectura)
-- AppFlowy (sin escritura)
-- Repos product/infra/governance (no creados)
+- Centro Doc Madre / piezas protegidas (no tocadas)
+- Repo GitHub `governance` (no creado en org — solo seed)
+- AppFlowy (sin import/migración)
 - Secretos / VPS
