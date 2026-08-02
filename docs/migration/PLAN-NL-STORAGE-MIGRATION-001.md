@@ -19,13 +19,19 @@ Fuentes: `TAREA-NL-GOBERNANZA-ALMACENAMIENTO-001`, `REG-NL-SESSION-20260619-001`
 
 ## Fases
 
-### Fase 0 — Seed (ESTA ENTREGA)
-1. Estructura `exports/nortiqa-lab-governance/`
-2. Inventario de candidatos Lot A (Nortiqa)
-3. Exportar 1–2 reglas/dictámenes ya ratificados como mirror Git
-4. Schema SQL `nl_agentes_inventario` + `nl_tareas` + seed de agentes lab
-5. Plantilla redirect Notion
-6. **No** crear repo remoto si falta permiso; **no** borrar Notion; **no** migrar Valent content
+### Fase 0 — Seed (ESTA ENTREGA) — cerrando
+1. Estructura `exports/nortiqa-lab-governance/` ✅
+2. Inventario Lot A + Lot B ✅
+3. Mirrors Git de dictámenes/reglas Nortiqa (resúmenes) ✅ — ver inventarios
+4. Schema SQL + seed + `validate_local.py` ✅ (Docker PG o structural)
+5. Plantilla redirect Notion ✅
+6. Pack script listo para import ✅
+7. **No** crear repo remoto si falta permiso; **no** borrar Notion; **no** migrar Valent content
+
+### Fase 0.2 — en curso / siguiente
+- Completar URLs faltantes (GOV-NL-ORG, VISION-FUSION DICT, DICT almacenamiento)
+- Cuando Gio cree `nortiqa-lab/governance`: correr `scripts/pack-for-remote.sh` + APPLY
+- SQL apply staging solo con autorización Gio/OPS
 
 ### Fase 1 — Gio crea `nortiqa-lab/governance` + branch protection
 Aplicar seed vía `exports/nortiqa-lab-governance/APPLY.md`.

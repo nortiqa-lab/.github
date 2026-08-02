@@ -2,6 +2,13 @@
 
 **Do not run against production without Gio + OPS.**
 
+Local validate (no VPS):
+```bash
+python3 exports/sql/validate_local.py
+# prefers Docker postgres:16-alpine; else structural check (sqlite is NOT supported — PG-only SQL)
+```
+
+Staging apply (OPS):
 ```bash
 psql "$DATABASE_URL" -f migrations/003_nl_agentes_tareas.sql
 psql "$DATABASE_URL" -f seed/001_nl_agentes_tareas_seed.sql

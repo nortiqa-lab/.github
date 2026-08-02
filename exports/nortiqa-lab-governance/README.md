@@ -46,9 +46,10 @@ Code, data, and secrets **remain** in separate entity repos (PLAN-NL-GITHUB-001 
 
 ## Current seed contents (Nortiqa only)
 
-- `docs/nortiqa-lab/dictamenes/DICT-NL-NORMA-AGENTES-001-CLAUDE.md` (mirror)
-- `docs/nortiqa-lab/governance/REGLA-NL-VERACIDAD-TOTAL-001.md` (mirror)
-- `docs/nortiqa-lab/specs/NOTION-REDIRECT-TEMPLATE.md`
-- `docs/nortiqa-lab/logs/INV-NL-MIGRATION-CANDIDATES-LOTE-A.md`
+**Dictámenes (mirrors resumidos):** NORMA-AGENTES, GITHUB, EXEC-GATE, DOC-CENT, KNOW-001, AGENTES-OPCIONES, SERVIDOROPS, MEDICION-TOKENS (+ DRAFT almacenamiento).  
+**Reglas:** VERACIDAD-TOTAL, ESCALADA-TEMATICA.  
+**Inventarios:** Lot A + Lot B bajo `docs/nortiqa-lab/logs/`.  
+**Specs:** `NOTION-REDIRECT-TEMPLATE.md`.  
+**Pack:** `scripts/pack-for-remote.sh` → staging dir cuando exista el repo remoto.
 
 No Notion deletes. No Valent/LLA content copied.

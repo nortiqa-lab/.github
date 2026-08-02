@@ -1,33 +1,45 @@
-# AI Session Handoff - 2026-08-02 - Storage migration Fase 0
+# AI Session Handoff - 2026-08-02 - Storage migration Fase 0 → 0.2
 
 ## Metadata
 
 - Date: 2026-08-02
 - Project: Nortiqa Lab — hybrid storage migration
-- AI actor: NL-BUILDER / NL-ORCH
+- AI actor: NL-ORCH / NL-BUILDER
 - Responsible user: Gio
-- State: Fase 0 seed ready; Notion untouched for deletes
+- State: Fase 0 seed ampliado (Lot A mirrors + Lot B inv + SQL validate); Notion sin deletes
 
 ## Canon Read
 
 - MEM-NL-ROOT-001
 - TAREA-NL-GOBERNANZA-ALMACENAMIENTO-001
-- REG-NL-SESSION-20260619-001 (Postgres = operativo)
-- ÍNDICE-NL-AGENTES-PROYECTOS-001
-- DICT-NL-NORMA-AGENTES-001 (mirror seed)
+- REG-NL-SESSION-20260619-001
+- DICT-NL-NORMA-AGENTES-001 (+ mirrors Lot A)
 
 ## Work Completed
 
-- `docs/migration/PLAN-NL-STORAGE-MIGRATION-001.md`
-- `exports/nortiqa-lab-governance/**` seed
-- `exports/sql/**` schema + seed inventory/tasks
-- Notion DEV task updated with progress (no Centro Madre redirects)
+- Ampliación mirrors: KNOW-001, AGENTES-OPCIONES, SERVIDOROPS, MEDICION-TOKENS (+ previos EXEC-GATE, DOC-CENT, GITHUB, ESCALADA)
+- Inventario Lot B
+- `exports/sql/validate_local.py` (Docker PG o structural; **no sqlite**)
+- `scripts/pack-for-remote.sh` para import cuando exista repo
+- Plan actualizado a Fase 0.2
 
 ## Verification
 
-- Files present under exports/; SQL not applied to VPS
-- Repo `nortiqa-lab/governance` still missing (expected)
+- Pack script + validate_local ejecutados en sesión
+- SQL **no** aplicado a VPS
+- Notion **no** borrado; redirects no aplicados
+
+## Could not verify
+
+- Página canónica GOV-NL-ORG-001 / DICT-NL-VISION-FUSION-001 / DICT almacenamiento (URLs no encontradas)
+- Creación repo `nortiqa-lab/governance` (permiso bot)
+
+## Blocked
+
+1. Gio crea `nortiqa-lab/governance`
+2. Gio pasa URLs faltantes
+3. Gio/OPS autoriza SQL staging
 
 ## Next Safe Step
 
-- Gio creates `nortiqa-lab/governance` and/or authorizes staging SQL apply; then Lot A next ratified doc.
+- Gio crea repo governance + pega URLs faltantes; agente corre pack+PR import y sigue Lot B mirrors sin tocar Notion deletes.
