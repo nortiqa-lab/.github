@@ -147,7 +147,8 @@ Solicitud → diagnóstico → inspección → propuesta → implementación mí
 → pruebas → revisión → auditoría → ratificación (Gio) → eventual PROD
 ```
 
-Details: `docs/dev/DEVELOPMENT-WORKFLOW.md`. Autonomy zones: `agents/AUTONOMY.md`.
+Details: `docs/dev/DEVELOPMENT-WORKFLOW.md`. Autonomy zones: `agents/AUTONOMY.md`.  
+RACI (roles + modelos, DEV): `docs/dev/RACI-MODELS-AND-ROLES.md`.
 
 ## Completion criteria
 
