@@ -5,6 +5,27 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — NORTIQA Vanguard (visión DEV)
+
+### Added
+
+- `docs/dev/NORTIQA-VANGUARD.md` — captura versionable de la visión Gio: plataforma operativa (no multi-modelo chat), arquitectura objetivo, niveles 0–5, células, digital twin, memorias, caja negra, evals, soberanía, roadmap Gen4→Gen10
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-nortiqa-vanguard-vision.md`
+
+### Changed
+
+- `docs/dev/DEVELOPMENT-WORKFLOW.md` — enlace a visión Vanguard
+- `agents/README.md` — puntero DEV a Vanguard (sin renombrar roster)
+
+### Not changed
+
+- Notion canon, VPS/prod, secretos, implementación Gen4+/runtime
+- Roles `NL-*` (solo mapeo conceptual en el doc)
+
+### Governance
+
+- Estado: **DEV / Borrador** — requiere auditoría ARCHITECT-001 / `NL-AUDITOR` y ratificación Gio
+
 ## 2026-08-01 — Cursor local kit + docs/dev
 
 ### Added

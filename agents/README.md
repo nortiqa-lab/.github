@@ -35,6 +35,7 @@ Guía: [`LAUNCH.md`](./LAUNCH.md) · Cold start: [`runbooks/cold-start.md`](./ru
 - Roles: [`roles/`](./roles/)
 - Runbooks: [`runbooks/`](./runbooks/)
 - Cursor (DEV): [`.cursor/README.md`](../.cursor/README.md) · [`docs/dev/`](../docs/dev/)
+- Visión plataforma (DEV): [`docs/dev/NORTIQA-VANGUARD.md`](../docs/dev/NORTIQA-VANGUARD.md) — NORTIQA Vanguard; no reemplaza este roster
 
 ## Hard rules (resumen)
 
