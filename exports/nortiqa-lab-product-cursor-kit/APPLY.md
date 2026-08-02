@@ -22,6 +22,7 @@ cd nortiqa-lab
 bash ../nortiqa-org-profile/exports/nortiqa-lab-product-cursor-kit/apply.sh .
 git push -u origin cursor/mirror-cursor-kit-3d56
 # Open PR on GitHub UI → merge
+python3 tools/mission-compiler/compile.py --self-test
 ```
 
 ## One-shot apply (from a clone of the product repo)
@@ -34,18 +35,18 @@ git checkout -b cursor/mirror-cursor-kit-3d56
 
 cp -a "$ORG_KIT/.cursor" .
 cp -a "$ORG_KIT/agents" .
-mkdir -p docs/dev docs/shared-ai-memory/handoffs
+mkdir -p docs/dev docs/shared-ai-memory/handoffs tools
 cp -a "$ORG_KIT/docs/dev/." docs/dev/
 cp "$ORG_KIT/docs/shared-ai-memory/handoffs/"*.md docs/shared-ai-memory/handoffs/
-
-# Replace AGENTS.md / patch CLAUDE.md with package versions (reviewed)
+cp -a "$ORG_KIT/tools/mission-compiler" tools/
 cp "$ORG_KIT/AGENTS.md" AGENTS.md
 cp "$ORG_KIT/CLAUDE.md" CLAUDE.md
 
-git add .cursor agents docs/dev docs/shared-ai-memory/handoffs AGENTS.md CLAUDE.md
-git commit -m "feat(cursor): mirror Nortiqa Cursor kit and NL-* agent team"
+git add .cursor agents docs/dev docs/shared-ai-memory/handoffs tools/mission-compiler AGENTS.md CLAUDE.md
+git commit -m "feat(cursor): mirror Nortiqa Cursor kit, NL-* team, Gen5 dry-run compiler"
 git push -u origin cursor/mirror-cursor-kit-3d56
 # open PR → merge when satisfied
+python3 tools/mission-compiler/compile.py --self-test
 ```
 
 ## Grant bot write access (alternative)
@@ -59,19 +60,11 @@ If you want Cloud Agents to maintain the product repo directly:
 
 | Path | Action |
 |------|--------|
-| `.cursor/` | Create (missing today) |
-| `agents/` | Create (NL-* kit mirror) |
-| `docs/dev/` | Create DEV Cursor docs for product repo |
-| `tools/mission-compiler/` | Optional: copy from org kit root (Gen5 dry-run; not in this package snapshot until refreshed) |
-| `AGENTS.md` | Replace with integrated version (preserves Rule 0) |
+| `.cursor/` | Create / refresh |
+| `agents/` | Create / refresh (NL-* kit mirror) |
+| `docs/dev/` | DEV docs incl. Vanguard, Gen4 closeout, Gen5 Mission Control |
+| `tools/mission-compiler/` | Gen5 dry-run compiler (NL → contract; no side effects) |
+| `AGENTS.md` | Replace with integrated product version |
 | `CLAUDE.md` | Replace with integrated version + Cursor pointers |
 
-### Optional — Gen5 dry-run compiler
-
-From a clone of `nortiqa-lab/.github` (after merging the compiler PR):
-
-```bash
-mkdir -p tools
-cp -a /path/to/nortiqa-lab-.github/tools/mission-compiler tools/
-python3 tools/mission-compiler/compile.py --self-test
-```
+Refresco: 2026-08-02 — incluye Gen4/Gen5/Vanguard + mission-compiler tras merge #6/#7/#10/#12.

@@ -17,7 +17,7 @@ BRANCH="cursor/mirror-cursor-kit-3d56"
 git fetch origin
 git checkout -B "$BRANCH" origin/main 2>/dev/null || git checkout -B "$BRANCH" main
 
-mkdir -p docs/dev docs/shared-ai-memory/handoffs
+mkdir -p docs/dev docs/shared-ai-memory/handoffs tools
 cp -a "$SCRIPT_DIR/.cursor" .
 cp -a "$SCRIPT_DIR/agents" .
 cp -a "$SCRIPT_DIR/docs/dev/." docs/dev/
@@ -25,10 +25,20 @@ cp -a "$SCRIPT_DIR/docs/shared-ai-memory/handoffs/." docs/shared-ai-memory/hando
 cp "$SCRIPT_DIR/AGENTS.md" AGENTS.md
 cp "$SCRIPT_DIR/CLAUDE.md" CLAUDE.md
 
+if [[ -d "$SCRIPT_DIR/tools/mission-compiler" ]]; then
+  rm -rf tools/mission-compiler
+  cp -a "$SCRIPT_DIR/tools/mission-compiler" tools/
+  rm -rf tools/mission-compiler/__pycache__
+fi
+
 git add .cursor agents docs/dev docs/shared-ai-memory/handoffs AGENTS.md CLAUDE.md
+if [[ -d tools/mission-compiler ]]; then
+  git add tools/mission-compiler
+fi
 git status --short
-git commit -m "feat(cursor): mirror Nortiqa Cursor kit and NL-* agent team"
+git commit -m "feat(cursor): mirror Nortiqa Cursor kit, NL-* team, Gen5 dry-run compiler"
 echo
 echo "Next:"
 echo "  git push -u origin $BRANCH"
 echo "  # then open a PR into main"
+echo "  python3 tools/mission-compiler/compile.py --self-test"

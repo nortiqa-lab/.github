@@ -5,6 +5,24 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Merge stack + exports refresh
+
+### Merged to main
+
+- PR #7 Vanguard vision
+- PR #10 Gen5 Mission Control schema
+- PR #12 Gen5 mission compiler dry-run
+- PR #6 Gen4 wrapper root closeout checklist
+
+### Changed
+
+- `exports/nortiqa-lab-product-cursor-kit/` — refresh agents/docs + embed `tools/mission-compiler`; `apply.sh` copies compiler
+
+### Not changed
+
+- Product repo remote (still no bot push) — Gio runs `APPLY.md` / `apply.sh`
+- Host/prod (Gen4 wrapper already closed per #6 evidence)
+
 ## 2026-08-02 — Gen5 mission compiler dry-run
 
 ### Added
