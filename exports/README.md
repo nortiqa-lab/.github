@@ -5,6 +5,10 @@ Packages prepared for other Nortiqa repositories when this Cloud Agent identity 
 | Package | Target | Status |
 |---------|--------|--------|
 | `nortiqa-lab-product-cursor-kit/` | `giovanyalbea-dotcom/nortiqa-lab` | Ready to apply (`APPLY.md`); push blocked for `cursor[bot]` |
+| `nortiqa-lab-governance/` | private repo `nortiqa-lab/governance` (Gio creates) | Seed ready — see `APPLY.md` / `apply.sh` |
+| `sql/` | PostgreSQL `sc2027-staging-db` | Schema+seed DEV — **not applied** |
+
+Plan: `docs/migration/PLAN-NL-STORAGE-MIGRATION-001.md`
 
 Related staging OPS kit (lives in-repo, not under `exports/`):
 
