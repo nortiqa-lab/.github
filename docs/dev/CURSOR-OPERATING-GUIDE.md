@@ -49,6 +49,17 @@ Cursor implements and documents. It does **not** ratify or promote to PROD. Gio 
 
 Do not invent app commands in this repo. For application work, open `giovanyalbea-dotcom/nortiqa-lab` and discover its real toolchain.
 
+## Visual evidence (Cursor only)
+
+For UI / mock / browser demos, follow `.cursor/rules/80-visual-evidence.mdc`:
+
+- Capture screenshots (and short video when the flow matters)
+- Store under `/opt/cursor/artifacts/` (do not dump binaries into git by default)
+- Show key frames in the final reply and draft PR
+- Skip for Markdown-only / non-visual kit edits unless Gio asks
+
+This is a **Cursor persistence** practice; it does not alter `agents/` autonomy zones.
+
 ## Session close
 
 Write a handoff from `docs/shared-ai-memory/handoff-template.md` and list one next safe step.
