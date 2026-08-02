@@ -30,13 +30,16 @@
 
 ## Work Completed
 
-1. Revisión Notion (read-only): raíz, madre, canon, planes AppFlowy/GitHub, DOC-CENT 241.
-2. Inventario Git: `.github` kit; product thin; repos DICT (`infra`, etc.) **ausentes**.
+1. Revisión Notion (read-only): raíz, madre, canon, planes AppFlowy/GitHub, DOC-CENT 241, folder DEV Propuestas.
+2. Inventario Git: `.github` kit; product thin; repos DICT (`infra`, etc.) **ausentes**; `governance` ausente.
 3. Docs DEV:
    - `docs/dev/AUDIT-NOTION-GIT-NORMALIZATION-001.md`
    - `docs/dev/PLAN-APPFLOWY-MIGRATION-PREP-001.md`
    - `docs/dev/inventories/notion-git-gap-template.csv`
-4. Detectados duplicados Manifiesto y Prompt Maestro.
+   - `docs/dev/inventories/notion-git-gap-inventory-2026-08-02.csv` (83 filas)
+   - `docs/dev/inventories/INVENTORY-SUMMARY-2026-08-02.md`
+   - `docs/dev/BRIEF-DICT-NOTION-GIT-APPFLOWY-001.md`
+4. Detectados duplicados Manifiesto y Prompt Maestro; matriz storage → `nortiqa-lab/governance`.
 5. No se escribió en Notion protegido; no se migró nada a AppFlowy.
 
 ## Verification

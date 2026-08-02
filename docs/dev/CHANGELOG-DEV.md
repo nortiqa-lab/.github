@@ -73,11 +73,14 @@ y ratificación de Gio para pasar a PROD.
 - `docs/dev/AUDIT-NOTION-GIT-NORMALIZATION-001.md` — auditoría Notion→Git (gaps, fases, exclusiones entidad)
 - `docs/dev/PLAN-APPFLOWY-MIGRATION-PREP-001.md` — prep migración (sobre PLAN-NL-AF-MIG-001 existente)
 - `docs/dev/inventories/notion-git-gap-template.csv` — plantilla inventario gap
+- `docs/dev/inventories/notion-git-gap-inventory-2026-08-02.csv` — seed 83 filas (P0–EXCLUDE)
+- `docs/dev/inventories/INVENTORY-SUMMARY-2026-08-02.md`
+- `docs/dev/BRIEF-DICT-NOTION-GIT-APPFLOWY-001.md` — brief para Claude (DICT-NL-NOTION-GIT + DICT-NL-AF-MIG)
 - `docs/shared-ai-memory/handoffs/2026-08-02-notion-git-appflowy-audit-prep.md`
 
 ### Not changed
 
 - Notion protegido (solo lectura)
 - AppFlowy (sin escritura)
-- Repos product/infra (no creados)
+- Repos product/infra/governance (no creados)
 - Secretos / VPS
