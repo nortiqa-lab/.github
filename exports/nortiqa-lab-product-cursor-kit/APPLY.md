@@ -62,5 +62,16 @@ If you want Cloud Agents to maintain the product repo directly:
 | `.cursor/` | Create (missing today) |
 | `agents/` | Create (NL-* kit mirror) |
 | `docs/dev/` | Create DEV Cursor docs for product repo |
+| `tools/mission-compiler/` | Optional: copy from org kit root (Gen5 dry-run; not in this package snapshot until refreshed) |
 | `AGENTS.md` | Replace with integrated version (preserves Rule 0) |
 | `CLAUDE.md` | Replace with integrated version + Cursor pointers |
+
+### Optional — Gen5 dry-run compiler
+
+From a clone of `nortiqa-lab/.github` (after merging the compiler PR):
+
+```bash
+mkdir -p tools
+cp -a /path/to/nortiqa-lab-.github/tools/mission-compiler tools/
+python3 tools/mission-compiler/compile.py --self-test
+```
