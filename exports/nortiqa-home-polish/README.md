@@ -22,13 +22,15 @@ de producto gritando “demo/MVP/prototipo”. La plataforma NORTIQA queda como
 
 | Archivo | Rol |
 |---------|-----|
-| `index.html` | Home pulido (estático) |
+| `index.html` | Home pulido (estático) — **no tocar** salvo nueva pasada visual |
 | `style.base.css` | Snapshot CSS del tema vivo |
 | `polish.css` | Overlay de jerarquía / motion / capas |
 | `nav.js` | Menú móvil del tema |
 | `tests/test_home_content.py` | Contrato de contenido (9 tests) |
+| `scripts/check_package.py` | Dry-run integridad (sin deploy) |
 | `SECTION-HIERARCHY.md` | Orden y jerarquía propuestos |
-| `APPLY.md` | Cómo llevar esto al tema WP / producto |
+| `COPY-DIFF.md` | Mapa live → polish para OPS |
+| `APPLY.md` | Checklist dry-run + gates OPS |
 
 ## Vista local
 
@@ -38,9 +40,10 @@ python3 -m http.server 8765
 # abrir http://127.0.0.1:8765/
 ```
 
-## Validación
+## Validación (sin modificar la web)
 
 ```bash
+python3 exports/nortiqa-home-polish/scripts/check_package.py
 python3 -m unittest discover -s exports/nortiqa-home-polish/tests -p 'test_*.py'
 git diff --check -- exports/nortiqa-home-polish
 ```

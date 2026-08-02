@@ -1,40 +1,69 @@
-# APPLY — llevar el polish al home real
+# APPLY — port del polish al tema WP (humano / OPS)
 
 Estado: DEV / Borrador
 
+**Restricción de esta sesión:** avanzar documentación y dry-run **sin modificar la web**
+(ni `nortiqalab.com`, ni assets visuales del paquete).
+
 ## Hecho (fact)
 
-- El home de producción se renderiza con el tema WordPress `nortiqa-lab`
-  en `https://nortiqalab.com/` (no vive en este repo `.github`).
-- Este paquete es el borrador versionable de la pasada fina.
+- Home prod = tema `nortiqa-lab` en VPS detrás de `https://nortiqalab.com/`.
+- Paquete versionable: este directorio (`exports/nortiqa-home-polish/`).
+- Diff de copy: [`COPY-DIFF.md`](./COPY-DIFF.md).
+- Jerarquía: [`SECTION-HIERARCHY.md`](./SECTION-HIERARCHY.md).
 
-## Inferencia
+## Dry-run local (sin deploy) — cualquiera
 
-- El markup del home está en plantillas PHP del tema (p. ej. `front-page.php` /
-  partes del theme), no en el bloque Gutenberg de la página “Inicio”
-  (esa página tiene columnas residuales vía REST).
+```bash
+cd exports/nortiqa-home-polish
+python3 scripts/check_package.py
+python3 -m unittest discover -s tests -p 'test_*.py'
+# Preview opcional (solo localhost; no es prod):
+# python3 -m http.server 8765
+```
 
-## Aplicación recomendada (humana / OPS)
+Criterio dry-run OK: exit 0 en check + 9/9 tests.
 
-1. Revisar visualmente el estático:
-   `python3 -m http.server` dentro de este directorio.
-2. Diff conceptual: `index.html` + `polish.css` vs tema en VPS
-   (`wp-content/themes/nortiqa-lab/`).
-3. Portar copy + estructura al theme; anexar reglas de `polish.css`
-   (o mergear) al `style.css` del tema y subir versión.
-4. No promover a PROD sin gates OPS + ratificación Gio.
+## Checklist OPS (cuando Gio autorice tocar el tema)
+
+> Zona roja hasta autorización explícita. Comandos siguientes son **documentación**, no ejecución automática.
+
+1. **Backup tema** en el host (ruta real a confirmar en VPS):
+   ```bash
+   # PENDIENTE DE VALIDACIÓN — path típico WP; confirmar antes
+   sudo -u <wp-user> tar -C /var/www/<site>/wp-content/themes \
+     -czf ~/backups/nortiqa-lab-theme-$(date -u +%Y%m%dT%H%M%SZ).tgz nortiqa-lab
+   ```
+2. **Diff conceptual** en staging/copia local del tema:
+   - Markup: `front-page.php` (u home template) ↔ `index.html` del paquete
+   - Copy: filas de `COPY-DIFF.md`
+   - CSS: append `polish.css` → `style.css`; bump Version
+   - JS: `assets/nav.js` ya alineado; no requiere cambio salvo regresión
+3. **No** editar prod a ciegas: preferir copia staging del tema o child-theme temporal.
+4. Tras port: health público read-only
+   ```bash
+   curl -sS -o /dev/null -w "%{http_code}\n" https://nortiqalab.com/
+   ```
+5. Smoke visual: hero eyebrow, badges, roadmap stage, mobile nav.
+6. Rollback = restaurar tarball del paso 1.
 
 ## Alternativa producto-repo
 
-Si se quiere espejo estático en `giovanyalbea-dotcom/nortiqa-lab`:
+`giovanyalbea-dotcom/nortiqa-lab` `site/site/index.html` está desalineado/corrupto (sin tags HTML).
+No es el home prod. Solo espejar si Gio lo pide aparte.
 
-- Hoy `site/site/index.html` en ese repo aparece **sin tags HTML**
-  (solo texto) — tratar como corrupto/desalineado del home WP.
-- Aplicar este paquete ahí requiere write access (bot tuvo 403 antes)
-  o apply manual por Gio.
+## No hacer desde agent Cloud
 
-## No hacer desde este agent
+- Editar VPS / tema live
+- Nginx reload, DNS, secretos
+- Declarar PROD / oficial
+- Merge a `main` sin política Gio
 
-- Editar archivos en el VPS
-- Reload Nginx / deploy WP
-- Declarar el cambio en producción
+## Gate de cierre
+
+| Gate | Owner |
+|------|--------|
+| Ratificar copy/jerarquía | Gio |
+| Auditoría draft (opcional) | NL-AUDITOR / ARCHITECT-001 |
+| Privileged theme write | NL-OPS + Gio |
+| Merge PR kit | Gio / política repo |

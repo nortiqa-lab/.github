@@ -5,6 +5,26 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Home polish apply-prep (sin tocar la web)
+
+### Added
+
+- `exports/nortiqa-home-polish/COPY-DIFF.md` — mapa live→polish para OPS
+- `exports/nortiqa-home-polish/scripts/check_package.py` — dry-run integridad
+- `docs/dev/HOME-POLISH-APPLY-READY.md` — estado parked / gates
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-home-polish-apply-prep.md`
+
+### Changed
+
+- `exports/nortiqa-home-polish/APPLY.md` — checklist dry-run + gates OPS
+- `exports/nortiqa-home-polish/README.md` — comandos dry-run
+
+### Not changed
+
+- Assets web del paquete (`index.html`, `polish.css`, `style.base.css`, `nav.js`)
+- Producción `nortiqalab.com` / tema WP en VPS
+- Notion canon
+
 ## 2026-08-02 — Home institutional polish (pasada fina)
 
 ### Added
