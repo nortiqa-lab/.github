@@ -35,7 +35,7 @@ Guía: [`LAUNCH.md`](./LAUNCH.md) · Cold start: [`runbooks/cold-start.md`](./ru
 - Roles: [`roles/`](./roles/)
 - Runbooks: [`runbooks/`](./runbooks/)
 <<<<<<< HEAD
-- Canal Telegram (diseño): [`channels/TELEGRAM.md`](./channels/TELEGRAM.md)
+- Canal Telegram: [`channels/TELEGRAM.md`](./channels/TELEGRAM.md) · kit staging [`../server-ops/sc2027/telegram-bridge/`](../server-ops/sc2027/telegram-bridge/)
 =======
 - Cursor (DEV): [`.cursor/README.md`](../.cursor/README.md) · [`docs/dev/`](../docs/dev/)
 - Visión plataforma (DEV): [`docs/dev/NORTIQA-VANGUARD.md`](../docs/dev/NORTIQA-VANGUARD.md) — NORTIQA Vanguard; no reemplaza este roster

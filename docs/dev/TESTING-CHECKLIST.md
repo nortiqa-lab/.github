@@ -42,6 +42,21 @@ From `agents/runbooks/ops-public-health.md` — only if network allowed and task
 
 Do **not** treat health GETs as license to change production.
 
+## D2. Telegram NL bridge kit (this repo)
+
+```bash
+cd server-ops/sc2027/telegram-bridge
+PYTHONPATH=. python3 -m unittest discover -s tests -v
+./sync-nl-kit.sh
+PYTHONPATH=. python3 -m nl.service --self-test
+./apply-staging.sh   # dry-run only unless APPLY=1 on staging host
+```
+
+- [ ] Unit tests pass
+- [ ] `sync-nl-kit.sh` completes
+- [ ] `--self-test` ok
+- [ ] No token / allowlist secrets committed
+
 ## E. Product repo (when applicable)
 
 Mark all as `PENDIENTE DE VALIDACIÓN` until discovered in `giovanyalbea-dotcom/nortiqa-lab`:

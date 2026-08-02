@@ -12,6 +12,7 @@ metadata:
   bot_username: NortiqaServidorOpsBot
   unit: sc2027-telegram-agent.service
   code_path: /home/deploy/sc2027-staging/telegram-bridge/
+  # versionable source in git: server-ops/sc2027/telegram-bridge/
 
 spec:
   channel:
