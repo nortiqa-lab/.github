@@ -34,6 +34,7 @@ Guiding principle:
 
 ## Known open OPS blockers (as of last handoffs)
 
+- **Generación 4 (2026-08-02):** wrapper root pending on VPS — exact command in `docs/dev/GEN4-WRAPPER-ROOT-CLOSEOUT.md` (`sudo install … /usr/local/sbin/sc2027-botctl`). After install: healthcheck host + real restore point; previews stay loopback.
 - Login portal package ready; install needs root/`sc2027`.
 - `/opt/sc2027/.env` permissions hardening needs privileged user.
 - Nginx scanner-path hardening needs privileged write.
