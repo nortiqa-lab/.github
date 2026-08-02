@@ -5,6 +5,27 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Gen5 Mission Control (schema DEV)
+
+### Added
+
+- `docs/dev/GEN5-MISSION-CONTROL.md` — estados, cierre verificable, compilador NL→contrato, mapa AUTONOMY/DISPATCH
+- `docs/dev/schemas/mission-contract.v0.json` — JSON Schema v0 del contrato de misión
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-gen5-mission-control-schema.md`
+
+### Changed
+
+- `docs/dev/NORTIQA-VANGUARD.md` — próximo paso apunta al schema Gen5
+- `docs/dev/DEVELOPMENT-WORKFLOW.md`, `agents/README.md` — punteros Gen5
+
+### Not changed
+
+- Runtime/parser en product repo, VPS/prod, Notion canon, Gen6+ cells
+
+### Governance
+
+- Estado: **DEV / Borrador** — auditoría + ratificación Gio pendientes
+
 ## 2026-08-02 — NORTIQA Vanguard (visión DEV)
 
 ### Added

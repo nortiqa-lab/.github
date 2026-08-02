@@ -36,6 +36,7 @@ Guía: [`LAUNCH.md`](./LAUNCH.md) · Cold start: [`runbooks/cold-start.md`](./ru
 - Runbooks: [`runbooks/`](./runbooks/)
 - Cursor (DEV): [`.cursor/README.md`](../.cursor/README.md) · [`docs/dev/`](../docs/dev/)
 - Visión plataforma (DEV): [`docs/dev/NORTIQA-VANGUARD.md`](../docs/dev/NORTIQA-VANGUARD.md) — NORTIQA Vanguard; no reemplaza este roster
+- Gen5 Mission Control (DEV): [`docs/dev/GEN5-MISSION-CONTROL.md`](../docs/dev/GEN5-MISSION-CONTROL.md) — contrato de misión; no es runtime
 
 ## Hard rules (resumen)
 
