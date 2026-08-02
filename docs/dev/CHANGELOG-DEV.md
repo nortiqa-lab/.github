@@ -5,6 +5,30 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — LLA aportes F3 tesorería DEV (simulación)
+
+### Added
+
+- API F3: `GET /v1/ledger`, reconcile/unreconcile, treasury summary + CSV, receipt HTML
+- `web/tesoreria.html` + `tesoreria.js`
+- `tools/test_api_f3.py`, `docs/F3-SCOPE.md`
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-lla-aportes-f3-treasury.md`
+
+### Changed
+
+- `config/app.json` → `0.3.0-f3-dev`
+- Schema ledger: campos conciliación + `reconciliation_events`
+- ARCH F3 marcado HECHO en DEV
+
+### Verified
+
+- `test_api_f2.py` + `test_api_f3.py` + `check_package` OK
+- Checkout sigue bloqueado (409)
+
+### Not changed
+
+- Cobros reales / MP sandbox / DNS / `payments_enabled=true` / dictamen G1
+
 ## 2026-08-02 — G1 dossier aportes LLA SC (para asesores)
 
 ### Added

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tesorería simulación — LLA Santa Cruz</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">LLA Santa Cruz · Tesorería</div>
+      <div class="badge">F3 simulación · sin cobros</div>
+    </header>
+
+    <section class="hero">
+      <h1>Conciliación DEV</h1>
+      <p>Vista interna de ledger simulado, comprobantes y export CSV. No opera dinero real.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Resumen</h2>
+      <p id="apiStatus" class="muted">Conectando API…</p>
+      <div class="row-2" id="summaryGrid">
+        <div><strong>Entradas</strong><div id="sumEntries">—</div></div>
+        <div><strong>Bruto sim.</strong><div id="sumGross">—</div></div>
+        <div><strong>Pendientes</strong><div id="sumPending">—</div></div>
+        <div><strong>Conciliados</strong><div id="sumOk">—</div></div>
+      </div>
+      <p class="actions" style="margin-top:1rem">
+        <a class="btn" id="exportLink" href="#">Descargar CSV</a>
+        <a class="btn secondary" href="./index.html">Volver a aportes</a>
+      </p>
+    </section>
+
+    <section class="panel" style="margin-top:1.25rem">
+      <h2>Ledger</h2>
+      <div class="table-wrap">
+        <table class="data" id="ledgerTable">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Monto</th>
+              <th>Destino</th>
+              <th>Comprobante</th>
+              <th>Estado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <script src="./tesoreria.js"></script>
+</body>
+</html>

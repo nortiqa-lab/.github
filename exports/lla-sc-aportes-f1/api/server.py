@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""F2 DEV API for LLA SC aportes — stdlib only, simulation-first."""
+"""F2/F3 DEV API for LLA SC aportes — stdlib only, simulation-first."""
 
 from __future__ import annotations
 
@@ -19,7 +19,13 @@ from db import (  # noqa: E402
     connect,
     create_intent,
     create_mandate,
+    get_receipt,
+    list_ledger,
     list_receipts,
+    reconcile_ledger,
+    render_receipt_html,
+    treasury_export_csv,
+    treasury_summary,
     update_mandate_status,
 )
 from mp_adapter import MercadoPagoAdapter  # noqa: E402
@@ -34,7 +40,7 @@ def json_bytes(data: dict | list, code: int = 200) -> tuple[int, bytes]:
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "LLA-SC-Aportes-F2/0.2"
+    server_version = "LLA-SC-Aportes-F3/0.3"
 
     def log_message(self, fmt: str, *args) -> None:
         sys.stderr.write("%s - %s\n" % (self.address_string(), fmt % args))
@@ -63,19 +69,23 @@ class Handler(BaseHTTPRequestHandler):
         self._send(204, b"")
 
     def do_GET(self) -> None:  # noqa: N802
-        path = urlparse(self.path).path
+        parsed = urlparse(self.path)
+        path = parsed.path
+        qs = parse_qs(parsed.query)
+
         if path in {"/", "/health"}:
             code, body = json_bytes(
                 {
                     "ok": True,
-                    "service": "lla-sc-aportes-f2",
+                    "service": "lla-sc-aportes-f3",
+                    "version": CONFIG.get("version"),
                     "payments_enabled": bool(CONFIG.get("payments_enabled")),
                     "psp_mode": (CONFIG.get("psp") or {}).get("mode"),
+                    "features": ["f2_intents", "f3_treasury", "f3_receipts_html"],
                 }
             )
             return self._send(code, body)
         if path == "/v1/campaigns/active":
-            qs = parse_qs(urlparse(self.path).query)
             destination = (qs.get("destination") or [None])[0]
             now = (qs.get("now") or [None])[0]
             return self._send(*json_bytes(evaluate(CAMPAIGNS, now=now, destination_id=destination)))
@@ -89,11 +99,45 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/v1/receipts":
             with connect() as conn:
                 return self._send(*json_bytes({"receipts": list_receipts(conn)}))
+        if path.startswith("/v1/receipts/") and path.endswith(".html"):
+            rid = path[len("/v1/receipts/") : -len(".html")]
+            return self._receipt_html(rid)
+        if path.startswith("/v1/receipts/"):
+            rid = path.split("/")[3]
+            return self._receipt_json(rid)
+        if path == "/v1/ledger":
+            reconciled = (qs.get("reconciled") or [None])[0]
+            limit = int((qs.get("limit") or ["100"])[0])
+            with connect() as conn:
+                return self._send(
+                    *json_bytes(
+                        {
+                            "simulation_only": True,
+                            "ledger": list_ledger(conn, limit=limit, reconciled=reconciled),
+                        }
+                    )
+                )
+        if path == "/v1/treasury/summary":
+            with connect() as conn:
+                return self._send(*json_bytes(treasury_summary(conn)))
+        if path == "/v1/treasury/export.csv":
+            with connect() as conn:
+                csv_text = treasury_export_csv(conn)
+            body = csv_text.encode("utf-8")
+            self.send_response(200)
+            self._cors()
+            self.send_header("Content-Type", "text/csv; charset=utf-8")
+            self.send_header("Content-Disposition", 'attachment; filename="lla-sc-aportes-sim.csv"')
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
         if path == "/v1/config":
             safe = {
                 "payments_enabled": CONFIG.get("payments_enabled"),
                 "currency": CONFIG.get("currency"),
                 "disclaimer": CONFIG.get("disclaimer"),
+                "version": CONFIG.get("version"),
                 "psp": {
                     "primary": (CONFIG.get("psp") or {}).get("primary"),
                     "mode": (CONFIG.get("psp") or {}).get("mode"),
@@ -119,11 +163,49 @@ class Handler(BaseHTTPRequestHandler):
         if path.startswith("/v1/mandates/") and path.endswith("/cancel"):
             mid = path.split("/")[3]
             return self._mandate_status(mid, "cancelled")
+        if path.startswith("/v1/ledger/") and path.endswith("/reconcile"):
+            lid = path.split("/")[3]
+            return self._reconcile(lid, payload, unreconcile=False)
+        if path.startswith("/v1/ledger/") and path.endswith("/unreconcile"):
+            lid = path.split("/")[3]
+            return self._reconcile(lid, payload, unreconcile=True)
         if path == "/v1/checkout":
             return self._checkout(payload)
         if path == "/v1/webhooks/mercadopago":
             return self._webhook(payload)
         self._send(*json_bytes({"error": "not_found", "path": path}, 404))
+
+    def _receipt_json(self, receipt_id: str) -> None:
+        with connect() as conn:
+            receipt = get_receipt(conn, receipt_id)
+        if not receipt:
+            return self._send(*json_bytes({"error": "receipt_not_found"}, 404))
+        self._send(*json_bytes({"receipt": receipt, "simulation_only": True}))
+
+    def _receipt_html(self, receipt_id: str) -> None:
+        with connect() as conn:
+            receipt = get_receipt(conn, receipt_id)
+        if not receipt:
+            return self._send(*json_bytes({"error": "receipt_not_found"}, 404))
+        html = render_receipt_html(receipt, entity_label="LLA Santa Cruz")
+        self._send(200, html.encode("utf-8"), content_type="text/html")
+
+    def _reconcile(self, ledger_id: str, payload: dict, *, unreconcile: bool) -> None:
+        actor = (payload.get("actor") or "").strip() or "tesoreria-dev"
+        note = payload.get("note")
+        try:
+            with connect() as conn:
+                result = reconcile_ledger(
+                    conn,
+                    ledger_id,
+                    actor=actor,
+                    note=note,
+                    unreconcile=unreconcile,
+                )
+        except KeyError:
+            return self._send(*json_bytes({"error": "ledger_not_found"}, 404))
+        result["simulation_only"] = True
+        self._send(*json_bytes(result))
 
     def _create_intent(self, payload: dict) -> None:
         required = ["name", "email", "amount_cents", "destination_id", "mode"]
@@ -201,7 +283,6 @@ class Handler(BaseHTTPRequestHandler):
     def _webhook(self, payload: dict) -> None:
         adapter = MercadoPagoAdapter(CONFIG)
         result = adapter.handle_webhook(payload)
-        # Acknowledge without mutating money state while disabled
         self._send(
             *json_bytes(
                 {
@@ -224,7 +305,7 @@ def main(argv: list[str] | None = None) -> int:
         print("REFUSING TO START: payments_enabled must be false in this DEV package", file=sys.stderr)
         return 2
     httpd = ThreadingHTTPServer((args.host, args.port), Handler)
-    print(f"LLA SC aportes F2 API on http://{args.host}:{args.port} (payments_enabled=false)")
+    print(f"LLA SC aportes F3 API on http://{args.host}:{args.port} (payments_enabled=false)")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

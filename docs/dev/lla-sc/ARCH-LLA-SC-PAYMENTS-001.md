@@ -283,16 +283,17 @@ Nortiqa agentes: **solo DEV docs/código en repos autorizados**; sin acceso a le
 | F0 | Este ARCH + gates G1–G8 checklist | No |
 | F1 | UI mock + CampaignRules — **HECHO** en `exports/lla-sc-aportes-f1/` (2026-08-02) | Simulado |
 | F2 | API + SQLite local + MP stub — **HECHO en DEV** (2026-08-02); sandbox MP real pendiente G1+G7 | Simulado (stub) |
-| F3 | Conciliación + comprobantes + export tesorería | Sandbox |
+| F3 | Conciliación + comprobantes HTML + export CSV — **HECHO en DEV** (2026-08-02); sin plata real | Simulado |
 | F4 | Dictámenes cerrados + go-live limitado | Sí, post G8 |
 | F5 | Recurrente + campañas periódicas prod | Sí |
 
-### Estado F1 + F2 DEV (2026-08-02)
+### Estado F1 + F2 + F3 DEV (2026-08-02)
 
-- Paquete: `exports/lla-sc-aportes-f1/`
+- Paquete: `exports/lla-sc-aportes-f1/` (`0.3.0-f3-dev`)
 - `payments_enabled=false` enforced (API no arranca si true)
 - Motor: `tools/campaign_rules.py` (+ espejo JS)
-- API: `api/server.py` — intents/mandates/receipts/checkout/webhook
+- API: `api/server.py` — intents/mandates/receipts/checkout/webhook + ledger/treasury F3
+- UI tesorería: `web/tesoreria.html`
 - MP adapter: stub bloqueante hasta gates
 - G1: dossier `exports/lla-sc-aportes-f1/g1/` + checklist + `legal/DRAFT-*.md` (asesores pendientes)
 - Pendiente humano: dictamen G1 escrito; luego G7 sandbox MP real (credenciales fuera de git)
@@ -335,4 +336,4 @@ Este ARCH es el **submódulo financiero de aportes** para la web LLA SC:
 
 ## 14. Próximo paso (uno)
 
-Gio entrega el dossier `exports/lla-sc-aportes-f1/g1/` a asesores legales/fiscales/tesorería y obtiene dictamen escrito (cierra G1). Tech no avanza a sandbox MP real hasta entonces.
+Gio entrega el dossier `g1/` a asesores y cierra G1 por escrito. En paralelo, tesorería puede probar export/conciliación simulada en `web/tesoreria.html`. Sandbox MP real = solo post-G1 (+ G7).

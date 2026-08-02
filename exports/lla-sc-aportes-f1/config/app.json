@@ -1,7 +1,7 @@
 {
   "entity": "lla-santa-cruz",
   "app_id": "lla-sc-aportes-f1",
-  "version": "0.2.0-f2-dev",
+  "version": "0.3.0-f3-dev",
   "payments_enabled": false,
   "currency": "ARS",
   "locale": "es-AR",

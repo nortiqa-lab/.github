@@ -1,4 +1,4 @@
-# APPLY — LLA SC Aportes F1 (sin cobros)
+# APPLY — LLA SC Aportes F1–F3 (sin cobros)
 
 Estado: DEV / Borrador
 
@@ -23,10 +23,11 @@ Publicar el mock en un entorno **staging LLA** (o revisión local) con `payments
 6. Abrir `/web/` y probar:
    - montos con campaña agosto (−20% + floor);
    - destino Río Turbio destacado;
-   - aporte único/mensual vía API (`source: api-f2`);
+   - aporte único/mensual vía API;
    - `POST /v1/checkout` sigue bloqueado;
    - consentimiento obligatorio.
-7. Entregar `G1-CHECKLIST.md` + `legal/DRAFT-*.md` a asesores.
+7. Abrir `/web/tesoreria.html`: ledger, conciliar, CSV, comprobante HTML.
+8. Entregar `g1/` + `legal/DRAFT-*.md` a asesores.
 
 ## Prohibido en este apply
 
@@ -37,4 +38,4 @@ Publicar el mock en un entorno **staging LLA** (o revisión local) con `payments
 
 ## Rollback
 
-Quitar el vhost/staging o restaurar la carpeta anterior. No hay datos server-side en F1 (solo localStorage del browser).
+Quitar el vhost/staging o restaurar la carpeta anterior. Borrar SQLite local en `var/` si se usó API DEV (gitignored).

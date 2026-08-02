@@ -48,6 +48,7 @@ Leyenda: `🔴` bloqueado · `🟡` en curso / parcial · `🟢` cerrado con evi
 | ARCH pagos | 🟢 DEV publicado |
 | F1 mock `/aportar` | 🟢 simulación |
 | F2 API + MP stub | 🟢 `payments_enabled=false` hard stop |
+| F3 tesorería sim (ledger/CSV/HTML) | 🟢 DEV |
 | CampaignRules self-test | 🟢 |
 | Secretos PSP en git | 🟢 ausentes (correcto) |
 | Cobro real / sandbox MP | 🔴 no iniciado |
@@ -62,6 +63,7 @@ Leyenda: `🔴` bloqueado · `🟡` en curso / parcial · `🟢` cerrado con evi
 | 2026-08-02 | G5 | ⚪ → 🟡 | Drafts legales creados, no aprobados |
 | 2026-08-02 | G6 | ⚪ → 🟡 | Calificación propuesta en ARCH; sin dictamen |
 | 2026-08-02 | G7/G8 | — → 🔴 | Explícitamente bloqueados |
+| 2026-08-02 | (tech) F3 | — → 🟢 DEV | Conciliación/export sin PSP |
 
 ---
 

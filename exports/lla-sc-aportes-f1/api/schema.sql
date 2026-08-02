@@ -47,7 +47,10 @@ CREATE TABLE IF NOT EXISTS ledger (
   fees_cents INTEGER NOT NULL DEFAULT 0,
   status TEXT NOT NULL,
   psp_payment_id TEXT,
-  created_at TEXT NOT NULL
+  created_at TEXT NOT NULL,
+  reconciled_at TEXT,
+  reconciled_by TEXT,
+  reconciliation_note TEXT
 );
 
 CREATE TABLE IF NOT EXISTS receipts (
@@ -56,6 +59,16 @@ CREATE TABLE IF NOT EXISTS receipts (
   number TEXT NOT NULL,
   payload_json TEXT NOT NULL,
   issued_at TEXT NOT NULL,
+  FOREIGN KEY(ledger_id) REFERENCES ledger(id)
+);
+
+CREATE TABLE IF NOT EXISTS reconciliation_events (
+  id TEXT PRIMARY KEY,
+  ledger_id TEXT NOT NULL,
+  action TEXT NOT NULL,
+  actor TEXT NOT NULL,
+  note TEXT,
+  created_at TEXT NOT NULL,
   FOREIGN KEY(ledger_id) REFERENCES ledger(id)
 );
 
