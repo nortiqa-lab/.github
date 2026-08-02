@@ -1,0 +1,40 @@
+---
+description: Testing and validation order for this docs/agent-kit repository
+alwaysApply: true
+---
+
+# Testing and validation
+
+## Reality of this repo
+
+No application unit/integration test suite, linter config, or formatter config exists in `nortiqa-lab/.github` today.
+
+Validation here means:
+
+1. Structure and link consistency (files referenced exist)
+2. Git cleanliness / intended diff review
+3. Optional public health GETs from `agents/runbooks/ops-public-health.md` (read-only)
+4. Markdown/content review for contradictions with `AGENTS.md` / autonomy
+
+## Order of work
+
+1. Identify existing checks (runbooks, CI if added later)
+2. Run **lowest-risk** validations first (local file/git inspection)
+3. Test only what the change affects
+4. Document commands run, pass/fail, and skips
+5. Do not mark a task done with failing checks introduced by the change
+6. Separate **pre-existing** failures from **introduced** failures
+
+## When working in the product repo
+
+- Discover and run that repo’s real test/lint commands; do not invent them here.
+- Until validated, label commands `PENDIENTE DE VALIDACIÓN`.
+
+## Completion gate
+
+A kit/docs change is “verified” only when:
+
+- Referenced paths resolve
+- No secrets in the diff
+- Scope matches the brief
+- Failed checks (if any) are listed with cause classification

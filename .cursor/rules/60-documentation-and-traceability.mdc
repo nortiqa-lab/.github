@@ -1,0 +1,40 @@
+---
+description: Documentation, handoffs, draft labeling, and decision traceability
+alwaysApply: true
+---
+
+# Documentation and traceability
+
+## Required practices
+
+- Document decisions, risks, and assumptions
+- Update docs affected by the change
+- Convert detected errors into documented improvements
+- Distinguish **facts**, **inferences**, and **recommendations**
+- Include date, draft/DEV state, and verification notes on new DEV docs
+- Leave a reproducible final summary (commands + results)
+
+## Draft labeling
+
+New docs under `docs/dev/` must start with:
+
+```text
+Estado: DEV / Borrador
+
+No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
+y ratificación de Gio para pasar a PROD.
+```
+
+When Notion is unavailable, mark outputs **draft** and use `agents/BOOTSTRAP.md`.
+
+## Continuity
+
+- Substantial sessions leave a handoff via `docs/shared-ai-memory/handoff-template.md`
+- Store as `docs/shared-ai-memory/handoffs/YYYY-MM-DD-<slug>.md`
+- Do not invent a second memory root
+- Draft local ≠ Notion canon
+
+## Changelog for Cursor config work
+
+- Record session-local config changes in `docs/dev/CHANGELOG-DEV.md`
+- Do not claim PROD promotion in changelogs

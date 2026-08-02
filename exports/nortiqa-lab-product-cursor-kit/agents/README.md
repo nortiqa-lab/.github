@@ -34,14 +34,10 @@ Guía: [`LAUNCH.md`](./LAUNCH.md) · Cold start: [`runbooks/cold-start.md`](./ru
 - Despacho: [`DISPATCH.md`](./DISPATCH.md)
 - Roles: [`roles/`](./roles/)
 - Runbooks: [`runbooks/`](./runbooks/)
-<<<<<<< HEAD
-- Canal Telegram (diseño): [`channels/TELEGRAM.md`](./channels/TELEGRAM.md)
-=======
 - Cursor (DEV): [`.cursor/README.md`](../.cursor/README.md) · [`docs/dev/`](../docs/dev/)
 - Visión plataforma (DEV): [`docs/dev/NORTIQA-VANGUARD.md`](../docs/dev/NORTIQA-VANGUARD.md) — NORTIQA Vanguard; no reemplaza este roster
 - Gen5 Mission Control (DEV): [`docs/dev/GEN5-MISSION-CONTROL.md`](../docs/dev/GEN5-MISSION-CONTROL.md) — contrato de misión; no es runtime
 - Gen5 dry-run compiler: [`tools/mission-compiler/README.md`](../tools/mission-compiler/README.md) — `python3 tools/mission-compiler/compile.py --self-test`
->>>>>>> origin/main
 
 ## Hard rules (resumen)
 

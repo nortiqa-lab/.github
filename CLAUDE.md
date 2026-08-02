@@ -9,4 +9,6 @@ This org-profile repo hosts the autonomous agent kit.
 5. Do not mix Nortiqa with Valent / ERP Gio+Edson / Surlancer / clients.
 6. Protected Notion writes require explicit Gio authorization + PAO/OT.
 
-Team kit: `agents/README.md`
+Team kit: `agents/README.md`  
+Cursor rules: `.cursor/rules/` (see `.cursor/README.md`)  
+DEV docs: `docs/dev/` (draft until audited)

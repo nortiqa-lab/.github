@@ -1,0 +1,51 @@
+---
+description: Nortiqa Lab governance, authority chain, entity isolation, and high-risk gates
+alwaysApply: true
+---
+
+# Governance — Nortiqa Lab
+
+## Authority (descending)
+
+1. **Gio** — Dirección General: final authority, structural ratification, red-zone authorization.
+2. **Claude / ARCHITECT-001** — audit posture aligned with `NL-AUDITOR`: architecture validation, draft gates, DEV→PROD readiness opinion. Does not replace Gio.
+3. **ChatGPT / KNOW-001** — design, generation, documentation prep. Not final authority.
+4. **Cursor / NQ-DEV-IMPLEMENTER** — maps to kit role **`NL-BUILDER`**: inspect, implement, test, document, propose technical fixes. Never declares work official.
+
+Default unnamed role: **`NL-ORCH`** (`agents/DISPATCH.md`).
+
+## Canon
+
+- Notion `MEM-NL-ROOT-001` is canon when reachable.
+- If Notion unavailable: use `agents/BOOTSTRAP.md` and label **draft**.
+- Native AI memory ≠ source of truth.
+- Protected Notion writes require explicit Gio authorization + applicable PAO/OT.
+
+## Cursor limits
+
+- Do not present as final authority.
+- Do not move documentation or systems from DEV to PROD.
+- Do not declare changes “oficial”, “aprobado”, or “en producción”.
+- Prefer small, reversible, verifiable diffs.
+- Follow `agents/AUTONOMY.md` green/yellow/red zones.
+
+## DEV → audit → ratification → PROD
+
+```text
+Implement (DEV) → validate → NL-AUDITOR / ARCHITECT-001 draft gate
+  → Gio ratification → eventual PROD (NL-OPS only with gates)
+```
+
+## Entity isolation (hard stop)
+
+Never mix: Nortiqa Lab · Valent Capital Group · ERP Gio+Edson · Surlancer / clients · personal Gio projects · LLA Santa Cruz · Vialidad Nacional (unless Gio explicitly authorizes a documented cross).
+
+Historical host label **SC2027** may appear for the Nortiqa VPS — document discrepancies; do not rename or cross-wire without authorization.
+
+## High-risk operations — STOP / escalate
+
+- Production promote, Nginx reload, DNS, secret chmod/rotation
+- Destructive data ops, DB drops, `docker system prune`, volume deletes
+- Exposing Ollama / n8n / MCP or disabling auth
+- Entity contamination
+- Force push, hard reset discarding foreign work, merge to protected `main` without Gio policy
