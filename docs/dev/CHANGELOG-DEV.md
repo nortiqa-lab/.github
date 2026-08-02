@@ -64,4 +64,4 @@ y ratificación de Gio para pasar a PROD.
 
 ### Session state
 
-- **Blocked** on Gio running `sudo install` of `sc2027-botctl`; then reply `ya está` for healthcheck + real restore point
+- **Ready for review (DEV):** Gio installed wrapper (`root:root` 755, sha256 match); restore point `backups/gen4-closeout-20260802T001611Z`; pilot/oauth active `NRestarts=0`. Residual opcional: restart pilot for latest `intent_router.py`.

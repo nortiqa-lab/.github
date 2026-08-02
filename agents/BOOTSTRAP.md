@@ -34,7 +34,7 @@ Guiding principle:
 
 ## Known open OPS blockers (as of last handoffs)
 
-- **Generación 4 (2026-08-02):** wrapper root pending on VPS — exact command in `docs/dev/GEN4-WRAPPER-ROOT-CLOSEOUT.md` (`sudo install … /usr/local/sbin/sc2027-botctl`). After install: healthcheck host + real restore point; previews stay loopback.
+- **Generación 4 wrapper root (2026-08-02):** installed + restore point verified — see `docs/dev/GEN4-WRAPPER-ROOT-CLOSEOUT.md`. Residual opcional: restart pilot si hace falta reload de `intent_router.py`. Previews siguen en loopback. No mezclar con A14/E6C/portal.
 - Login portal package ready; install needs root/`sc2027`.
 - `/opt/sc2027/.env` permissions hardening needs privileged user.
 - Nginx scanner-path hardening needs privileged write.
