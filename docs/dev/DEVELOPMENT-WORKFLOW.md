@@ -71,6 +71,9 @@ Submit to Claude / ARCHITECT-001 posture (`NL-AUDITOR` gates). Output remains **
 | Cursor / NQ-DEV-IMPLEMENTER | Implement & verify (`NL-BUILDER`) |
 | Copilot / others | Assist within same rules; no second canon |
 
+RACI completo (roles + motores + UI): [`RACI-MODELS-AND-ROLES.md`](./RACI-MODELS-AND-ROLES.md).  
+Todo brief/misión/PR sustancial debe declarar RACI (plantilla en ese doc).
+
 Handoffs: `docs/shared-ai-memory/handoffs/`.
 
 ## Visión de plataforma (DEV)

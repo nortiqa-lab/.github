@@ -19,6 +19,12 @@
 
 -
 
+## RACI
+
+| Actividad | A | R | C | I |
+|-----------|---|---|---|---|
+| | Gio | | | |
+
 ## Work Completed
 
 -

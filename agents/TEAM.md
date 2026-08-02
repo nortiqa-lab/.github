@@ -26,6 +26,8 @@ Cada nodo tiene prompt autocontenido en `prompts/` + ficha en `roles/` + contrat
 | ¿Se puede? / Notion / riesgo | AUDITOR |
 | Cerrar/continuar sesión | MEMORY |
 
+RACI extendido (roles + modelos/motores + browser): [`docs/dev/RACI-MODELS-AND-ROLES.md`](../docs/dev/RACI-MODELS-AND-ROLES.md) (**DEV / Borrador**).
+
 ## Solo-ready checklist (kit)
 
 - [x] `AGENTS.md` en root

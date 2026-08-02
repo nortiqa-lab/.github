@@ -128,6 +128,40 @@ y ratificación de Gio para pasar a PROD.
 - Notion MCP still unauthenticated in agent environment (human action)
 - Product-repo push blocked (403); added `exports/nortiqa-lab-product-cursor-kit/` apply package
 
+## 2026-08-02 — RACI modelos y roles (DEV)
+
+### Added
+
+- `docs/dev/RACI-MODELS-AND-ROLES.md` — RACI de roles `NL-*`, motores (Grok/Claude/Chrome/GPT/Codex/…), workflow DEV→PROD y flujo DNS LLA
+- RACI embebido en DEC/RUNBOOK LLA SC DNS
+- Punteros desde `agents/README.md`, `agents/TEAM.md`, `docs/dev/DEVELOPMENT-WORKFLOW.md`
+
+### Rule recorded (draft)
+
+- Todo brief/misión/PR sustancial declara RACI (un A por fila; zona roja A=Gio)
+
+## 2026-08-02 — DEC-LLA-SC-DNS-001 (Cloudflare Free)
+
+### Added
+
+- `docs/dev/cross-entity/lla-santa-cruz/README.md`
+- `docs/dev/cross-entity/lla-santa-cruz/DEC-LLA-SC-DNS-001-cloudflare.md`
+- `docs/dev/cross-entity/lla-santa-cruz/RUNBOOK-lla-sc-dns-cloudflare.md`
+- Notion draft child under `DOM-LLA-SC-001`: `DEV — DEC-LLA-SC-DNS-001 — Cloudflare Free (borrador)`
+- Pointer DNS en `DOM-LLA-SC-001` (borrador)
+
+### Decision recorded (draft)
+
+- `llasantacruz.com.ar`: NIC (registro) + Cloudflare Free (DNS) + servidor propio + Nginx
+- **No** delegar a Hostinger NS sin hosting/zona hPanel
+- `nortiqalab.com`: Hostinger sin cambios
+
+### Not changed
+
+- NIC Argentina delegation (human-only / red zone)
+- Cloudflare zone creation (human login)
+- Production VPS, Nginx, secrets, `nortiqalab.com` DNS
+
 ## 2026-08-02 — Generación 4 wrapper root closeout (draft continuity)
 
 ### Added
