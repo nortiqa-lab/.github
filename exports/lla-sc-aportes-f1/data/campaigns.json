@@ -1,0 +1,60 @@
+{
+  "suggested_base_cents": [200000, 500000, 1000000],
+  "campaigns": [
+    {
+      "campaign_id": "camp_2026_ago_solidario",
+      "code": "AGO-SOLIDARIO",
+      "title": "Campaña agosto — condición solidaria",
+      "rule_type": "percent_reduction_on_suggested",
+      "params": { "percent": 20 },
+      "window": { "start": "2026-08-01", "end": "2026-08-31" },
+      "priority": 10,
+      "legal_review_status": "approved_for_staging",
+      "disclaimer_key": "aporte_voluntario_sin_contraprestacion"
+    },
+    {
+      "campaign_id": "camp_floor_min",
+      "code": "MIN-1000",
+      "title": "Monto mínimo institucional",
+      "rule_type": "amount_floor",
+      "params": { "floor_cents": 100000 },
+      "window": { "start": "2026-01-01", "end": "2027-12-31" },
+      "priority": 5,
+      "legal_review_status": "approved_for_staging",
+      "disclaimer_key": "aporte_voluntario_sin_contraprestacion"
+    },
+    {
+      "campaign_id": "camp_cap_demo",
+      "code": "CAP-50K",
+      "title": "Tope demo staging",
+      "rule_type": "amount_cap",
+      "params": { "cap_cents": 5000000 },
+      "window": { "start": "2026-01-01", "end": "2027-12-31" },
+      "priority": 5,
+      "legal_review_status": "approved_for_staging",
+      "disclaimer_key": "aporte_voluntario_sin_contraprestacion"
+    },
+    {
+      "campaign_id": "camp_boost_turbio",
+      "code": "DEST-TURBIO",
+      "title": "Destaca sede Río Turbio",
+      "rule_type": "destination_boost",
+      "params": { "destination_id": "territorial:rio-turbio" },
+      "window": { "start": "2026-08-01", "end": "2026-09-30" },
+      "priority": 1,
+      "legal_review_status": "approved_for_staging",
+      "disclaimer_key": "aporte_voluntario_sin_contraprestacion"
+    },
+    {
+      "campaign_id": "camp_pending_legal",
+      "code": "PENDING-LEGAL",
+      "title": "No debe aplicar (legal pending)",
+      "rule_type": "suggested_amount_override",
+      "params": { "suggested_base_cents": [99900] },
+      "window": { "start": "2026-01-01", "end": "2027-12-31" },
+      "priority": 100,
+      "legal_review_status": "pending",
+      "disclaimer_key": "aporte_voluntario_sin_contraprestacion"
+    }
+  ]
+}

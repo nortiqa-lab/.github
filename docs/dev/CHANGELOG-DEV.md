@@ -5,6 +5,29 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — LLA aportes F1 end-to-end (simulación)
+
+### Added
+
+- `exports/lla-sc-aportes-f1/` — mock `/aportar`, CampaignRules, G1 checklist, APPLY
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-lla-aportes-f1-e2e.md`
+- Notion: F1 status bajo ARCH-LLA-SC-PAYMENTS-001
+
+### Changed
+
+- `docs/dev/lla-sc/ARCH-LLA-SC-PAYMENTS-001.md` — F1 marcado HECHO
+- `exports/README.md` — registra paquete LLA F1
+
+### Verified
+
+- `campaign_rules.py --self-test` 8/8
+- `check_package.py` OK
+- Browser QA simulación sin cobros
+
+### Not changed
+
+- Cobros reales / MP keys / DNS LLA prod / `payments_enabled`
+
 ## 2026-08-02 — Ratificación Gio + Factory T-005 + ARCH pagos LLA SC
 
 ### Ratificación operativa (Gio)

@@ -281,11 +281,19 @@ Nortiqa agentes: **solo DEV docs/código en repos autorizados**; sin acceso a le
 | Fase | Entregable | Cobros |
 |------|------------|--------|
 | F0 | Este ARCH + gates G1–G8 checklist | No |
-| F1 | UI mock + CampaignRules en memoria/JSON | Simulado |
+| F1 | UI mock + CampaignRules — **HECHO** en `exports/lla-sc-aportes-f1/` (2026-08-02) | Simulado |
 | F2 | API + DB staging + MP sandbox | Plata de prueba |
 | F3 | Conciliación + comprobantes + export tesorería | Sandbox |
 | F4 | Dictámenes cerrados + go-live limitado | Sí, post G8 |
 | F5 | Recurrente + campañas periódicas prod | Sí |
+
+### Estado F1 (2026-08-02)
+
+- Paquete: `exports/lla-sc-aportes-f1/`
+- `payments_enabled=false` enforced
+- Motor: `tools/campaign_rules.py` (+ espejo JS)
+- G1 checklist: `exports/lla-sc-aportes-f1/G1-CHECKLIST.md`
+- Próximo: cerrar G1 con asesores; F2 solo después
 
 ---
 

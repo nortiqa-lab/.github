@@ -1,0 +1,16 @@
+{
+  "entity": "lla-santa-cruz",
+  "app_id": "lla-sc-aportes-f1",
+  "version": "0.1.0",
+  "payments_enabled": false,
+  "currency": "ARS",
+  "locale": "es-AR",
+  "domain_canonical": "llasantacruz.com.ar",
+  "portal_suggested": "portal.llasantacruz.com.ar",
+  "disclaimer": "Aporte voluntario. No implica membresía, cargo ni beneficio político. Modo simulación: no se realizan cobros reales.",
+  "psp": {
+    "primary": "mercadopago",
+    "mode": "disabled_until_gates",
+    "note": "Activar solo tras G1–G8 y payments_enabled=true"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "destinations": [
+    {
+      "id": "general",
+      "label": "Sostén institucional provincial",
+      "kind": "general",
+      "electoral_circuit": false
+    },
+    {
+      "id": "territorial:rio-turbio",
+      "label": "Sede / coordinación Río Turbio",
+      "kind": "territorial",
+      "electoral_circuit": false
+    },
+    {
+      "id": "territorial:rio-gallegos",
+      "label": "Sede / coordinación Río Gallegos",
+      "kind": "territorial",
+      "electoral_circuit": false
+    },
+    {
+      "id": "project:formacion-fiscales",
+      "label": "Proyecto: formación de fiscales",
+      "kind": "project",
+      "electoral_circuit": false
+    },
+    {
+      "id": "electoral:reserva",
+      "label": "Fondo electoral (circuito separado — oculto en MVP UI)",
+      "kind": "electoral",
+      "electoral_circuit": true,
+      "ui_visible": false
+    }
+  ]
+}

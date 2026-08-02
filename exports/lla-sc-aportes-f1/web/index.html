@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aportes — LLA Santa Cruz (simulación F1)</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">LLA Santa Cruz</div>
+      <div class="badge" id="simBadge">Simulación · sin cobros</div>
+    </header>
+
+    <section class="hero">
+      <h1>Aporte solidario</h1>
+      <p>Sostén voluntario de la organización territorial. El aporte no otorga cargos ni influencia política.</p>
+    </section>
+
+    <div class="grid">
+      <section class="panel" aria-labelledby="formTitle">
+        <h2 id="formTitle">Realizar un aporte</h2>
+        <div class="campaign-banner" id="campaignBanner" hidden></div>
+
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab is-active" data-mode="one_time" id="tabOnce">Único</button>
+          <button type="button" class="tab" data-mode="recurring" id="tabMonth">Mensual</button>
+        </div>
+
+        <div class="amounts" id="amountButtons" aria-label="Montos sugeridos"></div>
+
+        <label for="amountInput">Monto (ARS)</label>
+        <input id="amountInput" type="number" min="0" step="100" inputmode="numeric" />
+
+        <label for="destination">Destino</label>
+        <select id="destination"></select>
+
+        <div class="row-2">
+          <div>
+            <label for="name">Nombre y apellido</label>
+            <input id="name" type="text" autocomplete="name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="email" />
+          </div>
+        </div>
+
+        <label>
+          <input id="consent" type="checkbox" />
+          Acepto que mis datos se usen solo para gestionar este aporte voluntario (dato sensible / opinión política).
+        </label>
+
+        <button class="cta" id="submitBtn" type="button">Confirmar en simulación</button>
+        <p class="note" id="statusNote"></p>
+        <p class="error" id="errorBox" hidden></p>
+        <div class="receipt" id="receiptBox" hidden></div>
+      </section>
+
+      <aside class="panel">
+        <h2>Estado del sistema</h2>
+        <ul class="side-list">
+          <li><strong>payments_enabled:</strong> <span id="payFlag">false</span></li>
+          <li><strong>PSP:</strong> Mercado Pago (deshabilitado hasta gates)</li>
+          <li><strong>Campañas activas:</strong> <span id="activeCamps">—</span></li>
+          <li><strong>Floor / Cap:</strong> <span id="floorCap">—</span></li>
+        </ul>
+        <p class="muted" id="disclaimerText"></p>
+        <h2 style="margin-top:1.2rem">Últimos simulados</h2>
+        <ul class="side-list" id="historyList"></ul>
+      </aside>
+    </div>
+
+    <footer>
+      Entidad: LLA Santa Cruz · Paquete F1 DEV · No es cobro real ·
+      Domino canónico: llasantacruz.com.ar
+    </footer>
+  </div>
+
+  <script src="./campaign-engine.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
