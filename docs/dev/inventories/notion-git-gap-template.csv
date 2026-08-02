@@ -1,0 +1,18 @@
+notion_id,title,url,type,entity,status_notion,in_git,git_path,priority,action,blocker,notes
+382e4fe3bfea818aacfad4f9793a697f,MEM-NL-ROOT-001,https://app.notion.com/p/382e4fe3bfea818aacfad4f9793a697f,page,NL,canon,no,,P0,mirror,,entry point IAs
+34ae4fe3bfea816c8895f3c4d5a32e03,Manifiesto de Nortiqa Lab,https://app.notion.com/p/34ae4fe3bfea816c8895f3c4d5a32e03,page,NL,canon,no,,P0,mirror+dedupe,duplicate_page,also see 34ae4fe3bfea81cca2f8cd2f766766ae
+34ae4fe3bfea81cca2f8cd2f766766ae,Manifiesto de Nortiqa Lab (dup),https://app.notion.com/p/34ae4fe3bfea81cca2f8cd2f766766ae,page,NL,ambiguous,no,,P0,archive_or_merge,duplicate_of_canonical,
+350e4fe3bfea815eaaaafc8ad3657ce2,Índice Maestro de Reglas Operativas,https://app.notion.com/p/350e4fe3bfea815eaaaafc8ad3657ce2,page,NL,canon,no,,P0,mirror,,
+34ae4fe3bfea8128a102fd32bc8920aa,Prompt Maestro — Nortiqa Lab,https://app.notion.com/p/34ae4fe3bfea8128a102fd32bc8920aa,page,NL,canon,no,,P0,mirror+dedupe,duplicate_page,also see 34ae4fe3bfea8145a1f5c3f2116c482b
+380e4fe3bfea81a7b086f3071d2f5e2b,PLAN-NL-GITHUB-001,https://app.notion.com/p/380e4fe3bfea81a7b086f3071d2f5e2b,page,NL,canon,no,,P1,mirror,,rector Git
+395e4fe3bfea8149a652dca28f38d73f,DICT-NL-GITHUB-REPOS-001,https://app.notion.com/p/395e4fe3bfea8149a652dca28f38d73f,page,NL,ratified,no,,P1,mirror,repos_missing,infra n8n-workflows queryos not created
+382e4fe3bfea81fcb197c01a6c51fd9a,DICT-NL-MEM-001-CLAUDE,https://app.notion.com/p/382e4fe3bfea81fcb197c01a6c51fd9a,page,NL,canon,no,,P1,mirror,,
+382e4fe3bfea81409970c05af02cfeab,DICT-NL-SERVIDOROPS-001,https://app.notion.com/p/382e4fe3bfea81409970c05af02cfeab,page,NL,canon,no,,P1,mirror,,
+3afe4fe3bfea816180b4e2a2a8f97fdc,GOV-NL-DOCUMENTACION-CANONICA-001,https://app.notion.com/p/3afe4fe3bfea816180b4e2a2a8f97fdc,page,NL,DEV,no,,P1,mirror_dev,,
+39fe4fe3bfea81718305f6fc12501256,PLAN-NL-AF-MIG-001,https://app.notion.com/p/39fe4fe3bfea81718305f6fc12501256,page,NL,DEV,no,,P1,mirror_dev,awaiting_DICT-NL-AF-MIG-001,
+39fe4fe3bfea8192a778c80e5bd33358,TAREA-NL-ORDEN-APPFLOWY-001,https://app.notion.com/p/39fe4fe3bfea8192a778c80e5bd33358,page,NL,DEV,no,,P1,mirror_dev,structure_SOP_missing,
+398e4fe3bfea813b84bffe9558b95dc1,INT-N8N-APPFLOWY-BRIDGE-001,https://app.notion.com/p/398e4fe3bfea813b84bffe9558b95dc1,page,NL,ratified,no,,P1,mirror+openapi_from_vps,no_secrets,
+359e4fe3bfea81c8a790c5a70e23e3ce,LOG-NL-VALENT-EVO-001,https://app.notion.com/p/359e4fe3bfea81c8a790c5a70e23e3ce,page,VALENT,historical,no,,EXCLUDE,exclude_entity,entity_isolation,
+391e4fe3bfea81d9bbdee17ee6be8b28,DICT-NL-ERP-ODOO-001,https://app.notion.com/p/391e4fe3bfea81d9bbdee17ee6be8b28,page,AMBIGUOUS,canon?,no,,EXCLUDE,gate_gio,mentions_LLA,
+,,,,,NL,,partial,agents/ SHARED_RULES AUTONOMY,P0,keep,,already in nortiqa-lab/.github
+,,,,,NL,,partial,docs/dev/GEN4-WRAPPER-ROOT-CLOSEOUT.md,P1,pull_from_vps,ADR-040_L3_botctl_not_in_git,Gen4 closeout only
