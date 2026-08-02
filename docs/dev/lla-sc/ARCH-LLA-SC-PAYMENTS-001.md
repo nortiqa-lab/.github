@@ -294,8 +294,8 @@ Nortiqa agentes: **solo DEV docs/código en repos autorizados**; sin acceso a le
 - Motor: `tools/campaign_rules.py` (+ espejo JS)
 - API: `api/server.py` — intents/mandates/receipts/checkout/webhook
 - MP adapter: stub bloqueante hasta gates
-- G1: checklist + `legal/DRAFT-*.md`
-- Pendiente humano: dictamen G1; luego G7 sandbox MP real (credenciales fuera de git)
+- G1: dossier `exports/lla-sc-aportes-f1/g1/` + checklist + `legal/DRAFT-*.md` (asesores pendientes)
+- Pendiente humano: dictamen G1 escrito; luego G7 sandbox MP real (credenciales fuera de git)
 
 ---
 
@@ -335,4 +335,4 @@ Este ARCH es el **submódulo financiero de aportes** para la web LLA SC:
 
 ## 14. Próximo paso (uno)
 
-Cerrar **G1** (dictamen legal-contable-fiscal-datos) mientras tech arma F1 mock UI + motor `CampaignRule` en staging sin PSP real.
+Gio entrega el dossier `exports/lla-sc-aportes-f1/g1/` a asesores legales/fiscales/tesorería y obtiene dictamen escrito (cierra G1). Tech no avanza a sandbox MP real hasta entonces.

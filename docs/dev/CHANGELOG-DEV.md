@@ -5,6 +5,29 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — G1 dossier aportes LLA SC (para asesores)
+
+### Added
+
+- `exports/lla-sc-aportes-f1/g1/` — DOSSIER, solicitud, preguntas, hallazgos, tracker G1–G8
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-lla-aportes-g1-dossier.md`
+- Notion hija G1 bajo ARCH-LLA-SC-PAYMENTS-001 (si publicada en sesión)
+
+### Changed
+
+- `G1-CHECKLIST.md` / `README.md` — apuntan al dossier
+- `check_package.py` — exige piezas `g1/`
+- ARCH §14 — próximo paso = entrega humana del dossier
+
+### Verified
+
+- `check_package.py` OK (incluye `g1/`)
+- Hallazgos alineados a investigación Notion 2026-07-30 (hechos; no dictamen)
+
+### Not changed
+
+- Cobros reales / MP sandbox / DNS / `payments_enabled=true` / textos legales aprobados
+
 ## 2026-08-02 — LLA aportes F2 DEV API (simulación)
 
 ### Added

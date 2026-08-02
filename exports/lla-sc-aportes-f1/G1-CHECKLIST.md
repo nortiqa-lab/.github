@@ -8,6 +8,18 @@ Uso: completar con asesores; **no** es dictamen.
 
 ¿Puede LLA Santa Cruz operar una web de aportes voluntarios (únicos y mensuales) con condiciones temporales de monto, desde `llasantacruz.com.ar` / `portal.llasantacruz.com.ar`, cumpliendo Ley 26.215 / 27.504, régimen fiscal aplicable y Ley 25.326?
 
+## Dossier G1 (entregable)
+
+Carpeta `g1/` — armar y entregar a asesores:
+
+| Pieza | Dónde |
+|-------|--------|
+| Índice del expediente | `g1/G1-DOSSIER.md` |
+| Carta de solicitud | `g1/G1-SOLICITUD-DICTAMEN.md` |
+| Matriz de preguntas | `g1/G1-PREGUNTAS.md` |
+| Hallazgos preliminares | `g1/G1-HALLAZGOS-PRELIMINARES.md` (**no dictamen**) |
+| Tracker G1–G8 | `g1/GATES-TRACKER.md` |
+
 ## Material adjunto para asesores
 
 | Pieza | Dónde |

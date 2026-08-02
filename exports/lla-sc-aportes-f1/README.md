@@ -38,9 +38,11 @@ python3 tools/test_api_f2.py
 | `tools/campaign_rules.py` | Motor + self-test |
 | `data/campaigns.json` | Reglas de campaña |
 | `legal/` | Borradores G1 (no aprobados) |
-| `G1-CHECKLIST.md` | Paquete para dictamen legal |
+| `g1/` | Dossier para asesores (solicitud, preguntas, hallazgos, tracker) |
+| `G1-CHECKLIST.md` | Checklist operativo del dictamen |
 | `APPLY.md` | Staging LLA sin cobros |
 
 ## Gates
 
-Ver `docs/dev/lla-sc/ARCH-LLA-SC-PAYMENTS-001.md`. No activar PSP hasta G1–G8.
+Ver `g1/GATES-TRACKER.md` y `docs/dev/lla-sc/ARCH-LLA-SC-PAYMENTS-001.md`.  
+No activar PSP hasta G1–G8.
