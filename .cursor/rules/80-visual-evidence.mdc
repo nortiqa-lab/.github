@@ -1,0 +1,59 @@
+---
+description: Require screenshots/video evidence for visualizable Cursor work
+alwaysApply: true
+---
+
+# Visual evidence (Cursor only)
+
+This rule applies to **Cursor agents** in this repository. It does not redefine `agents/` kit roles or Notion canon.
+
+## Intent
+
+When the work produces something a human can *see* (UI, mock, portal, page, dashboard, local demo), leave **photos and/or short videos** so Gio and the next agent can verify without re-running the session.
+
+Prefer evidence over long prose about how it looked.
+
+## When evidence is required
+
+Capture at least one screenshot (prefer 2+) when any of these apply:
+
+1. UI / web / mock / portal change or new screen
+2. Browser or desktop QA of a flow you claim works
+3. Before/after of a visible design or layout change
+4. Demo of a local server, staging preview, or interactive tool you started
+5. Gio (or the brief) asks to “show”, “demo”, or “advance” visual work
+
+Also capture a **short screen recording** when the value is in motion or multi-step interaction (navigation, form submit, reconcile click, state change). Aim for ~15–90s, not a full session dump.
+
+## When evidence is optional / skip
+
+Skip captures for pure docs/governance edits with no runnable UI (Markdown-only kit changes, rule text, handoffs), unless Gio asks for a walkthrough.
+
+Do **not** invent a GUI just to photograph it.
+
+## How to capture (Cursor Cloud / computer-use)
+
+1. Prefer the environment’s screenshot and `RecordScreen` / computer-use tools when available.
+2. Save durable copies under `/opt/cursor/artifacts/screenshots/` (images) and `/opt/cursor/artifacts/` (videos) with clear names: `lla-f3-tesoreria-reconciled.webp`, `home-hero-after.mp4`.
+3. Show key frames in the final reply with Markdown images / video tags using those absolute artifact paths.
+4. Embed the same artifacts in the **draft PR** body when the change ships via PR.
+5. Mention paths in the session handoff under Verification.
+
+## Quality bar
+
+- Frame must show the **result** (loaded UI, success state, error state you fixed) — not only a terminal `curl`.
+- Include enough chrome to prove context (URL/title/badge such as “simulación”, env label) when relevant.
+- Prefer before → after for design changes.
+- Strip or avoid secrets, tokens, `.env`, personal data, and real payment credentials in frame.
+- Label simulation / DEV clearly when the UI is not production.
+
+## Relation to testing
+
+Visual evidence **complements** `40-testing-and-validation.mdc`; it does not replace command checks, path integrity, or hard stops (no prod promote, no secrets, no unauthorized cobros).
+
+## Anti-patterns
+
+- Claiming a UI “works” with zero screenshot when a browser demo was feasible
+- Recording idle desktops or unrelated apps
+- Committing large binary media into git by default — use artifacts + PR embedding unless Gio asks to version specific assets
+- Using captures to imply PROD readiness or official approval

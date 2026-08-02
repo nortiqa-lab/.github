@@ -21,7 +21,8 @@ This repository is the **GitHub org profile** plus the **autonomous agent team k
     ├── 40-testing-and-validation.mdc
     ├── 50-git-and-version-control.mdc
     ├── 60-documentation-and-traceability.mdc
-    └── 70-infrastructure-safety.mdc
+    ├── 70-infrastructure-safety.mdc
+    └── 80-visual-evidence.mdc   # fotos/videos de trabajo visualizable
 ```
 
 ## Precedence (do not invent a second canon)
@@ -44,6 +45,10 @@ Native model memory is never source of truth.
 | Default when role unnamed | `NL-ORCH` via `agents/DISPATCH.md` |
 
 Authority final: **Gio**. Cursor does not declare changes official or promote DEV → PROD.
+
+## Visual evidence
+
+Cursor-only rule `80-visual-evidence.mdc`: when work is visible (UI/mock/demo), leave screenshots and short recordings under `/opt/cursor/artifacts/`, surface them in the reply and draft PR. Not a kit-wide `agents/` policy.
 
 ## Related docs
 

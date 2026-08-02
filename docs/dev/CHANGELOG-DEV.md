@@ -5,6 +5,23 @@ Estado: DEV / Borrador
 No es documentación oficial. Requiere auditoría de Claude / ARCHITECT-001
 y ratificación de Gio para pasar a PROD.
 
+## 2026-08-02 — Cursor rule: evidencia visual (fotos/video)
+
+### Added
+
+- `.cursor/rules/80-visual-evidence.mdc` — regla Cursor-only: capturar screenshots/video en trabajo visualizable
+- Handoff `docs/shared-ai-memory/handoffs/2026-08-02-cursor-visual-evidence-rule.md`
+
+### Changed
+
+- `.cursor/README.md` — lista la regla 80
+- `docs/dev/CURSOR-OPERATING-GUIDE.md` — sección Visual evidence
+
+### Scope note
+
+- Solo persistencia Cursor (`.cursor/`). No se alteró `agents/` autonomy ni canon Notion.
+- Estado: DEV / Borrador (sin promoción PROD)
+
 ## 2026-08-02 — Telegram NL bridge staging kit
 
 ### Added
